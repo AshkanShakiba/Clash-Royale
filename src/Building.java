@@ -1,4 +1,4 @@
-public class Building extends Card {
+public abstract class Building extends Card {
     protected int hp;
     protected int damage;
     protected double hitSpeed;
