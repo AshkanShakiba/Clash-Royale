@@ -1,4 +1,4 @@
-public class Archer extends Warrior{
+public class Archer extends Troop {
     public Archer(User user){
         switch (user.getLevel()){
             case 1:

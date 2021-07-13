@@ -1,4 +1,4 @@
-public class Rage extends Charm{
+public class Rage extends Spell {
     public Rage(User user){
         switch (user.getLevel()){
             case 1:

@@ -1,4 +1,4 @@
-public class BabyDragon extends Warrior{
+public class BabyDragon extends Troop {
     public BabyDragon(User user){
         switch (user.getLevel()){
             case 1:

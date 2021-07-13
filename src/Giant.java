@@ -1,4 +1,4 @@
-public class Giant extends Warrior{
+public class Giant extends Troop {
     public Giant(User user){
         switch (user.getLevel()){
             case 1:

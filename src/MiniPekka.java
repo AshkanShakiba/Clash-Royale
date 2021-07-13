@@ -1,4 +1,4 @@
-public class MiniPekka extends Warrior{
+public class MiniPekka extends Troop {
     public MiniPekka(User user){
         switch (user.getLevel()){
             case 1:

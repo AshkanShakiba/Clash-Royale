@@ -1,4 +1,4 @@
-public class Barbarians extends Warrior {
+public class Barbarians extends Troop {
     public Barbarians(User user){
         switch (user.getLevel()){
             case 1:

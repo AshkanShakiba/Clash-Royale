@@ -1,4 +1,4 @@
-public class Arrows extends Charm{
+public class Arrows extends Spell {
     public Arrows(User user){
         switch (user.getLevel()){
             case 1:

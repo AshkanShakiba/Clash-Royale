@@ -1,4 +1,4 @@
-public class Fireball extends Charm{
+public class Fireball extends Spell {
     public Fireball(User user){
         switch (user.getLevel()){
             case 1:
