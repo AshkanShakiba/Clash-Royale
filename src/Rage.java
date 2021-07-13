@@ -1,6 +1,6 @@
-public class Rage extends Charm{
-    public Rage(User user) {
-        switch (user.getLevel()) {
+public class Rage extends Spell {
+    public Rage(User user){
+        switch (user.getLevel()){
             case 1:
                 duration = 6;
                 break;

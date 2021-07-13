@@ -1,6 +1,6 @@
-public class Giant extends Warrior {
-    public Giant(User user) {
-        switch (user.getLevel()) {
+public class Giant extends Troop {
+    public Giant(User user){
+        switch (user.getLevel()){
             case 1:
                 hp = 2000;
                 damage = 126;

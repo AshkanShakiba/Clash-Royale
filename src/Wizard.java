@@ -1,6 +1,6 @@
-public class Wizard extends Warrior {
-    public Wizard(User user) {
-        switch (user.getLevel()) {
+public class Wizard extends Troop {
+    public Wizard(User user){
+        switch (user.getLevel()){
             case 1:
                 hp = 340;
                 damage = 130;

@@ -1,6 +1,6 @@
-public class Valkyrie extends Warrior {
-    public Valkyrie(User user) {
-        switch (user.getLevel()) {
+public class Valkyrie extends Troop {
+    public Valkyrie(User user){
+        switch (user.getLevel()){
             case 1:
                 hp = 880;
                 damage = 120;

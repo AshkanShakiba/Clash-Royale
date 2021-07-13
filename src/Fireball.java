@@ -1,6 +1,6 @@
-public class Fireball extends Charm {
-    public Fireball(User user) {
-        switch (user.getLevel()) {
+public class Fireball extends Spell {
+    public Fireball(User user){
+        switch (user.getLevel()){
             case 1:
                 areaDamage = 325;
                 break;

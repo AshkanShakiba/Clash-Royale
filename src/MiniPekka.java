@@ -1,6 +1,6 @@
-public class MiniPekka extends Warrior {
-    public MiniPekka(User user) {
-        switch (user.getLevel()) {
+public class MiniPekka extends Troop {
+    public MiniPekka(User user){
+        switch (user.getLevel()){
             case 1:
                 hp = 600;
                 damage = 325;

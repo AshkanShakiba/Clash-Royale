@@ -1,6 +1,6 @@
-public class Arrows extends Charm {
-    public Arrows(User user) {
-        switch (user.getLevel()) {
+public class Arrows extends Spell {
+    public Arrows(User user){
+        switch (user.getLevel()){
             case 1:
                 areaDamage = 144;
                 break;

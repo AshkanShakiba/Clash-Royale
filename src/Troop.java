@@ -1,4 +1,4 @@
-public class Warrior extends Card {
+public class Troop extends Card {
     protected int hp;
     protected int damage;
     protected double hitSpeed;
