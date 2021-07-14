@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class InfernoTower extends Building {
     public InfernoTower(User user) {
         switch (user.getLevel()) {
@@ -26,5 +28,6 @@ public class InfernoTower extends Building {
         range = 6;
         lifetime = 40;
         cost = 5;
+        image = new Image("assets/inferno-tower.png");
     }
 }

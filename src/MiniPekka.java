@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class MiniPekka extends Troop {
     public MiniPekka(User user){
         switch (user.getLevel()){
@@ -28,5 +30,6 @@ public class MiniPekka extends Troop {
         areaSplash = false;
         count = 1;
         cost = 4;
+        image = new Image("assets/mini-pekka.png");
     }
 }

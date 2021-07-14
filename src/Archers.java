@@ -1,6 +1,8 @@
-public class Archer extends Troop {
-    public Archer(User user){
-        switch (user.getLevel()){
+import javafx.scene.image.Image;
+
+public class Archers extends Troop {
+    public Archers(User user) {
+        switch (user.getLevel()) {
             case 1:
                 hp = 125;
                 damage = 33;
@@ -28,5 +30,6 @@ public class Archer extends Troop {
         areaSplash = false;
         count = 2;
         cost = 3;
+        image = new Image("assets/archers.png");
     }
 }

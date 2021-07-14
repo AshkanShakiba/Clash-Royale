@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class Fireball extends Spell {
     public Fireball(User user){
         switch (user.getLevel()){
@@ -18,5 +20,6 @@ public class Fireball extends Spell {
         }
         radius = 2.5;
         cost = 4;
+        image = new Image("assets/fireball.png");
     }
 }

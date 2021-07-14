@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class Arrows extends Spell {
     public Arrows(User user){
         switch (user.getLevel()){
@@ -18,5 +20,6 @@ public class Arrows extends Spell {
         }
         radius = 4;
         cost = 3;
+        image = new Image("assets/arrows.png");
     }
 }

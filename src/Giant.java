@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class Giant extends Troop {
     public Giant(User user){
         switch (user.getLevel()){
@@ -28,5 +30,6 @@ public class Giant extends Troop {
         areaSplash = false;
         count = 1;
         cost = 5;
+        image = new Image("assets/giant.png");
     }
 }
