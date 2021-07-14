@@ -3,7 +3,7 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class TroopView extends Group {
+public class GameView extends Group {
     public final static double CELL_WIDTH = 20.0;
 
     private final int rowCount = 38;
@@ -23,7 +23,7 @@ public class TroopView extends Group {
     private Image valkyrieImage;
     private Image wizardImage;
 
-    public TroopView() {
+    public GameView() {
         this.archerImage = new Image(getClass().getResourceAsStream("/assets/archer.png"));
         this.arrowsImage = new Image(getClass().getResourceAsStream("/assets/arrows.png"));
         this.babyDragonImage = new Image(getClass().getResourceAsStream("/assets/babyDragon.png"));
