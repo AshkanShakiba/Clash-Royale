@@ -30,6 +30,6 @@ public class MiniPekka extends Troop {
         areaSplash = false;
         count = 1;
         cost = 4;
-        image = new Image("assets/mini-pekka.png");
+        image = new Image("assets/miniPekka.png");
     }
 }
