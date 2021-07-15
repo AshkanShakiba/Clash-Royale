@@ -32,16 +32,16 @@ public class Game {
 
     private User user;
     private double x, y;
-    private char[][] map;
+    private Warrior[][] map;
     private Card nextCard;
     private int selectedCardIndex;
     private ArrayList<Card> availableCards;
 
     public void construct(User user) {
-        map = new char[19][33];
+        map = new Warrior[19][33];
         for (int i = 0; i < 19; i++) {
             for (int j = 0; j < 19; j++) {
-                map[i][j] = ' ';
+                map[i][j] = null;
             }
         }
         this.user = user;
@@ -74,7 +74,8 @@ public class Game {
     public void click(double x, double y) {
         if (selectedCardIndex != -1 && 200 <= x && x <= 600 && y <= 475) {
             Card card = availableCards.get(selectedCardIndex);
-
+            map[0][0]=card.getWarrior(user); // 0,0 -> X,Y
+            setNextCard(selectedCardIndex);
         }
         update();
     }

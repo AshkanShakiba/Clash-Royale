@@ -12,14 +12,18 @@ public class User {
         level = 1;
         cards = new ArrayList<>();
         random = new SecureRandom();
-        cards.add(new Archers(this));
-        cards.add(new BabyDragon(this));
-        cards.add(new Wizard(this));
-        cards.add(new MiniPekka(this));
-        cards.add(new Barbarians(this));
-        cards.add(new InfernoTower(this));
-        cards.add(new Arrows(this));
-        cards.add(new Fireball(this));
+        cards.add(Card.BARBARIANS);
+        cards.add(Card.ARCHERS);
+        cards.add(Card.BABYDRAGON);
+        cards.add(Card.WIZARD);
+        cards.add(Card.MINIPEKKA);
+        cards.add(Card.GIANT);
+        cards.add(Card.VALKYRIE);
+        cards.add(Card.RAGE);
+        cards.add(Card.FIREBALL);
+        cards.add(Card.ARROWS);
+        cards.add(Card.CANNON);
+        cards.add(Card.INFERNOTOWER);
     }
 
     public int getLevel() {

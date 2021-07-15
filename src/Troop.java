@@ -1,4 +1,4 @@
-public abstract class Troop extends Card {
+public abstract class Troop extends Warrior {
     protected int hp;
     protected int damage;
     protected double hitSpeed;

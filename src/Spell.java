@@ -1,4 +1,4 @@
-public abstract class Spell extends Card {
+public abstract class Spell extends Warrior {
     protected double radius;
     protected double duration;
     protected int areaDamage;
