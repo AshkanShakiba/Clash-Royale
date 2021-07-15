@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +24,11 @@ public class Game {
 
     private double x, y;
     private Card selected;
+
+    public void select(ActionEvent event) {
+        Button selected=(Button) event.getSource();
+        selected.setStyle(selected.getStyle()+"-fx-background-image: url('assets/giant.png');");
+    }
 
     public void click(double x, double y) {
         this.x = x;
