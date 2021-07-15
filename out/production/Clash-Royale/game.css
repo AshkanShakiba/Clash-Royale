@@ -1,3 +1,23 @@
-#leftPane, #rightPane{
+#leftPane, #rightPane {
     -fx-background-color: lime;
+}
+
+#middlePane {
+    -fx-background-color: bisque;
+}
+
+#card1, #card2, #card3, #card4 {
+    -fx-background-size: 100% 100%;
+}
+#card1{
+    -fx-background-image: url("assets/archers.png");
+}
+#card2{
+    -fx-background-image: url("assets/babyDragon.png");
+}
+#card3{
+    -fx-background-image: url("assets/wizard.png");
+}
+#card4{
+    -fx-background-image: url("assets/fireball.png");
 }
