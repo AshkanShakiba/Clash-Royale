@@ -1,16 +1,8 @@
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.layout.GridPane;
-
 public class Game {
-    @FXML
-    GridPane gridPane;
+    private double x, y;
 
-    public void select(ActionEvent event) {
-        Node clickedNode = (Node) event.getSource();
-        Integer colIndex = GridPane.getColumnIndex(clickedNode);
-        Integer rowIndex = GridPane.getRowIndex(clickedNode);
-        System.out.println("Mouse clicked cell: " + colIndex + " And: " + rowIndex);
+    public void click(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 }
