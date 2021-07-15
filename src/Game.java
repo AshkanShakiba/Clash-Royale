@@ -32,11 +32,18 @@ public class Game {
 
     private User user;
     private double x, y;
+    private char[][] map;
     private Card nextCard;
-    private Card selectedCard;
+    private int selectedCardIndex;
     private ArrayList<Card> availableCards;
 
     public void construct(User user) {
+        map = new char[19][33];
+        for (int i = 0; i < 19; i++) {
+            for (int j = 0; j < 19; j++) {
+                map[i][j] = ' ';
+            }
+        }
         this.user = user;
         availableCards = new ArrayList<>();
         availableCards.add(getNextCard());
@@ -44,6 +51,7 @@ public class Game {
         availableCards.add(getNextCard());
         availableCards.add(getNextCard());
         nextCard = getNextCard();
+        selectedCardIndex = -1;
         update();
     }
 
@@ -57,21 +65,22 @@ public class Game {
 
     public void select(ActionEvent event) {
         Button selected = (Button) event.getSource();
-        if(selected==card0) putCard(0);
-        if(selected==card1) putCard(1);
-        if(selected==card2) putCard(2);
-        if(selected==card3) putCard(3);
+        if (selected == card0) selectedCardIndex = 0;
+        if (selected == card1) selectedCardIndex = 1;
+        if (selected == card2) selectedCardIndex = 2;
+        if (selected == card3) selectedCardIndex = 3;
     }
 
     public void click(double x, double y) {
-        this.x = x;
-        this.y = y;
-        System.out.println("(" + x + "," + y + ")");
+        if (selectedCardIndex != -1 && 200 <= x && x <= 600 && y <= 475) {
+            Card card = availableCards.get(selectedCardIndex);
+
+        }
         update();
     }
 
-    private void putCard(int index) {
-        availableCards.set(index,nextCard);
+    private void setNextCard(int index) {
+        availableCards.set(index, nextCard);
         nextCard = getNextCard();
     }
 
