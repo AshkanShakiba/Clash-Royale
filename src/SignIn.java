@@ -22,7 +22,6 @@ public class SignIn {
             root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println("(" + event.getSceneX() + "," + event.getSceneY() + ")");
                     game.click(event.getSceneX(), event.getSceneY());
                 }
             });

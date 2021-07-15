@@ -38,36 +38,40 @@ public class Game {
 
     public void construct(User user) {
         this.user = user;
-        availableCards=new ArrayList<>();
+        availableCards = new ArrayList<>();
         availableCards.add(getNextCard());
         availableCards.add(getNextCard());
         availableCards.add(getNextCard());
         availableCards.add(getNextCard());
-        nextCard=getNextCard();
+        nextCard = getNextCard();
         update();
     }
 
-    public void update(){
-        card0.setStyle("-fx-background-image: url('"+availableCards.get(0).getImage()+"');");
-        card1.setStyle("-fx-background-image: url('"+availableCards.get(1).getImage()+"');");
-        card2.setStyle("-fx-background-image: url('"+availableCards.get(2).getImage()+"');");
-        card3.setStyle("-fx-background-image: url('"+availableCards.get(3).getImage()+"');");
-        next.setStyle("-fx-background-image: url('"+nextCard.getImage()+"');");
+    public void update() {
+        card0.setStyle("-fx-background-image: url('" + availableCards.get(0).getImage() + "');");
+        card1.setStyle("-fx-background-image: url('" + availableCards.get(1).getImage() + "');");
+        card2.setStyle("-fx-background-image: url('" + availableCards.get(2).getImage() + "');");
+        card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
+        next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
     }
 
     public void select(ActionEvent event) {
         Button selected = (Button) event.getSource();
-        selected.setStyle(selected.getStyle() + "-fx-background-image: url('assets/giant.png');");
+        if(selected==card0) putCard(0);
+        if(selected==card1) putCard(1);
+        if(selected==card2) putCard(2);
+        if(selected==card3) putCard(3);
     }
 
     public void click(double x, double y) {
         this.x = x;
         this.y = y;
+        System.out.println("(" + x + "," + y + ")");
+        update();
     }
 
-    private void putCard(Card card) {
-        availableCards.remove(card);
-        availableCards.add(nextCard);
+    private void putCard(int index) {
+        availableCards.set(index,nextCard);
         nextCard = getNextCard();
     }
 
