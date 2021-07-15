@@ -9,3 +9,7 @@
 #card0, #card1, #card2, #card3, #next {
     -fx-background-size: 100% 100%;
 }
+
+#middle {
+    -fx-background-color: dodgerblue;
+}

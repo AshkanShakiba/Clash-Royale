@@ -75,6 +75,7 @@ public class Game {
         if (selectedCardIndex != -1 && 200 <= x && x <= 600 && y <= 475) {
             Card card = availableCards.get(selectedCardIndex);
             map[0][0]=card.getWarrior(user); // 0,0 -> X,Y
+            System.out.println(map[0][0].getClass().getName()+" at ("+x+","+y+")");
             setNextCard(selectedCardIndex);
         }
         update();
