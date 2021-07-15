@@ -4,11 +4,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Entrance">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Entrance">
    <children>
-      <Button layoutX="332.0" layoutY="347.0" mnemonicParsing="false" onAction="#signUp" text="Sign up" />
-      <Button layoutX="334.0" layoutY="392.0" mnemonicParsing="false" onAction="#signIn" text="Sign in" />
-      <Button layoutX="342.0" layoutY="438.0" mnemonicParsing="false" text="Exit" />
+      <Button layoutX="371.0" layoutY="300.0" mnemonicParsing="false" onAction="#signUp" text="Sign up" />
+      <Button layoutX="373.0" layoutY="345.0" mnemonicParsing="false" onAction="#signIn" text="Sign in" />
+      <Button layoutX="381.0" layoutY="391.0" mnemonicParsing="false" text="Exit" />
       <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

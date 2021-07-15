@@ -3,6 +3,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
+   <children>
+      <AnchorPane fx:id="middlePane" layoutX="200.0" prefHeight="600.0" prefWidth="400.0" />
+      <AnchorPane fx:id="rightPane" layoutX="600.0" prefHeight="600.0" prefWidth="200.0" />
+      <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0" />
+   </children>
 </AnchorPane>
