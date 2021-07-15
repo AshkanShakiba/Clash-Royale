@@ -6,7 +6,7 @@
     -fx-background-color: bisque;
 }
 
-#card1, #card2, #card3, #card4 {
+#card1, #card2, #card3, #card4, #next {
     -fx-background-size: 100% 100%;
 }
 #card1{
@@ -20,4 +20,7 @@
 }
 #card4{
     -fx-background-image: url("assets/fireball.png");
+}
+#next{
+    -fx-background-image: url("assets/cannon.png");
 }
