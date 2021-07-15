@@ -28,6 +28,6 @@ public class Entrance {
     }
 
     public void signUp(ActionEvent event) {
-        imageView.setImage(new Archers(new User()).getImage());
+
     }
 }

@@ -20,6 +20,6 @@ public class Arrows extends Spell {
         }
         radius = 4;
         cost = 3;
-        image = new Image("assets/arrows.png");
+        image = "assets/arrows.png";
     }
 }

@@ -30,6 +30,6 @@ public class Wizard extends Troop {
         areaSplash = true;
         count = 1;
         cost = 5;
-        image = new Image("assets/wizard.png");
+        image = "assets/wizard.png";
     }
 }

@@ -28,6 +28,6 @@ public class Cannon extends Building {
         range = 5.5;
         lifetime = 30;
         cost = 6;
-        image = new Image("assets/cannon.png");
+        image = "assets/cannon.png";
     }
 }

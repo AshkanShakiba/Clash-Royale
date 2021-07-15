@@ -30,6 +30,6 @@ public class Barbarians extends Troop {
         areaSplash = false;
         count = 4;
         cost = 5;
-        image = new Image("assets/barbarians.png");
+        image = "assets/barbarians.png";
     }
 }

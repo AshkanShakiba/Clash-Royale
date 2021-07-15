@@ -30,6 +30,6 @@ public class Giant extends Troop {
         areaSplash = false;
         count = 1;
         cost = 5;
-        image = new Image("assets/giant.png");
+        image = "assets/giant.png";
     }
 }

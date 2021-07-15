@@ -6,21 +6,6 @@
     -fx-background-color: bisque;
 }
 
-#card1, #card2, #card3, #card4, #next {
+#card0, #card1, #card2, #card3, #next {
     -fx-background-size: 100% 100%;
-}
-#card1{
-    -fx-background-image: url("assets/archers.png");
-}
-#card2{
-    -fx-background-image: url("assets/babyDragon.png");
-}
-#card3{
-    -fx-background-image: url("assets/wizard.png");
-}
-#card4{
-    -fx-background-image: url("assets/fireball.png");
-}
-#next{
-    -fx-background-image: url("assets/cannon.png");
 }

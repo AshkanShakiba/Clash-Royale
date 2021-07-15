@@ -30,6 +30,6 @@ public class Valkyrie extends Troop {
         areaSplash = true;
         count = 1;
         cost = 4;
-        image = new Image("assets/valkyrie.png");
+        image = "assets/valkyrie.png";
     }
 }

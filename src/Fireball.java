@@ -20,6 +20,6 @@ public class Fireball extends Spell {
         }
         radius = 2.5;
         cost = 4;
-        image = new Image("assets/fireball.png");
+        image = "assets/fireball.png";
     }
 }

@@ -20,6 +20,6 @@ public class Rage extends Spell {
         }
         radius = 5;
         cost = 3;
-        image = new Image("assets/rage.png");
+        image = "assets/rage.png";
     }
 }

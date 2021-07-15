@@ -24,10 +24,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="card1" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" />
-                  <Button fx:id="card2" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="1" />
-                  <Button fx:id="card3" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="2" />
-                  <Button fx:id="card4" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="3" />
+                  <Button fx:id="card0" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" />
+                  <Button fx:id="card1" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="1" />
+                  <Button fx:id="card2" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="2" />
+                  <Button fx:id="card3" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="3" />
                </children>
             </GridPane>
          </children>
@@ -36,7 +36,7 @@
       <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0">
          <children>
             <Button fx:id="next" layoutX="135.0" layoutY="523.0" mnemonicParsing="false" onAction="#select" prefHeight="62.0" prefWidth="50.0" />
-            <Label layoutX="141.0" layoutY="487.0" text="Next">
+            <Label fx:id="nextLabel" layoutX="141.0" layoutY="487.0" text="Next">
                <font>
                   <Font size="18.0" />
                </font>

@@ -16,6 +16,9 @@ public class SignIn {
             Parent root = loader.load();
             Game game = loader.getController();
 
+            User user=new User();
+            game.construct(user);
+
             root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {

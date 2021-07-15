@@ -30,6 +30,6 @@ public class Archers extends Troop {
         areaSplash = false;
         count = 2;
         cost = 3;
-        image = new Image("assets/archers.png");
+        image = "assets/archers.png";
     }
 }
