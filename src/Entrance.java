@@ -13,7 +13,7 @@ public class Entrance {
     @FXML
     ImageView imageView;
 
-    public void signIn(ActionEvent event) {
+    public void start(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("signIn.fxml"));
             Parent root = loader.load();
@@ -27,7 +27,11 @@ public class Entrance {
         }
     }
 
-    public void signUp(ActionEvent event) {
+    public void about(ActionEvent event) {
+
+    }
+
+    public void exit(ActionEvent event) {
 
     }
 }

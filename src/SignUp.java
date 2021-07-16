@@ -1,5 +1,9 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -7,7 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -46,22 +52,31 @@ public class SignUp {
 
     @FXML
     public void signInButtonOnAction(ActionEvent event) {
-        Stage stage = (Stage) layer2signInButton.getScene().getWindow();
-        stage.close();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signIn.fxml"));
+            Parent root = loader.load();
+            SignIn signIn = loader.getController();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @FXML
     public void signUpButtonOnAction(ActionEvent event) {
-        if(layer2usernameTextField.getText().isBlank() == false && layer2passwordTextField.getText().isBlank() == false){
+        if (layer2usernameTextField.getText().isBlank() == false && layer2passwordTextField.getText().isBlank() == false) {
             signUpMessage.setText("You tried to register!");
             registerUser();
-        }else {
+        } else {
             signUpMessage.setText("please enter password & username");
         }
-
     }
 
-    public boolean registerUser(){
+    public boolean registerUser() {
 
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -76,8 +91,8 @@ public class SignUp {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifySignIn);
 
-            while (queryResult.next()){
-                if(queryResult.getInt(1) > 0){
+            while (queryResult.next()) {
+                if (queryResult.getInt(1) > 0) {
                     signUpMessage.setText("This username already exists!");
                     return false;
                 }
@@ -90,7 +105,7 @@ public class SignUp {
 
 
         String insertFields = "INSERT INTO userdata (username, password) VALUES ('";
-        String insertValues = username + "','" + password  + "')";
+        String insertValues = username + "','" + password + "')";
         String insertToDB = insertFields + insertValues;
         try {
             Statement statement = connectDB.createStatement();
