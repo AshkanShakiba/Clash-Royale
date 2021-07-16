@@ -13,3 +13,7 @@
 #middle {
     -fx-background-color: dodgerblue;
 }
+
+#elixirBar {
+    -fx-accent: purple;
+}

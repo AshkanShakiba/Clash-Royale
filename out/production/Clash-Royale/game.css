@@ -3,7 +3,7 @@
 }
 
 #middlePane {
-    -fx-background-color: bisque;
+    -fx-background-color: #8DBF39;
 }
 
 #card0, #card1, #card2, #card3, #next {
@@ -12,4 +12,8 @@
 
 #middle {
     -fx-background-color: dodgerblue;
+}
+
+#elixirBar {
+    -fx-accent: purple;
 }

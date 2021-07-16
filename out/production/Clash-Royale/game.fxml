@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +16,38 @@
    <children>
       <AnchorPane fx:id="middlePane" layoutX="200.0" prefHeight="600.0" prefWidth="400.0">
          <children>
-            <GridPane fx:id="cardsPane" layoutY="474.0" prefHeight="125.0" prefWidth="400.0">
+            <ProgressBar fx:id="elixirBar" layoutY="564.0" prefHeight="35.0" prefWidth="400.0" progress="0.5" />
+            <GridPane prefHeight="440.0" prefWidth="400.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints fx:id="opponent" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                <RowConstraints fx:id="middle" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints fx:id="player" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" GridPane.halignment="CENTER">
+                     <image>
+                        <Image url="@assets/ARENA.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="45.0" fitWidth="400.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@assets/water.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@assets/ARENA.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <GridPane fx:id="cardsPane" layoutY="438.0" prefHeight="125.0" prefWidth="400.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,23 +62,6 @@
                   <Button fx:id="card1" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="1" />
                   <Button fx:id="card2" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="2" />
                   <Button fx:id="card3" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="3" />
-               </children>
-            </GridPane>
-            <GridPane prefHeight="475.0" prefWidth="400.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints fx:id="opponent" maxHeight="215.0" minHeight="215.0" prefHeight="215" vgrow="SOMETIMES" />
-                <RowConstraints fx:id="middle" maxHeight="45" minHeight="45" prefHeight="45" vgrow="SOMETIMES" />
-                <RowConstraints fx:id="player" maxHeight="215.0" minHeight="215.0" prefHeight="215.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ImageView fitHeight="45.0" fitWidth="400.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@assets/water.gif" />
-                     </image>
-                  </ImageView>
                </children>
             </GridPane>
          </children>
