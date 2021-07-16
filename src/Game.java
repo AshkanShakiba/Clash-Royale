@@ -72,10 +72,10 @@ public class Game {
         imageViews = new ImageView[18][28];
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
-                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get(i * 14 + j);
+                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get(j*18+i);
             }
             for (int j = 14; j < 28; j++) {
-                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get(i * 14 + j - 14);
+                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get((j-14)*18+i);
             }
         }
         this.user = user;
