@@ -1,8 +1,12 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
@@ -29,19 +33,49 @@ public class Game {
     private Button next;
     @FXML
     private Label nextLabel;
+    @FXML
+    private FlowPane flowPaneU;
+    @FXML
+    private FlowPane flowPaneO;
 
     private User user;
     private double x, y;
-    private Warrior[][] map;
+    private Warrior[][] map1;
+    private Warrior[][] map2;
+    private Warrior[][] map3;
+    private Warrior[][] map4;
+    private ImageView[][] imageViews;
     private Card nextCard;
     private int selectedCardIndex;
     private ArrayList<Card> availableCards;
 
     public void construct(User user) {
-        map = new Warrior[18][32];
+        map1 = new Warrior[18][14];
         for (int i = 0; i < 18; i++) {
-            for (int j = 0; j < 32; j++) {
-                map[i][j] = null;
+            for (int j = 0; j < 14; j++) {
+                map1[i][j] = null;
+            }
+        }
+        map2 = new Warrior[9][4];
+        map3 = new Warrior[9][4];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 4; j++) {
+                map2[i][j] = map3[i][j] = null;
+            }
+        }
+        map4 = new Warrior[18][10];
+        for (int i = 0; i < 18; i++) {
+            for (int j = 0; j < 10; j++) {
+                map1[i][j] = null;
+            }
+        }
+        imageViews = new ImageView[18][28];
+        for (int i = 0; i < 18; i++) {
+            for (int j = 0; j < 14; j++) {
+                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get(i * 14 + j);
+            }
+            for (int j = 14; j < 28; j++) {
+                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get(i * 14 + j - 14);
             }
         }
         this.user = user;
@@ -61,6 +95,14 @@ public class Game {
         card2.setStyle("-fx-background-image: url('" + availableCards.get(2).getImage() + "');");
         card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
         next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
+
+        for (int i = 0; i < 18; i++) {
+            for (int j = 0; j < 14; j++) {
+                if (map1[i][j] != null) {
+                    imageViews[i][j].setImage(new Image(map1[i][j].getImage()));
+                }
+            }
+        }
     }
 
     public void select(ActionEvent event) {
@@ -76,8 +118,8 @@ public class Game {
             Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
-            map[X][Y] = card.getWarrior(user);
-            System.out.println(map[X][Y].getClass().getName() + " at (" + X + "," + Y + ")");
+            map1[X][Y] = card.getWarrior(user);
+            System.out.println(map1[X][Y].getClass().getName() + " at (" + X + "," + Y + ")");
             setNextCard(selectedCardIndex);
         }
         update();

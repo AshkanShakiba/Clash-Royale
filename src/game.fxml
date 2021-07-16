@@ -33,14 +33,10 @@
                         <Image url="@assets/ARENA.png" />
                      </image>
                   </ImageView>
-                  <FlowPane maxHeight="200.0" maxWidth="318.0" minHeight="200.0" minWidth="318.0" prefHeight="200.0" prefWidth="318.0" GridPane.halignment="CENTER">
+                  <FlowPane fx:id="flowPaneO" maxHeight="200.0" maxWidth="318.0" minHeight="200.0" minWidth="318.0" prefHeight="200.0" prefWidth="318.0" GridPane.halignment="CENTER">
                      <children>
                         <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" />
-                        <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true">
-                           <FlowPane.margin>
-                              <Insets />
-                           </FlowPane.margin>
-                        </ImageView>
+                        <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" />
                         <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" />
                         <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" />
                         <ImageView fitHeight="14.0" fitWidth="18.0" pickOnBounds="true" />
@@ -306,14 +302,10 @@
                         <Insets />
                      </GridPane.margin>
                   </ImageView>
-                  <FlowPane maxHeight="200.0" maxWidth="318.0" minHeight="200.0" minWidth="318.0" prefHeight="200.0" prefWidth="318.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <FlowPane fx:id="flowPaneU" maxHeight="200.0" maxWidth="318.0" minHeight="200.0" minWidth="318.0" prefHeight="200.0" prefWidth="318.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" />
-                        <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true">
-                           <FlowPane.margin>
-                              <Insets />
-                           </FlowPane.margin>
-                        </ImageView>
+                        <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" />
                         <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" />
                         <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" />
                         <ImageView fitHeight="14.0" fitWidth="18.0" pickOnBounds="true" />
