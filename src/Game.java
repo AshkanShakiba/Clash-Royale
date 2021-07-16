@@ -77,7 +77,7 @@ public class Game {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
             map[X][Y] = card.getWarrior(user);
-            System.out.println(map[0][0].getClass().getName() + " at (" + X + "," + Y + ")");
+            System.out.println(map[X][Y].getClass().getName() + " at (" + X + "," + Y + ")");
             setNextCard(selectedCardIndex);
         }
         update();
