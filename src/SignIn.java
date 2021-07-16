@@ -29,9 +29,6 @@ public class SignIn {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
 
-            String style=getClass().getResource("game.css").toExternalForm();
-            scene.getStylesheets().add(style);
-
             stage.setScene(scene);
             stage.show();
         } catch (IOException exception) {
