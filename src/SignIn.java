@@ -2,6 +2,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -49,16 +50,14 @@ public class SignIn {
     private Label layer1passwordLable;
 
 
+    public void signInButtonOnAction(ActionEvent event) {
 
-    public void signInButtonOnAction(ActionEvent event){
-
-        if(usernameTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false){
+        if (usernameTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false) {
             signInMessage.setText("You tried to login!");
             validateSignIn();
-        }else {
+        } else {
             signInMessage.setText("please enter password & username");
         }
-
 
 
     }
@@ -83,12 +82,12 @@ public class SignIn {
         layer1usernameLable.setVisible(false);
 
          */
-        createAccountForm();
+        createAccountForm(event);
 
     }
 
 
-    public void validateSignIn(){
+    public void validateSignIn() {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -99,10 +98,10 @@ public class SignIn {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifySignIn);
 
-            while (queryResult.next()){
-                if(queryResult.getInt(1) == 1){
+            while (queryResult.next()) {
+                if (queryResult.getInt(1) == 1) {
                     signInMessage.setText("Congratulations!");
-                }else {
+                } else {
                     signInMessage.setText("Please enter a valid password and username!");
                 }
             }
@@ -114,16 +113,18 @@ public class SignIn {
 
     }
 
-    public void createAccountForm(){
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("signUp.Fxml"));
-            Stage registerStage = new Stage();
-            registerStage.initStyle(StageStyle.DECORATED);
-            registerStage.setScene(new Scene(root, 750, 500));
-            registerStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            e.getCause();
+    public void createAccountForm(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("signUp.fxml"));
+            Parent root = loader.load();
+            SignUp signUp = loader.getController();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 

@@ -13,11 +13,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUp">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUp">
     <right>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="signUpGradiant" fitHeight="500.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="signUpGradiant" fitHeight="600.0" fitWidth="300.0" pickOnBounds="true">
                     <image>
                         <Image url="@assets/Gradiants/gradient2.png" />
                     </image>

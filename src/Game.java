@@ -1,8 +1,8 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -37,9 +37,12 @@ public class Game {
     private FlowPane flowPaneU;
     @FXML
     private FlowPane flowPaneO;
+    @FXML
+    private ProgressBar elixirBar;
 
     private User user;
     private double x, y;
+    private double elixir;
     private Warrior[][] map1;
     private Warrior[][] map2;
     private Warrior[][] map3;
@@ -50,6 +53,7 @@ public class Game {
     private ArrayList<Card> availableCards;
 
     public void construct(User user) {
+        elixir = 4;
         map1 = new Warrior[18][14];
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
@@ -72,10 +76,10 @@ public class Game {
         imageViews = new ImageView[18][28];
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
-                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get(j*18+i);
+                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get(j * 18 + i);
             }
             for (int j = 14; j < 28; j++) {
-                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get((j-14)*18+i);
+                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get((j - 14) * 18 + i);
             }
         }
         this.user = user;
@@ -86,7 +90,7 @@ public class Game {
         availableCards.add(getNextCard());
         nextCard = getNextCard();
         selectedCardIndex = -1;
-        update();
+        new Thread(new Updater(this)).start();
     }
 
     public void update() {
@@ -95,6 +99,9 @@ public class Game {
         card2.setStyle("-fx-background-image: url('" + availableCards.get(2).getImage() + "');");
         card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
         next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
+
+        if (elixir < 10) elixir += 0.125;
+        elixirBar.setProgress(((int) elixir) / 10.0);
 
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
@@ -122,7 +129,6 @@ public class Game {
             System.out.println(map1[X][Y].getClass().getName() + " at (" + X + "," + Y + ")");
             setNextCard(selectedCardIndex);
         }
-        update();
     }
 
     private void setNextCard(int index) {
