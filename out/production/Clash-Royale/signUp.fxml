@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUp">
+    <right>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="signUpGradiant" fitHeight="500.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/Gradiants/gradient2.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="22.0" layoutY="82.0" text="Welcome to the club!" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="27.0" />
+                    </font>
+                </Label>
+                <Label layoutX="73.0" layoutY="284.0" text="Already have an account" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="layer2signInButton" layoutX="102.0" layoutY="315.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="47.0" prefWidth="96.0" style="-fx-background-radius: 300; -fx-background-color: #FFFFFF; -fx-border-radius: 300; -fx-border-color: #300d33;" text="Sign In" />
+            </children>
+        </AnchorPane>
+    </right>
+    <left>
+        <AnchorPane fx:id="SignUpLayer" prefHeight="400.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="135.0" layoutY="80.0" text="Join The War!">
+                    <font>
+                        <Font name="Segoe UI" size="30.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.1232098788022995" green="0.007407407276332378" blue="1.0" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.9846390168970814">
+                                    <color>
+                                        <Color green="1.0" blue="0.18333333730697632" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color green="1.0" blue="0.18333333730697632" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <TextField fx:id="layer2usernameTextField" alignment="CENTER" layoutX="130.0" layoutY="183.0" prefHeight="26.0" prefWidth="252.0" promptText="Enter an username" />
+                <PasswordField fx:id="layer2passwordTextField" alignment="CENTER" layoutX="130.0" layoutY="237.0" prefHeight="26.0" prefWidth="253.0" promptText=" Enter a strong password" />
+                <Label fx:id="layer2usernameLable" layoutX="14.0" layoutY="176.0" prefHeight="38.0" prefWidth="116.0" text="Username:">
+                    <font>
+                        <Font name="Segoe UI" size="20.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.9942774772644043" green="1.0" blue="0.009999999776482582" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.009216589861751147">
+                                    <color>
+                                        <Color red="0.8526315689086914" green="0.8526315689086914" blue="0.20842105150222778" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color green="1.0" blue="0.11560693383216858" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <Label fx:id="layer2passwordLable" layoutX="14.0" layoutY="231.0" prefHeight="38.0" prefWidth="116.0" text="Password:">
+                    <font>
+                        <Font name="Segoe UI" size="20.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.9942774772644043" green="1.0" blue="0.009999999776482582" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.009216589861751147">
+                                    <color>
+                                        <Color red="0.8526315689086914" green="0.8526315689086914" blue="0.20842105150222778" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color green="1.0" blue="0.11560693383216858" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <ImageView fx:id="layer2Image" fitHeight="214.0" fitWidth="137.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/startUpGuy2.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="signUpMessage" alignment="CENTER" layoutX="98.0" layoutY="286.0" prefHeight="18.0" prefWidth="318.0" textFill="#5762fa">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="layer2signUpButton" layoutX="209.0" layoutY="318.0" mnemonicParsing="false" onAction="#signUpButtonOnAction" prefHeight="47.0" prefWidth="96.0" style="-fx-background-radius: 300; -fx-background-color: #FFFFFF; -fx-border-radius: 300; -fx-border-color: #300d33;" text="Sign Up" />
+            </children>
+        </AnchorPane>
+    </left>
+</BorderPane>
