@@ -38,9 +38,9 @@ public class Game {
     private ArrayList<Card> availableCards;
 
     public void construct(User user) {
-        map = new Warrior[19][33];
-        for (int i = 0; i < 19; i++) {
-            for (int j = 0; j < 19; j++) {
+        map = new Warrior[18][32];
+        for (int i = 0; i < 18; i++) {
+            for (int j = 0; j < 32; j++) {
                 map[i][j] = null;
             }
         }
@@ -74,8 +74,10 @@ public class Game {
     public void click(double x, double y) {
         if (selectedCardIndex != -1 && 243 <= x && x <= 557 && 240 <= y && y <= 440) {
             Card card = availableCards.get(selectedCardIndex);
-            map[0][0] = card.getWarrior(user); // 0,0 -> X,Y
-            System.out.println(map[0][0].getClass().getName() + " at (" + x + "," + y + ")");
+            int X = (int) ((x - 243) / 17.44);
+            int Y = (int) ((y - 240) / 14.29);
+            map[X][Y] = card.getWarrior(user);
+            System.out.println(map[0][0].getClass().getName() + " at (" + X + "," + Y + ")");
             setNextCard(selectedCardIndex);
         }
         update();
