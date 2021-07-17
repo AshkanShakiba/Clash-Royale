@@ -15,40 +15,41 @@ public enum Card {
     private int cost;
     private String image;
 
-    Card(int cost){
-        this.cost=cost;
-        image="assets/"+this.name()+".png";
+    Card(int cost) {
+        this.cost = cost;
+        image = "assets/" + this.name() + ".png";
     }
 
     public String getImage() {
         return image;
     }
 
-    public Warrior getWarrior(User user){
-        if(this==BARBARIANS)
+    public Warrior getWarrior(User user) {
+        if (this == BARBARIANS)
             return new Barbarians(user);
-        if(this==ARCHERS)
+        if (this == ARCHERS)
             return new Archers(user);
-        if(this==BABYDRAGON)
+        if (this == BABYDRAGON)
             return new BabyDragon(user);
-        if(this==WIZARD)
+        if (this == WIZARD)
             return new Wizard(user);
-        if(this==MINIPEKKA)
+        if (this == MINIPEKKA)
             return new MiniPekka(user);
-        if(this==GIANT)
+        if (this == GIANT)
             return new Giant(user);
-        if(this==VALKYRIE)
+        if (this == VALKYRIE)
             return new Valkyrie(user);
-        if(this==RAGE)
+        if (this == RAGE)
             return new Rage(user);
-        if(this==FIREBALL)
+        if (this == FIREBALL)
             return new Fireball(user);
-        if(this==ARROWS)
+        if (this == ARROWS)
             return new Arrows(user);
-        if(this==CANNON)
+        if (this == CANNON)
             return new Cannon(user);
-        if(this==INFERNOTOWER)
+        if (this == INFERNOTOWER)
             return new InfernoTower(user);
         return null;
     }
+
 }

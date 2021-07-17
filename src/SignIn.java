@@ -1,4 +1,3 @@
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -54,7 +51,9 @@ public class SignIn {
 
         if (usernameTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false) {
             signInMessage.setText("You tried to login!");
-            validateSignIn();
+            if(validateSignIn()){
+                goToBattleDeck(event);
+            }
         } else {
             signInMessage.setText("please enter password & username");
         }
@@ -86,8 +85,7 @@ public class SignIn {
 
     }
 
-
-    public void validateSignIn() {
+    public boolean validateSignIn() {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -101,6 +99,8 @@ public class SignIn {
             while (queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
                     signInMessage.setText("Congratulations!");
+                    
+                    return true;
                 } else {
                     signInMessage.setText("Please enter a valid password and username!");
                 }
@@ -110,7 +110,7 @@ public class SignIn {
             e.printStackTrace();
             e.getCause();
         }
-
+        return false;
     }
 
     public void createAccountForm(ActionEvent event) {
@@ -127,6 +127,23 @@ public class SignIn {
             exception.printStackTrace();
         }
     }
+
+    public void goToBattleDeck(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BattleDeck.fxml"));
+            Parent root = loader.load();
+            BattleDeck battleDeck = loader.getController();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+
 
 
 }

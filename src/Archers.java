@@ -37,4 +37,5 @@ public class Archers extends Troop {
     public String toString() {
         return "Archers";
     }
+
 }

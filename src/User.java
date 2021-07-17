@@ -5,13 +5,14 @@ public class User {
     private int xp;
     private int level;
     private ArrayList<Card> cards;
+    private ArrayList<Card> currentCards;
     private SecureRandom random;
 
-    public User() {
-        xp = 0;
-        level = 1;
+    {
         cards = new ArrayList<>();
+        currentCards = new ArrayList<>();
         random = new SecureRandom();
+
         cards.add(Card.BARBARIANS);
         cards.add(Card.ARCHERS);
         cards.add(Card.BABYDRAGON);
@@ -26,11 +27,25 @@ public class User {
         cards.add(Card.INFERNOTOWER);
     }
 
+    public User() {
+        xp = 0;
+        level = 1;
+    }
+
+
+    public ArrayList<Card> getCurrentCards() {
+        return currentCards;
+    }
+
     public int getLevel() {
         return level;
     }
 
     public Card getRandomCard() {
         return cards.get(random.nextInt(8));
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
     }
 }
