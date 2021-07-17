@@ -32,4 +32,9 @@ public class BabyDragon extends Troop {
         cost = 4;
         image = "assets/babyDragon.png";
     }
+
+    @Override
+    public String toString() {
+        return "BabyDragon";
+    }
 }

@@ -27,7 +27,7 @@
                         <Font name="Segoe UI" size="27.0" />
                     </font>
                 </Label>
-                <Label layoutX="73.0" layoutY="284.0" text="Already have an account" textFill="WHITE">
+                <Label layoutX="73.0" layoutY="284.0" text="Already have an account?" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="14.0" />
                     </font>

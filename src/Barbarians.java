@@ -32,4 +32,9 @@ public class Barbarians extends Troop {
         cost = 5;
         image = "assets/barbarians.png";
     }
+
+    @Override
+    public String toString() {
+        return "Barbarians";
+    }
 }

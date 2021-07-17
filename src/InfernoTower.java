@@ -30,4 +30,9 @@ public class InfernoTower extends Building {
         cost = 5;
         image = "assets/infernoTower.png";
     }
+
+    @Override
+    public String toString() {
+        return "InfernoTower";
+    }
 }

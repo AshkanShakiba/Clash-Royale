@@ -22,4 +22,9 @@ public class Fireball extends Spell {
         cost = 4;
         image = "assets/fireball.png";
     }
+
+    @Override
+    public String toString() {
+        return "Fireball";
+    }
 }

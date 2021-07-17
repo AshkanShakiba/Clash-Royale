@@ -32,4 +32,9 @@ public class MiniPekka extends Troop {
         cost = 4;
         image = "assets/miniPekka.png";
     }
+
+    @Override
+    public String toString() {
+        return "MiniPekka";
+    }
 }

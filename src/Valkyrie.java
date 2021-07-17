@@ -32,4 +32,9 @@ public class Valkyrie extends Troop {
         cost = 4;
         image = "assets/valkyrie.png";
     }
+
+    @Override
+    public String toString() {
+        return "Valkyrie";
+    }
 }

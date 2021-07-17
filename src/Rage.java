@@ -22,4 +22,9 @@ public class Rage extends Spell {
         cost = 3;
         image = "assets/rage.png";
     }
+
+    @Override
+    public String toString() {
+        return "Rage";
+    }
 }

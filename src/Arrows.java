@@ -22,4 +22,8 @@ public class Arrows extends Spell {
         cost = 3;
         image = "assets/arrows.png";
     }
+    @Override
+    public String toString() {
+        return "Arrows";
+    }
 }

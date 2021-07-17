@@ -30,4 +30,9 @@ public class Cannon extends Building {
         cost = 6;
         image = "assets/cannon.png";
     }
+
+    @Override
+    public String toString() {
+        return "Cannon";
+    }
 }

@@ -32,4 +32,9 @@ public class Giant extends Troop {
         cost = 5;
         image = "assets/giant.png";
     }
+
+    @Override
+    public String toString() {
+        return "Giant";
+    }
 }

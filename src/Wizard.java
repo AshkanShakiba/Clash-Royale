@@ -32,4 +32,9 @@ public class Wizard extends Troop {
         cost = 5;
         image = "assets/wizard.png";
     }
+
+    @Override
+    public String toString() {
+        return "Wizard";
+    }
 }

@@ -32,4 +32,9 @@ public class Archers extends Troop {
         cost = 3;
         image = "assets/archers.png";
     }
+
+    @Override
+    public String toString() {
+        return "Archers";
+    }
 }
