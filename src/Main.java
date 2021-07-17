@@ -15,8 +15,9 @@ public class Main extends Application {
     public static ArrayList<User> getUsers() {
         return users;
     }
-    public static void printUsers(){
-        for(User user : users){
+
+    public static void printUsers() {
+        for (User user : users) {
             System.out.println(user);
         }
     }
@@ -31,7 +32,10 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        stage.setOnCloseRequest(event -> { event.consume(); exit(stage); });
+        stage.setOnCloseRequest(event -> {
+            event.consume();
+            exit(stage);
+        });
     }
 
     public static void exit(Stage stage) {
@@ -39,7 +43,9 @@ public class Main extends Application {
         alert.setTitle("Exit");
         alert.setHeaderText("Unsaved data will be fucked");
         alert.setContentText("Are you sure to exit?");
-        if (alert.showAndWait().get() == ButtonType.OK)
+        if (alert.showAndWait().get() == ButtonType.OK) {
             stage.close();
+            System.exit(0);
+        }
     }
 }
