@@ -2,8 +2,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -68,11 +73,14 @@ public class BattleDeck implements Initializable {
 
     @FXML
     private Button storeCard12;
+    @FXML
+    private Button saveButton;
+    @FXML
+    private Label statementLabel;
 
     private User user = new User() ;
     private int storeSelectedCardIndex = -1;
     private int deckSelectedCardIndex = -1;
-
 
 
     @Override
@@ -128,6 +136,34 @@ public class BattleDeck implements Initializable {
 
     }
 
+    public void saveButtonOnAction(){
+        int xp  = 0;
+        String message = "";
+        DataBaseConnection connectNow = new DataBaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        for(int i = 0; i < 8; i++){
+            Card currentCard = user.getCurrentCards()[i];
+            System.out.print(currentCard + " ");
+            if( currentCard != null){
+                message = "UPDATE userdata SET Card" + (i+1)
+                        + " = '" + currentCard.toString() + "' WHERE username = '" + user.getUsername() + "'";
+                try {
+                    Statement statement = connectDB.createStatement();
+                    statement.executeUpdate(message);
+                    statementLabel.setText("Successfully Saved the Battle Deck!");
+
+                } catch (Exception e) {
+                    statementLabel.setText("an Error Occurred during saving Battle Deck");
+                    e.printStackTrace();
+                    e.getCause();
+                }
+            }
+        }
+
+
+    }
+
     public void storeSelect(ActionEvent event) {
         Button selected = (Button) event.getSource();
         if (selected == storeCard1) storeSelectedCardIndex = 0;
@@ -162,6 +198,14 @@ public class BattleDeck implements Initializable {
         if(deckSelectedCardIndex != -1 && storeSelectedCardIndex != -1){
 
             Card currentCard = user.getCards().get(storeSelectedCardIndex);
+
+            if(checkDuplicateCards(user.getCurrentCards(), currentCard)){
+                user.getCurrentCards()[deckSelectedCardIndex] = currentCard;
+                statementLabel.setText("");
+            }else{
+                statementLabel.setText("You have already picked this card");
+                return;
+            }
 
             switch (deckSelectedCardIndex){
                 case 0:{
@@ -199,11 +243,21 @@ public class BattleDeck implements Initializable {
             }
 
              */
-            user.getCurrentCards()[deckSelectedCardIndex] = currentCard;
             printCards();
             deckSelectedCardIndex = -1;
             storeSelectedCardIndex = -1;
         }
+    }
+
+    public boolean checkDuplicateCards(Card[] cards, Card targetCard){
+        for(int i = 0; i < cards.length; i++){
+            if(cards[i] != null){
+                if(cards[i].toString().equalsIgnoreCase(targetCard.toString())){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void printCards(){
@@ -214,4 +268,5 @@ public class BattleDeck implements Initializable {
         }
         System.out.println();
     }
+
 }

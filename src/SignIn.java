@@ -151,12 +151,12 @@ public class SignIn {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String verifySignIn = "SELECT * FROM userdata WHERE username = '"
+        String message = "SELECT * FROM userdata WHERE username = '"
                 + usernameTextField.getText() + "' AND password = '" + passwordTextField.getText() + "'";
 
         try {
             Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifySignIn);
+            ResultSet queryResult = statement.executeQuery(message);
 
             while (queryResult.next()) {
                 xp = queryResult.getInt(4);

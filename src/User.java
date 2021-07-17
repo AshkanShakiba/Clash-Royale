@@ -70,6 +70,9 @@ public class User {
         return cards;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
     @Override
     public String toString() {
