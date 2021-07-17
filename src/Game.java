@@ -110,7 +110,7 @@ public class Game {
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
                 if (map1[i][j] != null) {
-                    imageViews[i][j+14].setImage(new Image(map1[i][j].getImage()));
+                    imageViews[i][j + 14].setImage(new Image(map1[i][j].getImage()));
                 }
             }
         }
@@ -118,10 +118,10 @@ public class Game {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 4; j++) {
                 if (map2[i][j] != null) {
-                    imageViews[i][j+10].setImage(new Image(map2[i][j].getImage()));
+                    imageViews[i][j + 10].setImage(new Image(map2[i][j].getImage()));
                 }
                 if (map3[i][j] != null) {
-                    imageViews[i+9][j+10].setImage(new Image(map3[i][j].getImage()));
+                    imageViews[i + 9][j + 10].setImage(new Image(map3[i][j].getImage()));
                 }
             }
         }
@@ -129,10 +129,10 @@ public class Game {
 
     public void select(ActionEvent event) {
         Button selected = (Button) event.getSource();
-        if (selected == card0) selectedCardIndex = 0;
-        if (selected == card1) selectedCardIndex = 1;
-        if (selected == card2) selectedCardIndex = 2;
-        if (selected == card3) selectedCardIndex = 3;
+        if (selected == card0 && elixir >= availableCards.get(0).getCost()) selectedCardIndex = 0;
+        if (selected == card1 && elixir >= availableCards.get(1).getCost()) selectedCardIndex = 1;
+        if (selected == card2 && elixir >= availableCards.get(2).getCost()) selectedCardIndex = 2;
+        if (selected == card3 && elixir >= availableCards.get(3).getCost()) selectedCardIndex = 3;
     }
 
     public void click(double x, double y) {
@@ -144,22 +144,28 @@ public class Game {
             map1[X][Y] = card.getWarrior(user);
             System.out.println(map1[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [1]");
             setNextCard(selectedCardIndex);
+            selectedCardIndex = -1;
+            elixir-=card.getCost();
         }
         if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
-            Card card=availableCards.get(selectedCardIndex);
+            Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
             map2[X][Y] = card.getWarrior(user);
             System.out.println(map2[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [2]");
             setNextCard(selectedCardIndex);
+            selectedCardIndex = -1;
+            elixir-=card.getCost();
         }
         if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
-            Card card=availableCards.get(selectedCardIndex);
+            Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 400) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
             map3[X][Y] = card.getWarrior(user);
             System.out.println(map3[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [3]");
             setNextCard(selectedCardIndex);
+            selectedCardIndex = -1;
+            elixir-=card.getCost();
         }
     }
 
