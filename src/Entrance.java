@@ -52,6 +52,6 @@ public class Entrance {
     }
 
     public void exit(ActionEvent event) {
-
+        Main.exit((Stage) ((Node) event.getSource()).getScene().getWindow());
     }
 }

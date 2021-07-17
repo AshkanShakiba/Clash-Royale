@@ -20,6 +20,10 @@ public enum Card {
         image = "assets/" + this.name() + ".png";
     }
 
+    public int getCost() {
+        return cost;
+    }
+
     public String getImage() {
         return image;
     }
