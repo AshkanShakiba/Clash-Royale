@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class SignIn {
@@ -52,6 +53,8 @@ public class SignIn {
         if (usernameTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false) {
             signInMessage.setText("You tried to login!");
             if(validateSignIn()){
+                Main.getUsers().add(currentUser());
+                Main.printUsers();
                 goToBattleDeck(event);
             }
         } else {
@@ -79,7 +82,6 @@ public class SignIn {
         layer1Image.setVisible(false);
         layer1passwordLable.setVisible(false);
         layer1usernameLable.setVisible(false);
-
          */
         createAccountForm(event);
 
@@ -99,7 +101,6 @@ public class SignIn {
             while (queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
                     signInMessage.setText("Congratulations!");
-                    
                     return true;
                 } else {
                     signInMessage.setText("Please enter a valid password and username!");
@@ -141,6 +142,36 @@ public class SignIn {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+    }
+
+    public User currentUser(){
+        String[] currentCards = new String[8];
+        int xp  = 0;
+        User user = null;
+        DataBaseConnection connectNow = new DataBaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String verifySignIn = "SELECT * FROM userdata WHERE username = '"
+                + usernameTextField.getText() + "' AND password = '" + passwordTextField.getText() + "'";
+
+        try {
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifySignIn);
+
+            while (queryResult.next()) {
+                xp = queryResult.getInt(4);
+                for(int i = 5; i < 12; i++){
+                    currentCards[i-5] = (queryResult.getString(i));
+                }
+            }
+
+            user = new User(usernameTextField.getText(), xp, currentCards);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        return user;
     }
 
 

@@ -4,7 +4,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
+
+    private static ArrayList<User> users = new ArrayList<>();
+
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+    public static void printUsers(){
+        for(User user : users){
+            System.out.println(user);
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

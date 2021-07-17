@@ -69,9 +69,11 @@ public class BattleDeck implements Initializable {
     @FXML
     private Button storeCard12;
 
-    private User user = new User();
+    private User user = new User() ;
     private int storeSelectedCardIndex = -1;
     private int deckSelectedCardIndex = -1;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -87,6 +89,42 @@ public class BattleDeck implements Initializable {
         storeCard10.setStyle("-fx-background-image: url('" + user.getCards().get(9).getImage() + "');");
         storeCard11.setStyle("-fx-background-image: url('" + user.getCards().get(10).getImage() + "');");
         storeCard12.setStyle("-fx-background-image: url('" + user.getCards().get(11).getImage() + "');");
+
+        user = Main.getUsers().get(0);
+
+        for(int i = 0 ; i < 8; i++){
+            if(user.getCurrentCards()[i] != null){
+                switch (i){
+                    case 0:{
+                        deckCard1.setStyle("-fx-background-image: url('" + user.getCurrentCards()[0].getImage() + "');");
+                        break;
+                    } case 1:{
+                        deckCard2.setStyle("-fx-background-image: url('" + user.getCurrentCards()[1].getImage() + "');");
+                        break;
+                    } case 2:{
+                        deckCard3.setStyle("-fx-background-image: url('" + user.getCurrentCards()[2].getImage() + "');");
+                        break;
+                    } case 3:{
+                        deckCard4.setStyle("-fx-background-image: url('" + user.getCurrentCards()[3].getImage() + "');");
+                        break;
+                    } case 4:{
+                        deckCard5.setStyle("-fx-background-image: url('" + user.getCurrentCards()[4].getImage() + "');");
+                        break;
+                    } case 5:{
+                        deckCard6.setStyle("-fx-background-image: url('" + user.getCurrentCards()[5].getImage() + "');");
+                        break;
+                    } case 6:{
+                        deckCard7.setStyle("-fx-background-image: url('" + user.getCurrentCards()[6].getImage() + "');");
+                        break;
+                    } case 7:{
+                        deckCard8.setStyle("-fx-background-image: url('" + user.getCurrentCards()[7].getImage() + "');");
+                        break;
+                    }
+                }
+
+            }
+        }
+
 
     }
 
@@ -106,6 +144,7 @@ public class BattleDeck implements Initializable {
         if (selected == storeCard12) storeSelectedCardIndex = 11;
         addCheck();
     }
+
     public void deckSelect(ActionEvent event) {
         Button selected = (Button) event.getSource();
         if (selected == deckCard1) deckSelectedCardIndex = 0;
@@ -151,10 +190,16 @@ public class BattleDeck implements Initializable {
                     break;
                 }
             }
+            /*
             if(deckSelectedCardIndex <= user.getCurrentCards().size() - 1) {
                 user.getCurrentCards().remove(deckSelectedCardIndex);
+                user.getCurrentCards().add(deckSelectedCardIndex, currentCard);
+            }else{
+                user.getCurrentCards().add(currentCard);
             }
-            user.getCurrentCards().add(deckSelectedCardIndex, currentCard);
+
+             */
+            user.getCurrentCards()[deckSelectedCardIndex] = currentCard;
             printCards();
             deckSelectedCardIndex = -1;
             storeSelectedCardIndex = -1;
@@ -163,7 +208,9 @@ public class BattleDeck implements Initializable {
 
     public void printCards(){
         for(Card card : user.getCurrentCards()){
-            System.out.print(card.toString() + " ");
+            if(card != null) {
+                System.out.print(card.toString() + " ");
+            }
         }
         System.out.println();
     }
