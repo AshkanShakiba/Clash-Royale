@@ -160,7 +160,7 @@ public class SignIn {
 
             while (queryResult.next()) {
                 xp = queryResult.getInt(4);
-                for(int i = 5; i < 12; i++){
+                for(int i = 5; i <= 12; i++){
                     currentCards[i-5] = (queryResult.getString(i));
                 }
             }
