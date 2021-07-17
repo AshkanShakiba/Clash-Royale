@@ -123,6 +123,15 @@ public class Game {
 //                }
 //            }
 //        }
+
+        for(Warrior warrior:warriors){
+            ImageView imageView=new ImageView(warrior.getImage());
+            middlePane.getChildren().add(imageView);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(50);
+            imageView.setX(243+warrior.getX()*17.44);
+            imageView.setY(warrior.getY()*14.29);
+        }
     }
 
     public void select(ActionEvent event) {
