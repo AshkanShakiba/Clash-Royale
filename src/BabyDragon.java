@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class BabyDragon extends Troop {
-    public BabyDragon(User user){
+    public BabyDragon(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 hp = 800;
@@ -29,7 +31,6 @@ public class BabyDragon extends Troop {
         range = 3;
         areaSplash = true;
         count = 1;
-        cost = 4;
         image = "assets/babyDragon.png";
     }
 

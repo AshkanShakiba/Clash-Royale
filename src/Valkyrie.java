@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Valkyrie extends Troop {
-    public Valkyrie(User user){
+    public Valkyrie(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 hp = 880;
@@ -29,7 +31,6 @@ public class Valkyrie extends Troop {
         range = 0;
         areaSplash = true;
         count = 1;
-        cost = 4;
         image = "assets/valkyrie.png";
     }
 

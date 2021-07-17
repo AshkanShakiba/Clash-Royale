@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Wizard extends Troop {
-    public Wizard(User user){
+    public Wizard(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 hp = 340;
@@ -29,7 +31,6 @@ public class Wizard extends Troop {
         range = 5;
         areaSplash = true;
         count = 1;
-        cost = 5;
         image = "assets/wizard.png";
     }
 

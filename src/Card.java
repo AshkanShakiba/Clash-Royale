@@ -28,32 +28,31 @@ public enum Card {
         return image;
     }
 
-    public Warrior getWarrior(User user) {
+    public Warrior getWarrior(User user,double x,double y) {
         if (this == BARBARIANS)
-            return new Barbarians(user);
+            return new Barbarians(user,x,y);
         if (this == ARCHERS)
-            return new Archers(user);
+            return new Archers(user,x,y);
         if (this == BABYDRAGON)
-            return new BabyDragon(user);
+            return new BabyDragon(user,x,y);
         if (this == WIZARD)
-            return new Wizard(user);
+            return new Wizard(user,x,y);
         if (this == MINIPEKKA)
-            return new MiniPekka(user);
+            return new MiniPekka(user,x,y);
         if (this == GIANT)
-            return new Giant(user);
+            return new Giant(user,x,y);
         if (this == VALKYRIE)
-            return new Valkyrie(user);
+            return new Valkyrie(user,x,y);
         if (this == RAGE)
-            return new Rage(user);
+            return new Rage(user,x,y);
         if (this == FIREBALL)
-            return new Fireball(user);
+            return new Fireball(user,x,y);
         if (this == ARROWS)
-            return new Arrows(user);
+            return new Arrows(user,x,y);
         if (this == CANNON)
-            return new Cannon(user);
+            return new Cannon(user,x,y);
         if (this == INFERNOTOWER)
-            return new InfernoTower(user);
+            return new InfernoTower(user,x,y);
         return null;
     }
-
 }

@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Giant extends Troop {
-    public Giant(User user){
+    public Giant(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 hp = 2000;
@@ -29,7 +31,6 @@ public class Giant extends Troop {
         range = 0;
         areaSplash = false;
         count = 1;
-        cost = 5;
         image = "assets/giant.png";
     }
 

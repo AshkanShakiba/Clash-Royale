@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Archers extends Troop {
-    public Archers(User user) {
+    public Archers(User user,double x,double y) {
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()) {
             case 1:
                 hp = 125;
@@ -29,7 +31,6 @@ public class Archers extends Troop {
         range = 5;
         areaSplash = false;
         count = 2;
-        cost = 3;
         image = "assets/archers.png";
     }
 

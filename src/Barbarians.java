@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Barbarians extends Troop {
-    public Barbarians(User user){
+    public Barbarians(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 hp = 300;
@@ -29,7 +31,6 @@ public class Barbarians extends Troop {
         range = 0;
         areaSplash = false;
         count = 4;
-        cost = 5;
         image = "assets/barbarians.png";
     }
 

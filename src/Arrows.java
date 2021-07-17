@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Arrows extends Spell {
-    public Arrows(User user){
+    public Arrows(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 areaDamage = 144;
@@ -19,7 +21,6 @@ public class Arrows extends Spell {
                 areaDamage = 210;
         }
         radius = 4;
-        cost = 3;
         image = "assets/arrows.png";
     }
     @Override

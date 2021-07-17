@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Rage extends Spell {
-    public Rage(User user){
+    public Rage(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 duration = 6;
@@ -19,7 +21,6 @@ public class Rage extends Spell {
                 duration = 8;
         }
         radius = 5;
-        cost = 3;
         image = "assets/rage.png";
     }
 

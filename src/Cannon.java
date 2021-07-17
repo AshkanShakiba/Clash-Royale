@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Cannon extends Building {
-    public Cannon(User user) {
+    public Cannon(User user,double x,double y) {
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()) {
             case 1:
                 hp = 380;
@@ -27,7 +29,6 @@ public class Cannon extends Building {
         target = 0;
         range = 5.5;
         lifetime = 30;
-        cost = 6;
         image = "assets/cannon.png";
     }
 

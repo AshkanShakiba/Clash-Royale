@@ -1,10 +1,7 @@
 public abstract class Warrior {
-    protected int cost;
+    protected double x;
+    protected double y;
     protected String image;
-
-    public int getCost() {
-        return cost;
-    }
 
     public String getImage() {
         return image;

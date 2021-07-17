@@ -1,7 +1,9 @@
 import javafx.scene.image.Image;
 
 public class Fireball extends Spell {
-    public Fireball(User user){
+    public Fireball(User user,double x,double y){
+        this.x=x;
+        this.y=y;
         switch (user.getLevel()){
             case 1:
                 areaDamage = 325;
@@ -19,7 +21,6 @@ public class Fireball extends Spell {
                 areaDamage = 474;
         }
         radius = 2.5;
-        cost = 4;
         image = "assets/fireball.png";
     }
 
