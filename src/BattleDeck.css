@@ -1,0 +1,5 @@
+#storeCard1, #storeCard2, #storeCard3, #storeCard4, #storeCard5, #storeCard6, #storeCard7, #storeCard8, #storeCard9
+, #storeCard10, #storeCard11, #storeCard12, #deckCard1, #deckCard2, #deckCard3, #deckCard4, #deckCard5, #deckCard6
+, #deckCard7, #deckCard8 {
+    -fx-background-size: 100% 100%;
+}
