@@ -34,7 +34,7 @@ public class Main extends Application {
         stage.setOnCloseRequest(event -> { event.consume(); exit(stage); });
     }
 
-    private void exit(Stage stage) {
+    public static void exit(Stage stage) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
         alert.setHeaderText("Unsaved data will be fucked");
