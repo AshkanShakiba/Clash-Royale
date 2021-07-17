@@ -47,6 +47,8 @@ public class Game {
     private Warrior[][] map2;
     private Warrior[][] map3;
     private Warrior[][] map4;
+    private boolean map2IsValid;
+    private boolean map3IsValid;
     private ImageView[][] imageViews;
     private Card nextCard;
     private int selectedCardIndex;
@@ -73,13 +75,15 @@ public class Game {
                 map1[i][j] = null;
             }
         }
+        map2IsValid = true;
+        map3IsValid = false;
         imageViews = new ImageView[18][28];
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
-                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get(j * 18 + i);
+                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get(j * 18 + i);
             }
             for (int j = 14; j < 28; j++) {
-                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get((j - 14) * 18 + i);
+                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get((j - 14) * 18 + i);
             }
         }
         this.user = user;
@@ -106,7 +110,18 @@ public class Game {
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 14; j++) {
                 if (map1[i][j] != null) {
-                    imageViews[i][j].setImage(new Image(map1[i][j].getImage()));
+                    imageViews[i][j+14].setImage(new Image(map1[i][j].getImage()));
+                }
+            }
+        }
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (map2[i][j] != null) {
+                    imageViews[i][j+10].setImage(new Image(map2[i][j].getImage()));
+                }
+                if (map3[i][j] != null) {
+                    imageViews[i+9][j+10].setImage(new Image(map3[i][j].getImage()));
                 }
             }
         }
@@ -121,12 +136,29 @@ public class Game {
     }
 
     public void click(double x, double y) {
-        if (selectedCardIndex != -1 && 243 <= x && x <= 557 && 240 <= y && y <= 440) {
+        if (selectedCardIndex == -1) return;
+        if (243 <= x && x <= 557 && 240 <= y && y <= 440) {
             Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
             map1[X][Y] = card.getWarrior(user);
-            System.out.println(map1[X][Y].getClass().getName() + " at (" + X + "," + Y + ")");
+            System.out.println(map1[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [1]");
+            setNextCard(selectedCardIndex);
+        }
+        if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
+            Card card=availableCards.get(selectedCardIndex);
+            int X = (int) ((x - 243) / 17.44);
+            int Y = (int) ((y - 143) / 14.29);
+            map2[X][Y] = card.getWarrior(user);
+            System.out.println(map2[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [2]");
+            setNextCard(selectedCardIndex);
+        }
+        if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
+            Card card=availableCards.get(selectedCardIndex);
+            int X = (int) ((x - 400) / 17.44);
+            int Y = (int) ((y - 143) / 14.29);
+            map3[X][Y] = card.getWarrior(user);
+            System.out.println(map3[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [3]");
             setNextCard(selectedCardIndex);
         }
     }
