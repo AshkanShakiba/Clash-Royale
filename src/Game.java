@@ -103,7 +103,7 @@ public class Game {
         availableCards.add(getNextCard());
         nextCard = getNextCard();
         selectedCardIndex = -1;
-        new Thread(new Updater(this)).start();
+        //new Thread(new Updater(this)).start();
     }
 
     public void update() {

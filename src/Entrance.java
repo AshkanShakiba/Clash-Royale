@@ -1,3 +1,5 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -36,6 +39,21 @@ public class Entrance {
             Game game = loader.getController();
             User user=new User();
             game.construct(user);
+
+            Timeline updateTimeLine = new Timeline(
+                    new KeyFrame(Duration.millis(250),
+                            new EventHandler<ActionEvent>() {
+
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    game.update();
+                                    //System.out.println("this is called every 5 seconds on UI thread");
+                                }
+                            }));
+
+            updateTimeLine.setCycleCount(Timeline.INDEFINITE);
+            updateTimeLine.play();
+
             root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
