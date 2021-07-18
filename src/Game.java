@@ -1,4 +1,3 @@
-import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,8 +6,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.AudioClip;
-import javafx.scene.shape.Line;
-import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -80,8 +77,8 @@ public class Game {
         if (elixir < 10) elixir += .125;
         elixirBar.setProgress(((int) elixir) / 10.0);
 
-        for(Warrior warrior : warriorsInTheMap){
-            if(!warrior.isAlive()){
+        for (Warrior warrior : warriorsInTheMap) {
+            if (!warrior.isAlive()) {
                 warrior.setImageView(null);
                 warriorsInTheMap.remove(warrior);
                 warriorsInTheMap.remove(warrior);
@@ -110,14 +107,13 @@ public class Game {
                         }
 
 
-
                     }
                 }
             }
         }
     }
 
-    public void moveAWarrior(Warrior warrior){
+    public void moveAWarrior(Warrior warrior) {
 //        PathTransition slide = new PathTransition();
 //        slide.setDuration(Duration.millis((3000 / ((Troop) warrior).getSpeed())));
 //        slide.setNode(warrior.getImageView());
@@ -204,8 +200,8 @@ public class Game {
         return card;
     }
 
-    private void playAudio(String audio){
-        if(audio.equals("poukh")){
+    private void playAudio(String audio) {
+        if (audio.equals("poukh")) {
             //AudioClip audioClip=new AudioClip(getClass().getResource("audios/Poukh.m4a").toString());
             //AudioClip audioClip=new AudioClip("audios/Poukh.m4a");
             //audioClip.play();

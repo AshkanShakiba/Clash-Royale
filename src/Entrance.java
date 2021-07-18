@@ -37,7 +37,7 @@ public class Entrance {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
             Parent root = loader.load();
             Game game = loader.getController();
-            User user=new User();
+            User user = new User();
             game.construct(user);
 
             Timeline updateTimeLine = new Timeline(
