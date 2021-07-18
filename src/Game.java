@@ -33,10 +33,6 @@ public class Game {
     private Button next;
     @FXML
     private Label nextLabel;
-    //    @FXML
-//    private FlowPane flowPaneU;
-//    @FXML
-//    private FlowPane flowPaneO;
     @FXML
     private ProgressBar elixirBar;
 
@@ -44,13 +40,8 @@ public class Game {
     private double x, y;
     private double elixir;
     private Warrior[][] map;
-    //    private Warrior[][] map1;
-//    private Warrior[][] map2;
-//    private Warrior[][] map3;
-//    private Warrior[][] map4;
     private boolean map2IsValid;
     private boolean map3IsValid;
-    //    private ImageView[][] imageViews;
     private Card nextCard;
     private int selectedCardIndex;
     private ArrayList<Card> availableCards;
@@ -60,25 +51,6 @@ public class Game {
 
     public void construct(User user) {
         elixir = 4;
-//        map1 = new Warrior[18][14];
-//        for (int i = 0; i < 18; i++) {
-//            for (int j = 0; j < 14; j++) {
-//                map1[i][j] = null;
-//            }
-//        }
-//        map2 = new Warrior[9][4];
-//        map3 = new Warrior[9][4];
-//        for (int i = 0; i < 9; i++) {
-//            for (int j = 0; j < 4; j++) {
-//                map2[i][j] = map3[i][j] = null;
-//            }
-//        }
-//        map4 = new Warrior[18][10];
-//        for (int i = 0; i < 18; i++) {
-//            for (int j = 0; j < 10; j++) {
-//                map1[i][j] = null;
-//            }
-//        }
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < 28; j++) {
@@ -87,15 +59,6 @@ public class Game {
         }
         map2IsValid = true;
         map3IsValid = false;
-//        imageViews = new ImageView[18][28];
-//        for (int i = 0; i < 18; i++) {
-//            for (int j = 0; j < 14; j++) {
-//                imageViews[i][j] = (ImageView) flowPaneO.getChildren().get(j * 18 + i);
-//            }
-//            for (int j = 14; j < 28; j++) {
-//                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get((j - 14) * 18 + i);
-//            }
-//        }
         this.user = user;
         availableCards = new ArrayList<>();
         availableCards.add(getNextCard());
@@ -116,14 +79,6 @@ public class Game {
 
         if (elixir < 10) elixir += .125;
         elixirBar.setProgress(((int) elixir) / 10.0);
-
-//        for (int i = 0; i < 18; i++) {
-//            for (int j = 0; j < 28; j++) {
-//                if (map[i][j] != null) {
-//                    imageViews[i][j].setImage(new Image(map[i][j].getImage()));
-//                }
-//            }
-//        }
 
         for(Warrior warrior : warriorsInTheMap){
 /*
@@ -316,36 +271,6 @@ public class Game {
             elixir -= card.getCost();
             selectedCardIndex = -1;
         }
-//        if (243 <= x && x <= 557 && 240 <= y && y <= 440) {
-//            Card card = availableCards.get(selectedCardIndex);
-//            int X = (int) ((x - 243) / 17.44);
-//            int Y = (int) ((y - 240) / 14.29);
-//            map1[X][Y] = card.getWarrior(user);
-//            System.out.println(map1[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [1]");
-//            setNextCard(selectedCardIndex);
-//            selectedCardIndex = -1;
-//            elixir -= card.getCost();
-//        }
-//        if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
-//            Card card = availableCards.get(selectedCardIndex);
-//            int X = (int) ((x - 243) / 17.44);
-//            int Y = (int) ((y - 143) / 14.29);
-//            map2[X][Y] = card.getWarrior(user);
-//            System.out.println(map2[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [2]");
-//            setNextCard(selectedCardIndex);
-//            selectedCardIndex = -1;
-//            elixir -= card.getCost();
-//        }
-//        if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
-//            Card card = availableCards.get(selectedCardIndex);
-//            int X = (int) ((x - 400) / 17.44);
-//            int Y = (int) ((y - 143) / 14.29);
-//            map3[X][Y] = card.getWarrior(user);
-//            System.out.println(map3[X][Y].getClass().getName() + " at (" + X + "," + Y + ") [3]");
-//            setNextCard(selectedCardIndex);
-//            selectedCardIndex = -1;
-//            elixir -= card.getCost();
-//        }
     }
 
     private void setNextCard(int index) {
