@@ -208,7 +208,7 @@ public class Game {
         Line line = new Line();
         line.setEndX(endX * 17.44 + 25);
         //line.setStartX(warrior.getImageView().getX());
-        line.setEndY(endY * 14.29 + 240 - 10);
+        line.setEndY(endY * 14.29 + 240);
         //line.setStartY(warrior.getImageView().getY());
         line.setStartX(warrior.getImageView().getX());
         line.setStartY(warrior.getImageView().getY());
@@ -217,7 +217,7 @@ public class Game {
         System.out.println(warrior.getArrayX() + " " + warrior.getArrayY());
         slide.play();
         warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 25);
-        warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 240 - 10);
+        warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 240);
     }
 
     public void select(ActionEvent event) {
