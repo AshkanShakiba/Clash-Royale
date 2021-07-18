@@ -52,7 +52,7 @@ public class Menu {
 
     public void battleDeck(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("BattleDeck.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("battleDeck.fxml"));
             Parent root = loader.load();
             BattleDeck battleDeck = loader.getController();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -55,7 +55,7 @@ public class SignIn {
             if(validateSignIn()){
                 Main.getUsers().add(currentUser());
                 Main.printUsers();
-                goToBattleDeck(event);
+                goToMenu(event);
             }
         } else {
             signInMessage.setText("please enter password & username");
@@ -129,11 +129,11 @@ public class SignIn {
         }
     }
 
-    public void goToBattleDeck(ActionEvent event) {
+    public void goToMenu(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("BattleDeck.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Parent root = loader.load();
-            BattleDeck battleDeck = loader.getController();
+            Menu menu = loader.getController();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
