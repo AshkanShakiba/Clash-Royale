@@ -16,10 +16,10 @@ public class User {
         random = new SecureRandom();
         username = "";
 
-//        cards.add(Card.BARBARIANS);
-//        cards.add(Card.ARCHERS);
-//        cards.add(Card.BABYDRAGON);
-//        cards.add(Card.WIZARD);
+        cards.add(Card.BARBARIANS);
+        cards.add(Card.ARCHERS);
+        cards.add(Card.BABYDRAGON);
+        cards.add(Card.WIZARD);
         cards.add(Card.MINIPEKKA);
         cards.add(Card.GIANT);
         cards.add(Card.VALKYRIE);
