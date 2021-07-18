@@ -10,10 +10,6 @@ public abstract class Warrior {
     protected boolean isAlive = true;
 
 
-    public double getX() {
-        return arrayX;
-    }
-
     public int getArrayY() {
         return arrayY;
     }
@@ -50,14 +46,11 @@ public abstract class Warrior {
         this.imageView = imageView;
     }
 
-    public void buildImageView(){
-//        imageView = new ImageView(image);
-//        imageView.setFitWidth(50);
-//        imageView.setFitHeight(50);
-//        mapX = arrayX*17.44 + 25;
-//        mapY = arrayY *14.29 + 240 -10;
-//        imageView.setX(mapX);
-//        imageView.setY(mapY);
+    public void buildImageView() {
+        mapX = arrayX * 17.44 + 25;
+        mapY = arrayY * 14.29 + 240 - 20;
+        imageView.setX(mapX);
+        imageView.setY(mapY);
     }
 
 
