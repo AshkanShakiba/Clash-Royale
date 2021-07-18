@@ -47,19 +47,24 @@
                   </ImageView>
                   <AnchorPane prefHeight="200.0" prefWidth="400.0" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="252.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="252.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="54.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="55.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="157.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="156.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingTowerBlue.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="130.0" layoutX="135.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/KingBlue.gif" />
                            </image>
                         </ImageView>
                      </children>
@@ -79,6 +84,11 @@
                         <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingTowerRed.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="137.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/KingRed.gif" />
                            </image>
                         </ImageView>
                      </children>
