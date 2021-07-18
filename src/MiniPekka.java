@@ -31,7 +31,7 @@ public class MiniPekka extends Troop {
         range = 0;
         areaSplash = false;
         count = 1;
-        image = "assets/miniPekka.png";
+        image = "sprites/MiniPekkaBlue.gif";
 
         imageView = new ImageView(image);
         imageView.setFitWidth(50);

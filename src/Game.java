@@ -293,8 +293,8 @@ public class Game {
     private void playAudio(String audio){
         if(audio.equals("poukh")){
             //AudioClip audioClip=new AudioClip(getClass().getResource("audios/Poukh.m4a").toString());
-            AudioClip audioClip=new AudioClip("audios/Poukh.m4a");
-            audioClip.play();
+            //AudioClip audioClip=new AudioClip("audios/Poukh.m4a");
+            //audioClip.play();
         }
     }
 }
