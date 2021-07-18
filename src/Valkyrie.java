@@ -34,8 +34,8 @@ public class Valkyrie extends Troop {
         image = "sprites/ValkyrieBlue.gif";
 
         imageView = new ImageView(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageView.setFitWidth(70);
+        imageView.setFitHeight(70);
         mapX = arrayX * 17.44 + 25;
         mapY = arrayY * 14.29 + 240 - 10;
         imageView.setX(mapX);

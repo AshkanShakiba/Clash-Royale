@@ -51,13 +51,13 @@ public abstract class Warrior {
     }
 
     public void buildImageView(){
-        imageView = new ImageView(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        mapX = arrayX*17.44 + 25;
-        mapY = arrayY *14.29 + 240 -10;
-        imageView.setX(mapX);
-        imageView.setY(mapY);
+//        imageView = new ImageView(image);
+//        imageView.setFitWidth(50);
+//        imageView.setFitHeight(50);
+//        mapX = arrayX*17.44 + 25;
+//        mapY = arrayY *14.29 + 240 -10;
+//        imageView.setX(mapX);
+//        imageView.setY(mapY);
     }
 
 

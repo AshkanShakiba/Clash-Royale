@@ -34,8 +34,8 @@ public class Giant extends Troop {
         image = "sprites/GiantBlue.gif";
 
         imageView = new ImageView(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageView.setFitWidth(120);
+        imageView.setFitHeight(120);
         mapX = arrayX * 17.44 + 25;
         mapY = arrayY * 14.29 + 240 - 10;
         imageView.setX(mapX);

@@ -34,8 +34,8 @@ public class Wizard extends Troop {
         image = "sprites/WizardBlue.gif";
 
         imageView = new ImageView(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageView.setFitWidth(90);
+        imageView.setFitHeight(90);
         mapX = arrayX * 17.44 + 25;
         mapY = arrayY * 14.29 + 240 - 10;
         imageView.setX(mapX);

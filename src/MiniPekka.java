@@ -34,8 +34,8 @@ public class MiniPekka extends Troop {
         image = "sprites/MiniPekkaBlue.gif";
 
         imageView = new ImageView(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageView.setFitWidth(60);
+        imageView.setFitHeight(60);
         mapX = arrayX*17.44 + 25;
         mapY = arrayY *14.29 + 240 -10;
         imageView.setX(mapX);
