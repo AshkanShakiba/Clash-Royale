@@ -1,9 +1,9 @@
-import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Valkyrie extends Troop {
-    public Valkyrie(User user,double x,double y){
-        this.x=x;
-        this.y=y;
+    public Valkyrie(User user,int x,int y){
+        this.arrayX=x;
+        this.arrayY =y;
         switch (user.getLevel()){
             case 1:
                 hp = 880;
@@ -32,6 +32,14 @@ public class Valkyrie extends Troop {
         areaSplash = true;
         count = 1;
         image = "assets/valkyrie.png";
+
+        imageView = new ImageView(image);
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(50);
+        mapX = arrayX*17.44 + 25;
+        mapY = arrayY *14.29 + 240 -10;
+        imageView.setX(mapX);
+        imageView.setY(mapY);
     }
 
     @Override

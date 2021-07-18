@@ -1,17 +1,25 @@
 import javafx.scene.image.ImageView;
 
 public abstract class Warrior {
-    protected double x;
-    protected double y;
+    protected int arrayX;
+    protected int arrayY;
+    protected double mapX;
+    protected double mapY;
     protected String image;
     protected ImageView imageView;
+    protected boolean isAlive = true;
+
 
     public double getX() {
-        return x;
+        return arrayX;
     }
 
-    public double getY() {
-        return y;
+    public int getArrayY() {
+        return arrayY;
+    }
+
+    public int getArrayX() {
+        return arrayX;
     }
 
     public String getImage() {
@@ -22,6 +30,22 @@ public abstract class Warrior {
         return imageView;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setArrayX(int arrayX) {
+        this.arrayX = arrayX;
+    }
+
+    public void setArrayY(int arrayY) {
+        this.arrayY = arrayY;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
@@ -30,7 +54,11 @@ public abstract class Warrior {
         imageView = new ImageView(image);
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
-        imageView.setX(x*17.44 + 25);
-        imageView.setY(y*14.29 + 240 -10);
+        mapX = arrayX*17.44 + 25;
+        mapY = arrayY *14.29 + 240 -10;
+        imageView.setX(mapX);
+        imageView.setY(mapY);
     }
+
+
 }

@@ -28,7 +28,7 @@ public enum Card {
         return image;
     }
 
-    public Warrior getWarrior(User user,double x,double y) {
+    public Warrior getWarrior(User user,int x,int y) {
         if (this == BARBARIANS)
             return new Barbarians(user,x,y);
         if (this == ARCHERS)

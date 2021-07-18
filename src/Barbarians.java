@@ -1,9 +1,9 @@
-import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Barbarians extends Troop {
-    public Barbarians(User user,double x,double y){
-        this.x=x;
-        this.y=y;
+    public Barbarians(User user,int x,int y){
+        this.arrayX=x;
+        this.arrayY =y;
         switch (user.getLevel()){
             case 1:
                 hp = 300;
@@ -32,6 +32,14 @@ public class Barbarians extends Troop {
         areaSplash = false;
         count = 4;
         image = "assets/barbarians.png";
+
+        imageView = new ImageView(image);
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(50);
+        mapX = arrayX*17.44 + 25;
+        mapY = arrayY *14.29 + 240 -10;
+        imageView.setX(mapX);
+        imageView.setY(mapY);
     }
 
     @Override

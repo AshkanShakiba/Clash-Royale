@@ -1,14 +1,16 @@
+import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Line;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class Game {
     @FXML
@@ -52,8 +54,9 @@ public class Game {
     private Card nextCard;
     private int selectedCardIndex;
     private ArrayList<Card> availableCards;
-    private ArrayList<Warrior> warriors;
-    private HashMap<Warrior, ImageView> warriorsInTheMap = new HashMap<>();
+    private HashSet<Warrior> warriorsInTheMap = new HashSet<>();
+
+    private int round = 0;
 
     public void construct(User user) {
         elixir = 4;
@@ -93,7 +96,6 @@ public class Game {
 //                imageViews[i][j] = (ImageView) flowPaneU.getChildren().get((j - 14) * 18 + i);
 //            }
 //        }
-        warriors = new ArrayList<>();
         this.user = user;
         availableCards = new ArrayList<>();
         availableCards.add(getNextCard());
@@ -112,7 +114,7 @@ public class Game {
         card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
         next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
 
-        if (elixir < 10) elixir += 0.125;
+        if (elixir < 10) elixir += .125;
         elixirBar.setProgress(((int) elixir) / 10.0);
 
 //        for (int i = 0; i < 18; i++) {
@@ -123,15 +125,143 @@ public class Game {
 //            }
 //        }
 
-        for(Warrior warrior:warriors){
+        for(Warrior warrior : warriorsInTheMap){
+/*
+            int firstSize = warriorsInTheMap.size();
             warrior.buildImageView();
             ImageView imageView  = warrior.getImageView();
-            middlePane.getChildren().add(imageView);
-            warriorsInTheMap.put(warrior, imageView);
+            warriorsInTheMap.add(warrior);
+
+            if(warriorsInTheMap.size() > firstSize) {
+                middlePane.getChildren().add(imageView);
+            }
+
+ */
+            if(!warrior.isAlive()){
+                warrior.setImageView(null);
+                warriorsInTheMap.remove(warrior);
+                warriorsInTheMap.remove(warrior);
+            }
 
         }
 
+        simpleGame();
+        round++;
 
+    }
+
+/*
+    public void movingTroopsHorizontalInTheMap(int round){
+        for(Warrior warrior : warriorsInTheMap){
+            if(warrior instanceof Troop) {
+                if ((((Troop) warrior).getSpeed() == 2 && round % 12 == 0) ||
+                        (((Troop) warrior).getSpeed() == 3 && round % 8 == 0) ||
+                        (((Troop) warrior).getSpeed() == 4 && round % 6 == 0)) {
+                    if (warrior.getArrayX() != 4) {
+                        if (warrior.getArrayX() < 4) {
+                            warrior.setArrayX(warrior.getArrayX() + 1);
+                        } else if (warrior.getArrayX() > 4) {
+                            warrior.setArrayX(warrior.getArrayX() - 1);
+                        }
+
+                        PathTransition slide = new PathTransition();
+                        slide.setDuration(Duration.millis((3000 / ((Troop) warrior).getSpeed())));
+                        slide.setNode(warrior.getImageView());
+                        Line line = new Line();
+                        line.setStartX(warrior.getImageView().getX());
+                        line.setStartY(warrior.getImageView().getY());
+                        line.setEndX(warrior.getArrayX() * 17.44 + 25);
+                        line.setEndY(warrior.getImageView().getY());
+                        slide.setPath(line);
+                        System.out.println(warrior.getImageView().getX() + " " + warrior.getImageView().getY());
+                        System.out.println(warrior.getArrayX() + " " + warrior.getArrayY());
+                        slide.play();
+                        warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 25);
+                    } else {
+                        System.out.println("********************************");
+                        movingTroopsVerticalInTheMap(round);
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void movingTroopsVerticalInTheMap(int round){
+
+        for(Warrior warrior : warriorsInTheMap){
+            if(warrior instanceof Troop) {
+               if ((((Troop) warrior).getSpeed() == 2 && round % 12 == 0) ||
+                        (((Troop) warrior).getSpeed() == 3 && round % 8 == 0) ||
+                       (((Troop) warrior).getSpeed() == 4 && round % 6 == 0)) {
+                    if (warrior.getArrayY() != 0) {
+                        if (warrior.getArrayY() < 0) {
+                            warrior.setArrayY(warrior.getArrayY() + 1);
+                        } else if (warrior.getArrayY() > 0) {
+                            warrior.setArrayY(warrior.getArrayY() - 1);
+                        }
+
+                        PathTransition slide = new PathTransition();
+                        slide.setDuration(Duration.millis((3000 / ((Troop) warrior).getSpeed())));
+                        slide.setNode(warrior.getImageView());
+                        Line line = new Line();
+                        line.setStartX(warrior.getImageView().getX());
+                        line.setStartY(warrior.getImageView().getY());
+                        line.setEndX(warrior.getImageView().getX());
+                        line.setEndY(warrior.getArrayY() * 14.29 + 240 - 10);
+                        slide.setPath(line);
+                        System.out.println(warrior.getImageView().getX() + " " + warrior.getImageView().getY());
+                        System.out.println(warrior.getArrayX() + " " + warrior.getArrayY());
+                        slide.play();
+                        warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 240 - 10);
+                    }
+                }
+            }
+        }
+
+ */
+
+    public void simpleGame() {
+        for (Warrior warrior : warriorsInTheMap) {
+            if (warrior instanceof Troop) {
+                if ((((Troop) warrior).getSpeed() == 2 && round % 12 == 0) ||
+                        (((Troop) warrior).getSpeed() == 3 && round % 8 == 0) ||
+                        (((Troop) warrior).getSpeed() == 4 && round % 6 == 0)) {
+
+                    if (warrior.getArrayX() != 3) {
+                        if (warrior.getArrayX() < 3) {
+                            moveAWarrior(warrior, warrior.getArrayX() - 1, warrior.getArrayY());
+                            warrior.setArrayX(warrior.getArrayX() + 1);
+                        } else if (warrior.getArrayX() > 3) {
+                            moveAWarrior(warrior, warrior.getArrayX(), warrior.getArrayY());
+                            warrior.setArrayX(warrior.getArrayX() - 1);
+                        }
+
+
+
+                    }
+                }
+            }
+        }
+    }
+
+    public void moveAWarrior(Warrior warrior, double endX, double endY ){
+        PathTransition slide = new PathTransition();
+        slide.setDuration(Duration.millis((3000 / ((Troop) warrior).getSpeed())));
+        slide.setNode(warrior.getImageView());
+        Line line = new Line();
+        line.setEndX(endX * 17.44 + 25);
+        //line.setStartX(warrior.getImageView().getX());
+        line.setEndY(endY * 14.29 + 240 - 10);
+        //line.setStartY(warrior.getImageView().getY());
+        line.setStartX(warrior.getImageView().getX());
+        line.setStartY(warrior.getImageView().getY());
+        slide.setPath(line);
+        //System.out.println(warrior.getImageView().getX() + " " + warrior.getImageView().getY());
+        System.out.println(warrior.getArrayX() + " " + warrior.getArrayY());
+        slide.play();
+        warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 25);
+        warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 240 - 10);
     }
 
     public void select(ActionEvent event) {
@@ -150,7 +280,9 @@ public class Game {
             int Y = (int) ((y - 240) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
             map[X][Y + 14] = warrior;
-            warriors.add(warrior);
+            warriorsInTheMap.add(warrior);
+            warrior.buildImageView();
+            middlePane.getChildren().add(warrior.imageView);
             System.out.println(map[X][Y + 14].getClass().getName() + " at (" + X + "," + (Y + 14) + ")");
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
@@ -162,7 +294,9 @@ public class Game {
             int Y = (int) ((y - 143) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
             map[X][Y + 10] = warrior;
-            warriors.add(warrior);
+            warriorsInTheMap.add(warrior);
+            warrior.buildImageView();
+            middlePane.getChildren().add(warrior.imageView);
             System.out.println(map[X][Y + 10].getClass().getName() + " at (" + X + "," + (Y + 10) + ")");
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
@@ -174,7 +308,9 @@ public class Game {
             int Y = (int) ((y - 143) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
             map[X + 9][Y + 10] = warrior;
-            warriors.add(warrior);
+            warriorsInTheMap.add(warrior);
+            warrior.buildImageView();
+            middlePane.getChildren().add(warrior.imageView);
             System.out.println(map[X + 9][Y + 10].getClass().getName() + " at (" + (X + 9) + "," + (Y + 10) + ")");
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();

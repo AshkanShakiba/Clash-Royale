@@ -1,9 +1,9 @@
-import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Cannon extends Building {
-    public Cannon(User user,double x,double y) {
-        this.x=x;
-        this.y=y;
+    public Cannon(User user,int x,int y) {
+        this.arrayX=x;
+        this.arrayY =y;
         switch (user.getLevel()) {
             case 1:
                 hp = 380;
@@ -30,6 +30,14 @@ public class Cannon extends Building {
         range = 5.5;
         lifetime = 30;
         image = "assets/cannon.png";
+
+        imageView = new ImageView(image);
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(50);
+        mapX = arrayX*17.44 + 25;
+        mapY = arrayY *14.29 + 240 -10;
+        imageView.setX(mapX);
+        imageView.setY(mapY);
     }
 
     @Override
