@@ -10,6 +10,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -77,7 +78,7 @@ public class Game {
         card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
         next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
 
-        if (elixir < 10) elixir += .125;
+        if (elixir < 10) elixir += 5; // .125
         elixirBar.setProgress(((int) elixir) / 10.0);
 
         for (Warrior warrior : warriorsInTheMap) {
@@ -156,7 +157,7 @@ public class Game {
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
-            playAudio("poukh");
+            playAudio(card.getAudio());
         }
         if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
             Card card = availableCards.get(selectedCardIndex);
@@ -171,7 +172,7 @@ public class Game {
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
-            playAudio("poukh");
+            playAudio(card.getAudio());
         }
         if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
             Card card = availableCards.get(selectedCardIndex);
@@ -186,7 +187,7 @@ public class Game {
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
-            playAudio("poukh");
+            playAudio(card.getAudio());
         }
     }
 
@@ -203,11 +204,11 @@ public class Game {
         return card;
     }
 
-    private void playAudio(String audio) {
-        if (audio.equals("poukh")) {
-            AudioClip audioClip=new AudioClip(getClass().getResource("audios/Poukh.m4a").toString());
-            audioClip.play();
-        }
+    private void playAudio(String audioPath) {
+        //AudioClip audioClip=new AudioClip(getClass().getResource(audioPath).toString());
+        //audioClip.play();
+        Media m = new Media(Paths.get("src//"+audioPath).toUri().toString());
+        new MediaPlayer(m).play();
     }
 
     /*

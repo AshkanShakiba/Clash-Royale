@@ -14,10 +14,12 @@ public enum Card {
 
     private int cost;
     private String image;
+    private String audio;
 
     Card(int cost) {
         this.cost = cost;
         image = "assets/" + this.name() + ".png";
+        audio = "audios/" + this.name() + ".mp3";
     }
 
     public int getCost() {
@@ -28,31 +30,35 @@ public enum Card {
         return image;
     }
 
-    public Warrior getWarrior(User user,int x,int y) {
+    public String getAudio() {
+        return audio;
+    }
+
+    public Warrior getWarrior(User user, int x, int y) {
         if (this == BARBARIANS)
-            return new Barbarians(user,x,y);
+            return new Barbarians(user, x, y);
         if (this == ARCHERS)
-            return new Archers(user,x,y);
+            return new Archers(user, x, y);
         if (this == BABYDRAGON)
-            return new BabyDragon(user,x,y);
+            return new BabyDragon(user, x, y);
         if (this == WIZARD)
-            return new Wizard(user,x,y);
+            return new Wizard(user, x, y);
         if (this == MINIPEKKA)
-            return new MiniPekka(user,x,y);
+            return new MiniPekka(user, x, y);
         if (this == GIANT)
-            return new Giant(user,x,y);
+            return new Giant(user, x, y);
         if (this == VALKYRIE)
-            return new Valkyrie(user,x,y);
+            return new Valkyrie(user, x, y);
         if (this == RAGE)
-            return new Rage(user,x,y);
+            return new Rage(user, x, y);
         if (this == FIREBALL)
-            return new Fireball(user,x,y);
+            return new Fireball(user, x, y);
         if (this == ARROWS)
-            return new Arrows(user,x,y);
+            return new Arrows(user, x, y);
         if (this == CANNON)
-            return new Cannon(user,x,y);
+            return new Cannon(user, x, y);
         if (this == INFERNOTOWER)
-            return new InfernoTower(user,x,y);
+            return new InfernoTower(user, x, y);
         return null;
     }
 }
