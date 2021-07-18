@@ -33,7 +33,17 @@ public class Entrance {
     }
 
     public void about(ActionEvent event) {
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("about.fxml"));
+            Parent root = loader.load();
+            About about = loader.getController();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
     public void exit(ActionEvent event) {
