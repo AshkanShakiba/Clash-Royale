@@ -1,4 +1,5 @@
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Arrows extends Spell {
     public Arrows(User user,double x,double y){
@@ -22,6 +23,7 @@ public class Arrows extends Spell {
         }
         radius = 4;
         image = "assets/arrows.png";
+
     }
     @Override
     public String toString() {

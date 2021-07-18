@@ -3,14 +3,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
     @FXML
@@ -55,6 +53,7 @@ public class Game {
     private int selectedCardIndex;
     private ArrayList<Card> availableCards;
     private ArrayList<Warrior> warriors;
+    private HashMap<Warrior, ImageView> warriorsInTheMap = new HashMap<>();
 
     public void construct(User user) {
         elixir = 4;
@@ -125,13 +124,14 @@ public class Game {
 //        }
 
         for(Warrior warrior:warriors){
-            ImageView imageView=new ImageView(warrior.getImage());
+            warrior.buildImageView();
+            ImageView imageView  = warrior.getImageView();
             middlePane.getChildren().add(imageView);
-            imageView.setFitWidth(50);
-            imageView.setFitHeight(50);
-            imageView.setX(243+warrior.getX()*17.44);
-            imageView.setY(warrior.getY()*14.29);
+            warriorsInTheMap.put(warrior, imageView);
+
         }
+
+
     }
 
     public void select(ActionEvent event) {
