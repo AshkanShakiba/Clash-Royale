@@ -39,4 +39,11 @@ public abstract class Troop extends Warrior {
     public int getCount() {
         return count;
     }
+
+    public boolean damage(int damage) {
+        hp-=damage;
+        if(hp<=0)
+            return false;
+        return true;
+    }
 }
