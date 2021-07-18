@@ -45,6 +45,34 @@
                         <Insets />
                      </GridPane.margin>
                   </ImageView>
+                  <AnchorPane prefHeight="200.0" prefWidth="400.0" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="252.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/PrincessTowerBlue.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="54.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/PrincessTowerBlue.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="400.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="58.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/PrincessTowerRed.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="255.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/PrincessTowerRed.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children>
             </GridPane>
             <GridPane fx:id="cardsPane" layoutY="438.0" prefHeight="125.0" prefWidth="400.0">
