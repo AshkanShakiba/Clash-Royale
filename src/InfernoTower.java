@@ -1,9 +1,9 @@
 import javafx.scene.image.ImageView;
 
 public class InfernoTower extends Building {
-    public InfernoTower(User user,int x,int y) {
-        this.arrayX=x;
-        this.arrayY =y;
+    public InfernoTower(User user, int x, int y) {
+        this.arrayX = x;
+        this.arrayY = y;
         switch (user.getLevel()) {
             case 1:
                 hp = 800;
@@ -29,13 +29,13 @@ public class InfernoTower extends Building {
         target = 2;
         range = 6;
         lifetime = 40;
-        image = "assets/infernoTower.png";
+        image = "sprites/InfernoTowerBlue.png";
 
         imageView = new ImageView(image);
         imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        mapX = arrayX*17.44 + 25;
-        mapY = arrayY *14.29 + 240 -10;
+        imageView.setFitHeight(75);
+        mapX = arrayX * 17.44 + 25;
+        mapY = arrayY * 14.29 + 240 - 10;
         imageView.setX(mapX);
         imageView.setY(mapY);
     }
