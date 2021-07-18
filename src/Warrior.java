@@ -47,8 +47,8 @@ public abstract class Warrior {
     }
 
     public void buildImageView() {
-        mapX = arrayX * 17.44 + 25;
-        mapY = arrayY * 14.29 + 240 - 20;
+        mapX = arrayX * 17.44 + 17.44;
+        mapY = arrayY * 14.29 + 220;
         imageView.setX(mapX);
         imageView.setY(mapY);
     }

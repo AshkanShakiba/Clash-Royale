@@ -102,11 +102,11 @@ public class Game {
 
                     if (warrior.getArrayX() != 3) {
                         if (warrior.getArrayX() < 3) {
-                            moveAWarrior(warrior, warrior.getArrayX() - 1, warrior.getArrayY());
                             warrior.setArrayX(warrior.getArrayX() + 1);
+                            moveAWarrior(warrior);
                         } else if (warrior.getArrayX() > 3) {
-                            moveAWarrior(warrior, warrior.getArrayX(), warrior.getArrayY());
                             warrior.setArrayX(warrior.getArrayX() - 1);
+                            moveAWarrior(warrior);
                         }
 
 
@@ -117,23 +117,21 @@ public class Game {
         }
     }
 
-    public void moveAWarrior(Warrior warrior, double endX, double endY ){
-        PathTransition slide = new PathTransition();
-        slide.setDuration(Duration.millis((3000 / ((Troop) warrior).getSpeed())));
-        slide.setNode(warrior.getImageView());
-        Line line = new Line();
-        line.setEndX(endX * 17.44 + 25);
-        //line.setStartX(warrior.getImageView().getX());
-        line.setEndY(endY * 14.29 + 240);
-        //line.setStartY(warrior.getImageView().getY());
-        line.setStartX(warrior.getImageView().getX());
-        line.setStartY(warrior.getImageView().getY());
-        slide.setPath(line);
-        //System.out.println(warrior.getImageView().getX() + " " + warrior.getImageView().getY());
-        System.out.println(warrior.getArrayX() + " " + warrior.getArrayY());
-        slide.play();
-        warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 25);
-        warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 240);
+    public void moveAWarrior(Warrior warrior){
+//        PathTransition slide = new PathTransition();
+//        slide.setDuration(Duration.millis((3000 / ((Troop) warrior).getSpeed())));
+//        slide.setNode(warrior.getImageView());
+//        Line line = new Line();
+//        line.setEndX(warrior.getImageView().getX() - 17.44 );
+//        line.setEndY(warrior.getImageView().getY() - 14.29);
+//        line.setStartX(warrior.getImageView().getX());
+//        line.setStartY(warrior.getImageView().getY());
+//        slide.setPath(line);
+//        System.out.println(warrior.getImageView().getX() + " " + warrior.getImageView().getY());
+//        System.out.println(warrior.getArrayX() + " " + warrior.getArrayY());
+//        slide.play();
+        warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 17.44);
+        warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 220);
     }
 
     public void select(ActionEvent event) {
