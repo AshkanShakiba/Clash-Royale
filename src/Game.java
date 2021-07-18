@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
@@ -242,6 +243,7 @@ public class Game {
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
+            playAudio("poukh");
         }
         if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
             Card card = availableCards.get(selectedCardIndex);
@@ -256,6 +258,7 @@ public class Game {
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
+            playAudio("poukh");
         }
         if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
             Card card = availableCards.get(selectedCardIndex);
@@ -270,6 +273,7 @@ public class Game {
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
+            playAudio("poukh");
         }
     }
 
@@ -284,5 +288,13 @@ public class Game {
             card = user.getRandomCard();
         }
         return card;
+    }
+
+    private void playAudio(String audio){
+        if(audio.equals("poukh")){
+            //AudioClip audioClip=new AudioClip(getClass().getResource("audios/Poukh.m4a").toString());
+            AudioClip audioClip=new AudioClip("audios/Poukh.m4a");
+            audioClip.play();
+        }
     }
 }
