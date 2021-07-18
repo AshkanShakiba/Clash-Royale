@@ -57,6 +57,11 @@
                               <Image url="@sprites/PrincessTowerBlue.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="157.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/KingTowerBlue.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="400.0">
@@ -69,6 +74,11 @@
                         <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="255.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerRed.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sprites/KingTowerRed.png" />
                            </image>
                         </ImageView>
                      </children>
