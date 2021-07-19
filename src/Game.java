@@ -11,6 +11,7 @@ import javafx.scene.media.MediaPlayer;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Game {
     @FXML
@@ -79,13 +80,15 @@ public class Game {
         if (elixir < 10) elixir += 5; // .125
         elixirBar.setProgress(((int) elixir) / 10.0);
 
-        for (Warrior warrior : warriorsInTheMap) {
-            if (!warrior.isAlive()) {
-                warrior.setImageView(null);
-                warriorsInTheMap.remove(warrior);
-                warriorsInTheMap.remove(warrior);
+        Iterator iterator = warriorsInTheMap.iterator();
+        while (iterator.hasNext()) {
+            Warrior warrior = (Warrior) iterator.next();
+            if (!warrior.isAlive) {
+                iterator.remove();
+                middlePane.getChildren().remove(warrior.getImageView());
             }
         }
+
 
         starterWarriorsMovement();
         game();
@@ -216,10 +219,11 @@ public class Game {
 
                             } }
                     }else {
-                        if(warrior instanceof RealWarriors && (round %((RealWarriors) warrior).getHitSpeed()) == 0) {
-                            for (Warrior nearWarrior : warriorsInTheMap) {
+                        System.out.println("1111");
+                        if(warrior instanceof RealWarriors ) {
+                            for (Warrior nearWarrior : nearWarriors) {
                                 if (nearWarrior instanceof RealWarriors) {
-                                    System.out.println(000000);
+                                    System.out.println("000000");
                                     if (warrior instanceof Troop) {
                                         ((RealWarriors) nearWarrior).damage
                                                 (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
