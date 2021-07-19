@@ -193,7 +193,7 @@ public class BattleDeck implements Initializable {
         if (selected == deckCard8) deckSelectedCardIndex = 7;
         addCheck();
     }
-    
+
     public void addCheck(){
         if(deckSelectedCardIndex != -1 && storeSelectedCardIndex != -1){
 
@@ -241,7 +241,6 @@ public class BattleDeck implements Initializable {
             }else{
                 user.getCurrentCards().add(currentCard);
             }
-
              */
             printCards();
             deckSelectedCardIndex = -1;
