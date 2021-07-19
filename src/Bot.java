@@ -32,9 +32,9 @@ public class Bot {
         int X = random.nextInt(18);
         int Y = random.nextInt(14);
         User user=new User();
-        Warrior warrior = card.getWarrior(user, X, Y);
-        game.getTeamsMap().put(warrior, 0);
-        game.getMap()[X][Y + 14] = warrior;
+        Warrior warrior = card.getWarrior(user, X, Y-14);
+        game.getTeamsMap().put(warrior, 1);
+        game.getMap()[X][Y] = warrior;
         game.getWarriorsInTheMap().add(warrior);
         System.out.println("***"+card.name()+"***");
         warrior.buildImageView("red");
