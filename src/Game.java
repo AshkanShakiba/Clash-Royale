@@ -38,6 +38,7 @@ public class Game {
     @FXML
     private ProgressBar elixirBar;
 
+    private Bot bot;
     private User user;
     private double x, y;
     private double elixir;
@@ -53,6 +54,7 @@ public class Game {
     private double round = 0;
 
     public void construct(User user) {
+        bot=new Bot(this);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -81,6 +83,8 @@ public class Game {
 
         if (elixir < 10) elixir += 0.125;
         elixirBar.setProgress(((int) elixir) / 10.0);
+
+        bot.increaseElixir();
 
         Iterator iterator = warriorsInTheMap.iterator();
         while (iterator.hasNext()) {
@@ -187,6 +191,7 @@ public class Game {
     }
 
     public  void game(){
+        if(round%1.0==0) bot.move();
         for(Warrior warrior : warriorsInTheMap){
             if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14)){
 
@@ -309,10 +314,26 @@ public class Game {
         return card;
     }
 
-    private void playAudio(String audioPath) {
+    public static void playAudio(String audioPath) {
         //AudioClip audioClip=new AudioClip(getClass().getResource(audioPath).toString());
         //audioClip.play();
         Media m = new Media(Paths.get("src//"+audioPath).toUri().toString());
         new MediaPlayer(m).play();
+    }
+
+    public HashMap<Warrior, Integer> getTeamsMap() {
+        return teamsMap;
+    }
+
+    public Warrior[][] getMap() {
+        return map;
+    }
+
+    public HashSet<Warrior> getWarriorsInTheMap() {
+        return warriorsInTheMap;
+    }
+
+    public AnchorPane getMiddlePane() {
+        return middlePane;
     }
 }
