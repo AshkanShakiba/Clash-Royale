@@ -2,6 +2,7 @@ public abstract class RealWarriors extends Warrior{
 
     protected int hp;
     protected int damage;
+    protected double hitSpeed;
 
 
     public void setHp(int hp) {
@@ -10,6 +11,10 @@ public abstract class RealWarriors extends Warrior{
 
     public int getHp() {
         return hp;
+    }
+
+    public double getHitSpeed() {
+        return hitSpeed;
     }
 
     public int getDamage() {

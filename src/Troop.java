@@ -6,9 +6,6 @@ public abstract class Troop extends RealWarriors {
     protected boolean areaSplash;
     protected int count;
 
-    public double getHitSpeed() {
-        return hitSpeed;
-    }
 
     public int getSpeed() {
         return speed;
