@@ -87,12 +87,12 @@ public class Game {
             }
         }
 
-        starterWarriorsMovment();
+        starterWarriorsMovement();
         round++;
 
     }
 
-    public void starterWarriorsMovment() {
+    public void starterWarriorsMovement() {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Troop) {
                 if ((((Troop) warrior).getSpeed() == 2 && round % 12 == 0) ||
@@ -125,6 +125,41 @@ public class Game {
                 }
             }
         }
+    }
+
+    public boolean checkNearWarriors(Warrior warrior){
+
+        if(warrior instanceof  Troop ){
+            for(int i = 0; i <= ((Troop) warrior).getRange() ; i++ ){
+                for(Warrior wrr : warriorsInTheMap){
+                    if(wrr.getArrayX() == warrior.getArrayX() + i + 1){
+                        if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
+                            warrior.getArrayY() == warrior.getArrayY() - i - 1){
+                            return true;
+                        }
+                    }
+                    else if(wrr.getArrayX() == warrior.getArrayX() - i - 1){
+                        if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
+                                warrior.getArrayY() == warrior.getArrayY() - i - 1){
+                            return true;
+                        }
+                    }else if(wrr.getArrayX() == warrior.getArrayX()){
+                        if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
+                                warrior.getArrayY() == warrior.getArrayY() - i - 1){
+                            return true;
+                        }
+                    }else if(wrr.getArrayY() == warrior.getArrayY()){
+                        if(wrr.getArrayX() == warrior.getArrayX() + i + 1 ||
+                                warrior.getArrayX() == warrior.getArrayX() - i - 1){
+                            return true;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        return false;
     }
 
     public void moveAWarrior(Warrior warrior) {
