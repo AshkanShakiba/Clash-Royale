@@ -212,7 +212,7 @@ public class Game {
                 ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
                 if(nearWarriors.size() == 0 ) {
                     if(teamsMap.get(warrior) == 0) {
-                        if(warrior.getArrayY() != - 10) {
+                        if(warrior.getArrayY() != - 14) {
                             if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
                                 warrior.setArrayY(warrior.getArrayY() - 1);
                                 if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
@@ -223,7 +223,7 @@ public class Game {
                             }
                         }
                     }else{
-                        if(warrior.getArrayY() !=  5) {
+                        if(warrior.getArrayY() !=  9) {
                             if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
                                 warrior.setArrayY(warrior.getArrayY() + 1);
                                 if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
