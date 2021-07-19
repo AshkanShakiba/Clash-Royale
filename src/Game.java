@@ -10,6 +10,7 @@ import javafx.scene.media.MediaPlayer;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -47,6 +48,7 @@ public class Game {
     private int selectedCardIndex;
     private ArrayList<Card> availableCards;
     private HashSet<Warrior> warriorsInTheMap = new HashSet<>();
+    private HashMap<Warrior, Integer> teamsMap = new HashMap<>(); // team = 0 -> down team = 1 -> up
 
     private double round = 0;
 
@@ -202,7 +204,6 @@ public class Game {
         return true;
     }
 
-
     public  void game(){
         for(Warrior warrior : warriorsInTheMap){
             if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14)){
@@ -217,13 +218,16 @@ public class Game {
                             }else{
                                 warrior.setArrayY(warrior.getArrayY() + 1);
 
-                            } }
+                            }
+                        }
                     }else {
-                        System.out.println("1111");
+                        for(Warrior x : nearWarriors){
+                            System.out.print(warrior.toString() + " --> " + x.toString());
+                        }
                         if(warrior instanceof RealWarriors ) {
+                            System.out.println(" ++" + ((RealWarriors) warrior).getHp());
                             for (Warrior nearWarrior : nearWarriors) {
                                 if (nearWarrior instanceof RealWarriors) {
-                                    System.out.println("000000");
                                     if (warrior instanceof Troop) {
                                         ((RealWarriors) nearWarrior).damage
                                                 (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
@@ -262,6 +266,7 @@ public class Game {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
+            teamsMap.put(warrior, 0);
             map[X][Y + 14] = warrior;
             warriorsInTheMap.add(warrior);
             warrior.buildImageView();
@@ -277,6 +282,7 @@ public class Game {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
+            teamsMap.put(warrior, 0);
             map[X][Y + 10] = warrior;
             warriorsInTheMap.add(warrior);
             warrior.buildImageView();
@@ -292,6 +298,7 @@ public class Game {
             int X = (int) ((x - 400) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
+            teamsMap.put(warrior, 0);
             map[X + 9][Y + 10] = warrior;
             warriorsInTheMap.add(warrior);
             warrior.buildImageView();
