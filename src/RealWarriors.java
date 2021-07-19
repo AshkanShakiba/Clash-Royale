@@ -21,10 +21,9 @@ public abstract class RealWarriors extends Warrior{
         return damage;
     }
 
-    public boolean damage(int damage) {
+    public void damage(int damage) {
         hp-=damage;
         if(hp<=0)
-            return false;
-        return true;
+            setAlive(false);
     }
 }
