@@ -1,5 +1,4 @@
 public abstract class Troop extends RealWarriors {
-    protected double hitSpeed;
     protected int speed; // 2: Slow, 3: Medium, 4: Fast
     protected int target; // 0: Ground, 1: Air, 2: Both, 3: Buildings
     protected double range; // 0: Melee

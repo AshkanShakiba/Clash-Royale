@@ -25,7 +25,7 @@ public class Cannon extends Building {
                 hp = 554;
                 damage = 87;
         }
-        hitSpeed = 0.8;
+        hitSpeed = 0.75;
         target = 0;
         range = 5.5;
         lifetime = 30;

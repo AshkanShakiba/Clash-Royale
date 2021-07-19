@@ -25,7 +25,7 @@ public class BabyDragon extends Troop {
                 hp = 1168;
                 damage = 146;
         }
-        hitSpeed = 1.8;
+        hitSpeed = 2.0;
         speed = 4;
         target = 2;
         range = 3;

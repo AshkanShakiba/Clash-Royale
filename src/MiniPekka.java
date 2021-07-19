@@ -25,7 +25,7 @@ public class MiniPekka extends Troop {
                 hp = 876;
                 damage = 474;
         }
-        hitSpeed = 1.8;
+        hitSpeed = 1.75;
         speed = 4;
         target = 0;
         range = 0;

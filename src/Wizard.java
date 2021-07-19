@@ -25,7 +25,7 @@ public class Wizard extends Troop {
                 hp = 496;
                 damage = 189;
         }
-        hitSpeed = 1.7;
+        hitSpeed = 1.75;
         speed = 3;
         target = 2;
         range = 5;

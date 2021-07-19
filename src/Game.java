@@ -164,7 +164,7 @@ public class Game {
 
         if(warrior instanceof  Troop ){
             for(Warrior wrr : warriorsInTheMap) {
-                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= ((Troop) warrior).getRange()){
+                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((Troop) warrior).getRange()) + 1){
                     if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange()){
                         if(!wrr.equals(warrior)) {
                             nearWarriors.add(wrr);
@@ -203,19 +203,22 @@ public class Game {
                             }
                         }
                     }else {
-                        for(Warrior x : nearWarriors){
-                            System.out.print(warrior.toString() + " --> " + x.toString());
-                        }
                         if(warrior instanceof RealWarriors ) {
-                            System.out.println(" ++" + ((RealWarriors) warrior).getHp());
-                            for (Warrior nearWarrior : nearWarriors) {
-                                if (nearWarrior instanceof RealWarriors) {
-                                    if (warrior instanceof Troop) {
-                                        ((RealWarriors) nearWarrior).damage
-                                                (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
-                                    } else {
-                                        ((RealWarriors) nearWarrior).damage
-                                                (((RealWarriors) warrior).getDamage());
+                            if(((int)(round*1000) % (int)((((RealWarriors) warrior).getHitSpeed())*1000)) == 0) {
+                                System.out.print(warrior.toString());
+                                for (Warrior x : nearWarriors) {
+                                    System.out.print("-- " + x.toString());
+                                }
+
+                                for (Warrior nearWarrior : nearWarriors) {
+                                    if (nearWarrior instanceof RealWarriors) {
+                                        if (warrior instanceof Troop) {
+                                            ((RealWarriors) nearWarrior).damage
+                                                    (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
+                                        } else {
+                                            ((RealWarriors) nearWarrior).damage
+                                                    (((RealWarriors) warrior).getDamage());
+                                        }
                                     }
                                 }
                             }

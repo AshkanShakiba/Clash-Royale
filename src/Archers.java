@@ -25,7 +25,7 @@ public class Archers extends Troop {
                 hp = 182;
                 damage = 58;
         }
-        hitSpeed = 1.2;
+        hitSpeed = 1.25;
         speed = 3;
         target = 2;
         range = 5;
