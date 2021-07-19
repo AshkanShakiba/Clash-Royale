@@ -23,8 +23,8 @@ public class Fireball extends Spell {
         radius = 2.5;
         imageBlue = "sprites/FireballBlue.gif";
         imageRed = "sprites/FireballRed.gif";
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageWidth=50;
+        imageHeight=50;
     }
 
     @Override

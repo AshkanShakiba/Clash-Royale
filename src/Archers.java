@@ -31,8 +31,8 @@ public class Archers extends Troop {
         count = 2;
         imageBlue = "sprites/ArchersBlue.gif";
         imageRed = "sprites/ArchersRed.gif";
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageWidth=50;
+        imageHeight=50;
     }
 
     @Override

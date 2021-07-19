@@ -33,8 +33,8 @@ public class Wizard extends Troop {
         count = 1;
         imageBlue = "sprites/WizardBlue.gif";
         imageRed = "sprites/WizardRed.gif";
-        imageView.setFitWidth(90);
-        imageView.setFitHeight(90);
+        imageWidth=80;
+        imageHeight=80;
     }
 
     @Override

@@ -33,8 +33,8 @@ public class BabyDragon extends Troop {
         count = 1;
         imageBlue = "sprites/BabyDragonBlue.gif";
         imageRed = "sprites/BabyDragonRed.gif";
-        imageView.setFitWidth(90);
-        imageView.setFitHeight(90);
+        imageWidth=90;
+        imageHeight=90;
     }
 
     @Override

@@ -47,6 +47,7 @@ public abstract class Warrior {
     }
 
     public void buildImageView(String color) {
+        imageView=new ImageView();
         if(color.equals("blue"))
             imageView.setImage(new Image(imageBlue));
         if(color.equals("red"))

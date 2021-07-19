@@ -23,8 +23,8 @@ public class Arrows extends Spell {
         radius = 4;
         imageBlue = "sprites/ArrowsBlue.gif";
         imageRed = "sprites/ArrowsRed.gif";
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageWidth=50;
+        imageHeight=50;
     }
     @Override
     public String toString() {

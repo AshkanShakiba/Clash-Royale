@@ -33,8 +33,8 @@ public class Valkyrie extends Troop {
         count = 1;
         imageBlue = "sprites/ValkyrieBlue.gif";
         imageRed = "sprites/ValkyrieRed.gif";
-        imageView.setFitWidth(70);
-        imageView.setFitHeight(70);
+        imageWidth=70;
+        imageHeight=70;
     }
 
     @Override

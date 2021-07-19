@@ -33,8 +33,8 @@ public class Giant extends Troop {
         count = 1;
         imageBlue = "sprites/GiantBlue.gif";
         imageRed = "sprites/GiantRed.gif";
-        imageView.setFitWidth(120);
-        imageView.setFitHeight(120);
+        imageWidth=120;
+        imageHeight=120;
     }
 
     @Override

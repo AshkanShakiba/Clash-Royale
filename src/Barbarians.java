@@ -33,8 +33,8 @@ public class Barbarians extends Troop {
         count = 4;
         imageBlue = "sprites/BarbariansBlue.gif";
         imageRed = "sprites/BarbariansRed.gif";
-        imageView.setFitWidth(80);
-        imageView.setFitHeight(80);
+        imageWidth=80;
+        imageHeight=80;
     }
 
     @Override

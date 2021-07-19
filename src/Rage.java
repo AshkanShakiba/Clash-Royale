@@ -23,8 +23,8 @@ public class Rage extends Spell {
         radius = 5;
         imageBlue = "sprites/Rage.png";
         imageRed = "sprites/Rage.png";
-        imageView.setFitWidth(25);
-        imageView.setFitHeight(25);
+        imageWidth=25;
+        imageHeight=25;
     }
 
     @Override

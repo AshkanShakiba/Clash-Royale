@@ -31,8 +31,8 @@ public class Cannon extends Building {
         lifetime = 30;
         imageBlue = "sprites/CannonBlue.png";
         imageRed = "sprites/CannonRed.png";
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageWidth=50;
+        imageHeight=50;
     }
 
     @Override

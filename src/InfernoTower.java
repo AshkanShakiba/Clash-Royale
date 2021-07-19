@@ -31,8 +31,8 @@ public class InfernoTower extends Building {
         lifetime = 40;
         imageBlue = "sprites/InfernoTowerBlue.png";
         imageRed = "sprites/InfernoTowerRed.png";
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(75);
+        imageWidth=50;
+        imageHeight=75;
     }
 
     @Override
