@@ -69,12 +69,13 @@ public class Bot {
 
     private void putCard(Card card){
         if(elixir<card.getCost()) return;
-        int X = random.nextInt(18);
-        int Y = random.nextInt(14);
+        int x = random.nextInt(18);
+        int y = random.nextInt(14);
+        if(y-18>-4) return;
         User user=new User();
-        Warrior warrior = card.getWarrior(user, X, Y-14);
+        Warrior warrior = card.getWarrior(user, x, y-18);
         game.getTeamsMap().put(warrior, 1);
-        game.getMap()[X][Y] = warrior;
+        game.getMap()[x][y] = warrior;
         game.getWarriorsInTheMap().add(warrior);
         System.out.println("***"+card.name()+"***");
         warrior.buildImageView("red");
@@ -84,6 +85,7 @@ public class Bot {
     }
 
     private void putCard(Card card,int x,int y){
+        if(y>-4) return;
         if(elixir<card.getCost()) return;
         User user=new User();
         Warrior warrior = card.getWarrior(user, x, y);
