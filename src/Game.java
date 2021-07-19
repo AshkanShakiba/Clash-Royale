@@ -254,7 +254,9 @@ public class Game {
     public boolean checkValidMove(Warrior selfWarrior, int x, int y) {
         for (Warrior warrior : warriorsInTheMap) {
             if(warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))){
-                return false;
+                if(!(warrior instanceof Building)) {
+                    return false;
+                }
             }
         }
         return true;
