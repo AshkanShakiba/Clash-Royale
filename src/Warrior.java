@@ -6,6 +6,8 @@ public abstract class Warrior {
     protected int arrayY;
     protected double mapX;
     protected double mapY;
+    protected int imageWidth;
+    protected int imageHeight;
     protected String imageBlue;
     protected String imageRed;
     protected ImageView imageView;
@@ -49,6 +51,8 @@ public abstract class Warrior {
             imageView.setImage(new Image(imageBlue));
         if(color.equals("red"))
             imageView.setImage(new Image(imageRed));
+        imageView.setFitWidth(imageWidth);
+        imageView.setFitHeight(imageHeight);
         mapX = arrayX * 17.44 + 17.44;
         mapY = arrayY * 14.29 + 220;
         imageView.setX(mapX);
