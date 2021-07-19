@@ -169,14 +169,14 @@ public class Game {
         }
     }
 
-    public ArrayList<Warrior> checkNearOppositeTeamWarriors(Warrior warrior){
+    public ArrayList<Warrior> checkNearWarriors(Warrior warrior){
 
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
-        if(warrior instanceof  Troop ){
+        if(warrior instanceof  RealWarriors ){
             for(Warrior wrr : warriorsInTheMap) {
-                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((Troop) warrior).getRange()) + 1){
-                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange() + 1){
+                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((RealWarriors) warrior).getRange()) + 1){
+                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((RealWarriors) warrior).getRange() + 1){
                         if(!wrr.equals(warrior)) {
                             if(wrr instanceof RealWarriors){
                                 if(!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
@@ -207,9 +207,9 @@ public class Game {
         }
         if(round%1.0==0) bot.move();
         for(Warrior warrior : warriorsInTheMap){
-            if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14)){
+            if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14) || warrior instanceof Building){
 
-                ArrayList<Warrior> nearWarriors = checkNearOppositeTeamWarriors(warrior);
+                ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
                 if(nearWarriors.size() == 0 ) {
                     if(teamsMap.get(warrior) == 0) {
                         if(warrior.getArrayY() != - 10) {
@@ -241,6 +241,7 @@ public class Game {
                             for (Warrior x : nearWarriors) {
                                 System.out.print("-- " + x.toString());
                             }
+                            System.out.println();
 
                             for (Warrior nearWarrior : nearWarriors) {
                                 if (nearWarrior instanceof RealWarriors) {
