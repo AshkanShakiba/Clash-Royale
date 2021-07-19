@@ -47,7 +47,7 @@ public class Game {
     private ArrayList<Card> availableCards;
     private HashSet<Warrior> warriorsInTheMap = new HashSet<>();
 
-    private int round = 0;
+    private double round = 0;
 
     public void construct(User user) {
         elixir = 4;
@@ -88,16 +88,14 @@ public class Game {
         }
 
         starterWarriorsMovement();
-        round++;
+        round = round + 0.125;
 
     }
 
     public void starterWarriorsMovement() {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Troop) {
-                if ((((Troop) warrior).getSpeed() == 2 && round % 12 == 0) ||
-                        (((Troop) warrior).getSpeed() == 3 && round % 8 == 0) ||
-                        (((Troop) warrior).getSpeed() == 4 && round % 6 == 0)) {
+                if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0 )) {
 
                     if(Math.abs(warrior.getArrayX() - 14) > Math.abs(warrior.arrayX) - 3) {
 
@@ -127,7 +125,9 @@ public class Game {
         }
     }
 
-    public boolean checkNearWarriors(Warrior warrior){
+    public ArrayList<Warrior> checkNearWarriors(Warrior warrior){
+
+        ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
         if(warrior instanceof  Troop ){
             for(int i = 0; i <= ((Troop) warrior).getRange() ; i++ ){
@@ -135,23 +135,23 @@ public class Game {
                     if(wrr.getArrayX() == warrior.getArrayX() + i + 1){
                         if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
                             warrior.getArrayY() == warrior.getArrayY() - i - 1){
-                            return true;
+                            nearWarriors.add(wrr);
                         }
                     }
                     else if(wrr.getArrayX() == warrior.getArrayX() - i - 1){
                         if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
                                 warrior.getArrayY() == warrior.getArrayY() - i - 1){
-                            return true;
+                            nearWarriors.add(wrr);
                         }
                     }else if(wrr.getArrayX() == warrior.getArrayX()){
                         if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
                                 warrior.getArrayY() == warrior.getArrayY() - i - 1){
-                            return true;
+                            nearWarriors.add(wrr);
                         }
                     }else if(wrr.getArrayY() == warrior.getArrayY()){
                         if(wrr.getArrayX() == warrior.getArrayX() + i + 1 ||
                                 warrior.getArrayX() == warrior.getArrayX() - i - 1){
-                            return true;
+                            nearWarriors.add(wrr);
                         }
                     }
 
@@ -159,7 +159,24 @@ public class Game {
             }
         }
 
-        return false;
+        return nearWarriors;
+    }
+
+    public  void game(){
+        for(Warrior warrior : warriorsInTheMap){
+            if(warrior.getArrayX() != 3 && warrior.getArrayX() != 14){
+
+                ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
+                if(warrior.getArrayY() != 0  && nearWarriors.size() == 0 ){
+                    warrior.setArrayY(warrior.getArrayY() - 1);
+                    moveAWarrior(warrior);
+                } else{
+                    for(Warrior nearWarrior : nearWarriors){
+
+                    }
+                }
+            }
+        }
     }
 
     public void moveAWarrior(Warrior warrior) {
