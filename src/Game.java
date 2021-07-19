@@ -167,12 +167,24 @@ public class Game {
             if(warrior.getArrayX() != 3 && warrior.getArrayX() != 14){
 
                 ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
-                if(warrior.getArrayY() != 0  && nearWarriors.size() == 0 ){
-                    warrior.setArrayY(warrior.getArrayY() - 1);
-                    moveAWarrior(warrior);
-                } else{
-                    for(Warrior nearWarrior : nearWarriors){
-
+                if(warrior.getArrayY() != 0 ){
+                    if(nearWarriors.size() == 0 ) {
+                        if(warrior instanceof Troop) {
+                            warrior.setArrayY(warrior.getArrayY() - 1);
+                            moveAWarrior(warrior);
+                        }
+                    }else {
+                        for(Warrior nearWarrior : warriorsInTheMap){
+                            if(nearWarrior instanceof  RealWarriors ){
+                                if(warrior instanceof Troop) {
+                                    ((RealWarriors) nearWarrior).damage
+                                            (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
+                                }else{
+                                    ((RealWarriors) nearWarrior).damage
+                                            (((RealWarriors) warrior).getDamage());
+                                }
+                            }
+                        }
                     }
                 }
             }

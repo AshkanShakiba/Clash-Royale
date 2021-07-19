@@ -1,20 +1,10 @@
-public abstract class Troop extends Warrior {
-    protected int hp;
-    protected int damage;
+public abstract class Troop extends RealWarriors {
     protected double hitSpeed;
     protected int speed; // 2: Slow, 3: Medium, 4: Fast
     protected int target; // 0: Ground, 1: Air, 2: Both, 3: Buildings
     protected double range; // 0: Melee
     protected boolean areaSplash;
     protected int count;
-
-    public int getHp() {
-        return hp;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
 
     public double getHitSpeed() {
         return hitSpeed;
@@ -40,10 +30,4 @@ public abstract class Troop extends Warrior {
         return count;
     }
 
-    public boolean damage(int damage) {
-        hp-=damage;
-        if(hp<=0)
-            return false;
-        return true;
-    }
 }
