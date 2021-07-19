@@ -62,7 +62,7 @@ public class Game {
 
     public void construct(User user,Stage stage) {
         this.stage=stage;
-        bot=new Bot(this);
+        bot=new Bot(this,1);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -361,5 +361,14 @@ public class Game {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+    }
+
+    public ArrayList<Warrior> getPlayerWarriors(){
+        ArrayList<Warrior> warriors=new ArrayList<>();
+        for(Warrior warrior:teamsMap.keySet()){
+            if(teamsMap.get(warrior)==0)
+                warriors.add(warrior);
+        }
+        return warriors;
     }
 }
