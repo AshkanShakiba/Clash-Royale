@@ -163,31 +163,13 @@ public class Game {
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
         if(warrior instanceof  Troop ){
-            for(int i = 0; i <= ((Troop) warrior).getRange() ; i++ ){
-                for(Warrior wrr : warriorsInTheMap){
-                    if(wrr.getArrayX() == warrior.getArrayX() + i + 1){
-                        if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
-                            warrior.getArrayY() == warrior.getArrayY() - i - 1){
+            for(Warrior wrr : warriorsInTheMap) {
+                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= ((Troop) warrior).getRange()){
+                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange()){
+                        if(!wrr.equals(warrior)) {
                             nearWarriors.add(wrr);
                         }
                     }
-                    else if(wrr.getArrayX() == warrior.getArrayX() - i - 1){
-                        if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
-                                warrior.getArrayY() == warrior.getArrayY() - i - 1){
-                            nearWarriors.add(wrr);
-                        }
-                    }else if(wrr.getArrayX() == warrior.getArrayX()){
-                        if(wrr.getArrayY() == warrior.getArrayY() + i + 1 ||
-                                warrior.getArrayY() == warrior.getArrayY() - i - 1){
-                            nearWarriors.add(wrr);
-                        }
-                    }else if(wrr.getArrayY() == warrior.getArrayY()){
-                        if(wrr.getArrayX() == warrior.getArrayX() + i + 1 ||
-                                warrior.getArrayX() == warrior.getArrayX() - i - 1){
-                            nearWarriors.add(wrr);
-                        }
-                    }
-
                 }
             }
         }
