@@ -1,7 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -62,7 +61,7 @@ public class Game {
 
     public void construct(User user,Stage stage) {
         this.stage=stage;
-        bot=new Bot(this,1);
+        bot=new Bot(this, 1);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -174,13 +173,15 @@ public class Game {
 
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
-        if(warrior instanceof  Troop ){
+        if(warrior instanceof  RealWarriors ){
             for(Warrior wrr : warriorsInTheMap) {
-                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((Troop) warrior).getRange()) + 1){
-                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange() + 1){
+                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((RealWarriors) warrior).getRange()) + 1){
+                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((RealWarriors) warrior).getRange() + 1){
                         if(!wrr.equals(warrior)) {
                             if(wrr instanceof RealWarriors){
-                                nearWarriors.add(wrr);
+                                if(!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
+                                    nearWarriors.add(wrr);
+                                }
                             }
                         }
                     }
@@ -206,42 +207,54 @@ public class Game {
         }
         if(round%1.0==0) bot.move();
         for(Warrior warrior : warriorsInTheMap){
-            if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14)){
+            if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14) || warrior instanceof Building){
 
                 ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
-                if(warrior.getArrayY() != -10 ){
-                    if(nearWarriors.size() == 0 ) {
-                        if(warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
-                            warrior.setArrayY(warrior.getArrayY() - 1);
-                            if(checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                moveAWarrior(warrior);
-                            }else{
-                                warrior.setArrayY(warrior.getArrayY() + 1);
-
+                if(nearWarriors.size() == 0 ) {
+                    if(teamsMap.get(warrior) == 0) {
+                        if(warrior.getArrayY() != - 10) {
+                            if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                                warrior.setArrayY(warrior.getArrayY() - 1);
+                                if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                    moveAWarrior(warrior);
+                                } else {
+                                    warrior.setArrayY(warrior.getArrayY() + 1);
+                                }
                             }
                         }
-                    }else {
-                        if(warrior instanceof RealWarriors ) {
-                            if(((int)(round*1000) % (int)((((RealWarriors) warrior).getHitSpeed())*1000)) == 0) {
-                                System.out.print(warrior.toString());
-                                for (Warrior x : nearWarriors) {
-                                    System.out.print("-- " + x.toString());
+                    }else{
+                        if(warrior.getArrayY() !=  5) {
+                            if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                                warrior.setArrayY(warrior.getArrayY() + 1);
+                                if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                    moveAWarrior(warrior);
+                                } else {
+                                    warrior.setArrayY(warrior.getArrayY() - 1);
                                 }
+                            }
+                        }
+                    }
+                }else {
+                    if(warrior instanceof RealWarriors ) {
+                        if(((int)(round*1000) % (int)((((RealWarriors) warrior).getHitSpeed())*1000)) == 0) {
+                            System.out.print(warrior.toString());
+                            for (Warrior x : nearWarriors) {
+                                System.out.print("-- " + x.toString());
+                            }
+                            System.out.println();
 
-                                for (Warrior nearWarrior : nearWarriors) {
-                                    if (nearWarrior instanceof RealWarriors) {
-                                        if (warrior instanceof Troop) {
-                                            ((RealWarriors) nearWarrior).damage
-                                                    (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
-                                        } else {
-                                            ((RealWarriors) nearWarrior).damage
-                                                    (((RealWarriors) warrior).getDamage());
-                                        }
+                            for (Warrior nearWarrior : nearWarriors) {
+                                if (nearWarrior instanceof RealWarriors) {
+                                    if (warrior instanceof Troop) {
+                                        ((RealWarriors) nearWarrior).damage
+                                                (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
+                                    } else {
+                                        ((RealWarriors) nearWarrior).damage
+                                                (((RealWarriors) warrior).getDamage());
                                     }
                                 }
                             }
                         }
-
                     }
                 }
             }

@@ -25,7 +25,7 @@ public class InfernoTower extends Building {
                 hp = 1168;
                 damage = 29;
         }
-        hitSpeed = 0.4;
+        hitSpeed = 0.5;
         target = 2;
         range = 6;
         lifetime = 40;
