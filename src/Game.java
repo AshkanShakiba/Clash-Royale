@@ -1,7 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -62,7 +61,7 @@ public class Game {
 
     public void construct(User user,Stage stage) {
         this.stage=stage;
-        bot=new Bot(this);
+        bot=new Bot(this, 1);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -170,7 +169,7 @@ public class Game {
         }
     }
 
-    public ArrayList<Warrior> checkNearWarriors(Warrior warrior){
+    public ArrayList<Warrior> checkNearOppositeTeamWarriors(Warrior warrior){
 
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
@@ -180,7 +179,9 @@ public class Game {
                     if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange() + 1){
                         if(!wrr.equals(warrior)) {
                             if(wrr instanceof RealWarriors){
-                                nearWarriors.add(wrr);
+                                if(!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
+                                    nearWarriors.add(wrr);
+                                }
                             }
                         }
                     }
@@ -208,7 +209,7 @@ public class Game {
         for(Warrior warrior : warriorsInTheMap){
             if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14)){
 
-                ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
+                ArrayList<Warrior> nearWarriors = checkNearOppositeTeamWarriors(warrior);
                 if(nearWarriors.size() == 0 ) {
                     if(teamsMap.get(warrior) == 0) {
                         if(warrior.getArrayY() != - 10) {
