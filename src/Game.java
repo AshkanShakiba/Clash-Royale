@@ -1,5 +1,9 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -7,7 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +46,7 @@ public class Game {
 
     private Bot bot;
     private User user;
+    private Stage stage;
     private double x, y;
     private double elixir;
     private Warrior[][] map;
@@ -53,7 +60,8 @@ public class Game {
 
     private double round = 0;
 
-    public void construct(User user) {
+    public void construct(User user,Stage stage) {
+        this.stage=stage;
         bot=new Bot(this);
         elixir = 4;
         map = new Warrior[18][28];
@@ -190,7 +198,10 @@ public class Game {
         return true;
     }
 
-    public  void game(){
+    public void game(){
+        if(round>=180){
+            endGame();
+        }
         if(round%1.0==0) bot.move();
         for(Warrior warrior : warriorsInTheMap){
             if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14)){
@@ -335,5 +346,20 @@ public class Game {
 
     public AnchorPane getMiddlePane() {
         return middlePane;
+    }
+
+    private void endGame(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("endGame.fxml"));
+            Parent root = loader.load();
+            EndGame endGame = loader.getController();
+            //stage.initStyle(StageStyle.DECORATED);
+            endGame.setScores(0,3);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
