@@ -1,11 +1,13 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
@@ -13,11 +15,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 public class Game {
     @FXML
@@ -43,6 +43,36 @@ public class Game {
     @FXML
     private ProgressBar elixirBar;
 
+    @FXML
+    private ImageView queenDownRight1;
+
+    @FXML
+    private ImageView queenDownLeft1;
+
+    @FXML
+    private ImageView KingUp1;
+
+    @FXML
+    private ImageView KingUp2;
+
+    @FXML
+    private ImageView queenDownRight2;
+
+    @FXML
+    private ImageView queenDownLeft2;
+
+    @FXML
+    private ImageView queenUpLeft1;
+
+    @FXML
+    private ImageView queenUpRight1;
+
+    @FXML
+    private ImageView queenUpRight2;
+
+    @FXML
+    private ImageView queenUpLeft2;
+
     private Bot bot;
     private User user;
     private Stage stage;
@@ -56,6 +86,14 @@ public class Game {
     private ArrayList<Card> availableCards;
     private HashSet<Warrior> warriorsInTheMap = new HashSet<>();
     private HashMap<Warrior, Integer> teamsMap = new HashMap<>(); // team = 0 -> down team = 1 -> up
+
+
+    private KingTower kingTowerUp;
+    private KingTower kingTowerDown;
+    private QueenTower queenTowerUpLeft;
+    private QueenTower queenTowerUpRight;
+    private QueenTower queenTowerDownLeft;
+    private QueenTower queenTowerDownRight;
 
     private double round = 0;
 
@@ -79,6 +117,27 @@ public class Game {
         availableCards.add(getNextCard());
         nextCard = getNextCard();
         selectedCardIndex = -1;
+
+        kingTowerUp = new KingTower(user, 9, -14);
+        kingTowerDown = new KingTower(user, 9, 9);
+        queenTowerDownLeft = new QueenTower(user, 3, 5);
+        queenTowerDownRight = new QueenTower(user, 14, 5);
+        queenTowerUpRight = new QueenTower(user, 14, -10);
+        queenTowerUpLeft = new QueenTower(user, 3, -10);
+
+        //warriorsInTheMap.add(kingTowerUp);
+        //warriorsInTheMap.add(kingTowerDown);
+        warriorsInTheMap.add(queenTowerDownLeft);
+        warriorsInTheMap.add(queenTowerDownRight);
+        warriorsInTheMap.add(queenTowerUpRight);
+        warriorsInTheMap.add(queenTowerUpLeft);
+        //teamsMap.put(kingTowerUp, 1);
+        //teamsMap.put(kingTowerDown, 0);
+        teamsMap.put(queenTowerDownLeft, 0);
+        teamsMap.put(queenTowerDownRight, 0);
+        teamsMap.put(queenTowerUpRight, 1);
+        teamsMap.put(queenTowerUpLeft, 1);
+
     }
 
     public void update() {
