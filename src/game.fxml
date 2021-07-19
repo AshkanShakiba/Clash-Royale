@@ -81,6 +81,16 @@
                               <Image url="@sprites/PrincessShootingBlue.gif" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="35.0" layoutX="83.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/bridge.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="35.0" layoutX="281.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/bridge.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="400.0">
