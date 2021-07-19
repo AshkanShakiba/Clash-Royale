@@ -177,9 +177,11 @@ public class Game {
         if(warrior instanceof  Troop ){
             for(Warrior wrr : warriorsInTheMap) {
                 if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((Troop) warrior).getRange()) + 1){
-                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange()){
+                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((Troop) warrior).getRange() + 1){
                         if(!wrr.equals(warrior)) {
-                            nearWarriors.add(wrr);
+                            if(wrr instanceof RealWarriors){
+                                nearWarriors.add(wrr);
+                            }
                         }
                     }
                 }
