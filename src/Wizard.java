@@ -31,9 +31,8 @@ public class Wizard extends Troop {
         range = 5;
         areaSplash = true;
         count = 1;
-        image = "sprites/WizardBlue.gif";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/WizardBlue.gif";
+        imageRed = "sprites/WizardRed.gif";
         imageView.setFitWidth(90);
         imageView.setFitHeight(90);
     }

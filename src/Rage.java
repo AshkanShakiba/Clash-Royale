@@ -21,9 +21,8 @@ public class Rage extends Spell {
                 duration = 8;
         }
         radius = 5;
-        image = "sprites/Rage.png";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/Rage.png";
+        imageRed = "sprites/Rage.png";
         imageView.setFitWidth(25);
         imageView.setFitHeight(25);
     }

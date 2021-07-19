@@ -29,15 +29,10 @@ public class InfernoTower extends Building {
         target = 2;
         range = 6;
         lifetime = 40;
-        image = "sprites/InfernoTowerBlue.png";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/InfernoTowerBlue.png";
+        imageRed = "sprites/InfernoTowerRed.png";
         imageView.setFitWidth(50);
         imageView.setFitHeight(75);
-        mapX = arrayX * 17.44 + 25;
-        mapY = arrayY * 14.29 + 240 - 10;
-        imageView.setX(mapX);
-        imageView.setY(mapY);
     }
 
     @Override

@@ -21,9 +21,8 @@ public class Fireball extends Spell {
                 areaDamage = 474;
         }
         radius = 2.5;
-        image = "assets/fireball.png";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/FireballBlue.gif";
+        imageRed = "sprites/FireballRed.gif";
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
     }

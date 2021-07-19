@@ -29,15 +29,10 @@ public class Cannon extends Building {
         target = 0;
         range = 5.5;
         lifetime = 30;
-        image = "sprites/CannonBlue.png";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/CannonBlue.png";
+        imageRed = "sprites/CannonRed.png";
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
-        mapX = arrayX * 17.44 + 25;
-        mapY = arrayY * 14.29 + 240 - 10;
-        imageView.setX(mapX);
-        imageView.setY(mapY);
     }
 
     @Override

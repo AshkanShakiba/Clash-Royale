@@ -254,7 +254,7 @@ public class Game {
             teamsMap.put(warrior, 0);
             map[X][Y + 14] = warrior;
             warriorsInTheMap.add(warrior);
-            warrior.buildImageView();
+            warrior.buildImageView("blue");
             middlePane.getChildren().add(warrior.imageView);
             System.out.println(map[X][Y + 14].getClass().getName() + " at (" + X + "," + (Y) + ")");
             setNextCard(selectedCardIndex);
@@ -270,7 +270,7 @@ public class Game {
             teamsMap.put(warrior, 0);
             map[X][Y + 10] = warrior;
             warriorsInTheMap.add(warrior);
-            warrior.buildImageView();
+            warrior.buildImageView("blue");
             middlePane.getChildren().add(warrior.imageView);
             System.out.println(map[X][Y + 10].getClass().getName() + " at (" + X + "," + (Y + 10) + ")");
             setNextCard(selectedCardIndex);
@@ -286,7 +286,7 @@ public class Game {
             teamsMap.put(warrior, 0);
             map[X + 9][Y + 10] = warrior;
             warriorsInTheMap.add(warrior);
-            warrior.buildImageView();
+            warrior.buildImageView("blue");
             middlePane.getChildren().add(warrior.imageView);
             System.out.println(map[X + 9][Y + 10].getClass().getName() + " at (" + (X + 9) + "," + (Y + 10) + ")");
             setNextCard(selectedCardIndex);

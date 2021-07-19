@@ -31,9 +31,8 @@ public class Barbarians extends Troop {
         range = 0;
         areaSplash = false;
         count = 4;
-        image = "sprites/BarbariansBlue.gif";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/BarbariansBlue.gif";
+        imageRed = "sprites/BarbariansRed.gif";
         imageView.setFitWidth(80);
         imageView.setFitHeight(80);
     }

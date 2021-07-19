@@ -31,9 +31,8 @@ public class Giant extends Troop {
         range = 0;
         areaSplash = false;
         count = 1;
-        image = "sprites/GiantBlue.gif";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/GiantBlue.gif";
+        imageRed = "sprites/GiantRed.gif";
         imageView.setFitWidth(120);
         imageView.setFitHeight(120);
     }

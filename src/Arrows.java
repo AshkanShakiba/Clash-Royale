@@ -21,9 +21,8 @@ public class Arrows extends Spell {
                 areaDamage = 210;
         }
         radius = 4;
-        image = "assets/arrows.png";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/ArrowsBlue.gif";
+        imageRed = "sprites/ArrowsRed.gif";
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
     }

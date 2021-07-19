@@ -31,9 +31,8 @@ public class Valkyrie extends Troop {
         range = 0;
         areaSplash = true;
         count = 1;
-        image = "sprites/ValkyrieBlue.gif";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/ValkyrieBlue.gif";
+        imageRed = "sprites/ValkyrieRed.gif";
         imageView.setFitWidth(70);
         imageView.setFitHeight(70);
     }

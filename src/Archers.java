@@ -1,5 +1,3 @@
-import javafx.scene.image.ImageView;
-
 public class Archers extends Troop {
     public Archers(User user, int x, int y) {
         this.arrayX = x;
@@ -31,9 +29,8 @@ public class Archers extends Troop {
         range = 5;
         areaSplash = false;
         count = 2;
-        image = "sprites/ArchersBlue.gif";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/ArchersBlue.gif";
+        imageRed = "sprites/ArchersRed.gif";
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
     }

@@ -31,9 +31,8 @@ public class BabyDragon extends Troop {
         range = 3;
         areaSplash = true;
         count = 1;
-        image = "sprites/BabyDragonBlue.gif";
-
-        imageView = new ImageView(image);
+        imageBlue = "sprites/BabyDragonBlue.gif";
+        imageRed = "sprites/BabyDragonRed.gif";
         imageView.setFitWidth(90);
         imageView.setFitHeight(90);
     }

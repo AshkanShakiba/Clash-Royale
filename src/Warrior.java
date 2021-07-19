@@ -1,3 +1,4 @@
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class Warrior {
@@ -5,7 +6,8 @@ public abstract class Warrior {
     protected int arrayY;
     protected double mapX;
     protected double mapY;
-    protected String image;
+    protected String imageBlue;
+    protected String imageRed;
     protected ImageView imageView;
     protected boolean isAlive = true;
 
@@ -16,10 +18,6 @@ public abstract class Warrior {
 
     public int getArrayX() {
         return arrayX;
-    }
-
-    public String getImage() {
-        return image;
     }
 
     public ImageView getImageView() {
@@ -46,7 +44,11 @@ public abstract class Warrior {
         this.imageView = imageView;
     }
 
-    public void buildImageView() {
+    public void buildImageView(String color) {
+        if(color.equals("blue"))
+            imageView.setImage(new Image(imageBlue));
+        if(color.equals("red"))
+            imageView.setImage(new Image(imageRed));
         mapX = arrayX * 17.44 + 17.44;
         mapY = arrayY * 14.29 + 220;
         imageView.setX(mapX);
