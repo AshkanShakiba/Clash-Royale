@@ -1,5 +1,6 @@
-#leftPane, #rightPane {
-    -fx-background-color: lime;
+#leftPane, #rightPane, #middlePane {
+    /*-fx-background-color: lime;*/
+    -fx-background-image: url("assets/green.png");
 }
 
 #middlePane {

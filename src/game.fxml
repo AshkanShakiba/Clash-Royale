@@ -24,7 +24,7 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints fx:id="opponent" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-                <RowConstraints fx:id="middle" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints fx:id="middle" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints fx:id="player" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -33,12 +33,16 @@
                         <Image url="@assets/ARENA.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="45.0" fitWidth="400.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@assets/water.gif" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bottomArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="315.0" layoutX="41.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@assets/water.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fx:id="bottomArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@assets/ARENA.png" />
                      </image>
