@@ -52,4 +52,9 @@ public class EndGame {
             blue3.setImage(null);
         }
     }
+
+    public void setUser(User user){
+        if(score2>score1) user.increaseXp(200);
+        else user.increaseXp(70);
+    }
 }

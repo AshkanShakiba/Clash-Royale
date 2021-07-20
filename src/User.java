@@ -48,7 +48,7 @@ public class User {
             level = 3;
         }else if(xp < 1700 ){
             level = 4;
-        }else if(xp < 3500 ){
+        }else if(xp < 2500 ){
             level = 5;
         }
 
@@ -96,5 +96,20 @@ public class User {
                 "username='" + username + '\'' +
                 ", currentCards=" + Arrays.toString(currentCards) +
                 '}';
+    }
+
+    public void increaseXp(int addedXp){
+        xp+=addedXp;
+        if(xp < 300 ){
+            level = 1;
+        }else if(xp < 500 ){
+            level = 2;
+        }else if(xp < 900 ){
+            level = 3;
+        }else if(xp < 1700 ){
+            level = 4;
+        }else if(xp < 2500 ){
+            level = 5;
+        }
     }
 }

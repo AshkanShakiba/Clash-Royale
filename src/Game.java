@@ -567,6 +567,7 @@ public class Game {
             EndGame endGame = loader.getController();
             //stage.initStyle(StageStyle.DECORATED);
             endGame.setScores(score1,score2);
+            endGame.setUser(user);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
