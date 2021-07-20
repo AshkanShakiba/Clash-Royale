@@ -252,7 +252,17 @@ public class Game {
                 }
             }
         }
+        /*
+        if(warrior instanceof RealWarriors){
+            if(((RealWarriors) warrior).getRange() == 0
+                    || warrior instanceof KingTower || warrior instanceof QueenTower){
+                Warrior oneWarrior = nearWarriors.get(0);
+                nearWarriors = new ArrayList<>();
+                nearWarriors.add(oneWarrior);
+            }
+        }
 
+         */
         return nearWarriors;
     }
 
@@ -303,20 +313,21 @@ public class Game {
                 }else {
                     if(warrior instanceof RealWarriors ) {
                         if(((int)(round*1000) % (int)((((RealWarriors) warrior).getHitSpeed())*1000)) == 0) {
-                            System.out.print(warrior.toString());
-                            for (Warrior x : nearWarriors) {
-                                System.out.print("-- " + x.toString());
-                            }
-                            System.out.println();
+
 
                             for (Warrior nearWarrior : nearWarriors) {
                                 if (nearWarrior instanceof RealWarriors) {
+                                    System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
                                     if (warrior instanceof Troop) {
                                         ((RealWarriors) nearWarrior).damage
                                                 (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
                                     } else {
                                         ((RealWarriors) nearWarrior).damage
                                                 (((RealWarriors) warrior).getDamage());
+                                    }
+                                    if(((RealWarriors) warrior).getRange() == 0
+                                            || warrior instanceof KingTower || warrior instanceof QueenTower){
+                                        break;
                                     }
                                 }
                             }
