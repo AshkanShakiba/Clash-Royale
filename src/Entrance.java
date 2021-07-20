@@ -34,9 +34,9 @@ public class Entrance {
 
     public void about(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("about.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LeaderBoard.fxml"));
             Parent root = loader.load();
-            About about = loader.getController();
+            LeaderBoard about = loader.getController();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
