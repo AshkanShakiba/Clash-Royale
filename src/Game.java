@@ -90,6 +90,7 @@ public class Game {
     private ArrayList<Card> availableCards;
     private HashSet<Warrior> warriorsInTheMap = new HashSet<>();
     private HashMap<Warrior, Integer> teamsMap = new HashMap<>(); // team = 0 -> down team = 1 -> up
+    private HashMap<Warrior, Boolean> endOfFaze1Warrior = new HashMap<>();
 
 
     private KingTower kingTowerUp;
@@ -98,6 +99,8 @@ public class Game {
     private QueenTower queenTowerUpRight;
     private QueenTower queenTowerDownLeft;
     private QueenTower queenTowerDownRight;
+
+    private boolean runEndGameOnce = false;
 
     private double round = 0;
 
@@ -112,7 +115,7 @@ public class Game {
             }
         }
         map2IsValid = true;
-        map3IsValid = false;
+        map3IsValid = true;
         this.user = user;
         availableCards = new ArrayList<>();
         availableCards.add(getNextCard());
@@ -145,148 +148,198 @@ public class Game {
     }
 
     public void update() {
-        card0.setStyle("-fx-background-image: url('" + availableCards.get(0).getImage() + "');");
-        card1.setStyle("-fx-background-image: url('" + availableCards.get(1).getImage() + "');");
-        card2.setStyle("-fx-background-image: url('" + availableCards.get(2).getImage() + "');");
-        card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
-        next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
+        if(!endCheck()) {
+            card0.setStyle("-fx-background-image: url('" + availableCards.get(0).getImage() + "');");
+            card1.setStyle("-fx-background-image: url('" + availableCards.get(1).getImage() + "');");
+            card2.setStyle("-fx-background-image: url('" + availableCards.get(2).getImage() + "');");
+            card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
+            next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
 
-        if (elixir < 10) elixir += 0.125;
-        elixirBar.setProgress(((int) elixir) / 10.0);
+            if (elixir < 10) elixir += 0.125;
+            elixirBar.setProgress(((int) elixir) / 10.0);
 
-        bot.increaseElixir();
+            bot.increaseElixir();
 
-        Iterator iterator = warriorsInTheMap.iterator();
-        while (iterator.hasNext()) {
-            Warrior warrior = (Warrior) iterator.next();
-            if (!warrior.isAlive) {
-                iterator.remove();
-                middlePane.getChildren().remove(warrior.getImageView());
+            Iterator iterator = warriorsInTheMap.iterator();
+            while (iterator.hasNext()) {
+                Warrior warrior = (Warrior) iterator.next();
+                if (!warrior.isAlive) {
+                    iterator.remove();
+                    middlePane.getChildren().remove(warrior.getImageView());
+                }
+            }
+
+
+            gameFaze1();
+            gameFaze2();
+            gameFaze3();
+//            if(round % 1 == 0){
+//                bot.move();
+//            }
+            towerManagement();
+            endCheck();
+            round = round + 0.125;
+        } else{
+            if(!runEndGameOnce){
+                runEndGameOnce = true;
+                endGame();
             }
         }
-
-
-        gameFaze1();
-        gameFaze2();
-        gameFaze3();
-        towerManagement();
-        endCheck();
-        round = round + 0.125;
 
     }
 
     public void gameFaze1() {
-        for (Warrior warrior : warriorsInTheMap) {
-            if (warrior instanceof Troop) {
-                if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0 )) {
+            for (Warrior warrior : warriorsInTheMap) {
+                if(endOfFaze1Warrior.get(warrior) != null && !endOfFaze1Warrior.get(warrior)) {
+                    if (warrior instanceof Troop) {
+                        if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
 
-                    if(Math.abs(warrior.getArrayX() - 14) > Math.abs(warrior.arrayX) - 3) {
+                            if (Math.abs(warrior.getArrayX() - 14) > Math.abs(warrior.arrayX) - 3) {
 
-                        if (warrior.getArrayX() != 3) {
-                            if (warrior.getArrayX() < 3) {
-                                warrior.setArrayX(warrior.getArrayX() + 1);
-                                if(checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                    moveAWarrior(warrior);
-                                }else{
-                                    warrior.setArrayX(warrior.getArrayX() - 1);
+                                if (warrior.getArrayX() != 3) {
+                                    if (warrior.getArrayX() < 3) {
+                                        warrior.setArrayX(warrior.getArrayX() + 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() - 1);
 
-                                }
+                                        }
 
 
-                            } else if (warrior.getArrayX() > 3) {
-                                warrior.setArrayX(warrior.getArrayX() - 1);
-                                if(checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                    moveAWarrior(warrior);
-                                }else{
-                                    warrior.setArrayX(warrior.getArrayX() + 1);
+                                    } else if (warrior.getArrayX() > 3) {
+                                        warrior.setArrayX(warrior.getArrayX() - 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() + 1);
 
-                                }
+                                        }
 
-                            }
-
-                        }
-                    } else {
-                        if (warrior.getArrayX() != 14) {
-                            if (warrior.getArrayX() < 14) {
-                                warrior.setArrayX(warrior.getArrayX() + 1);
-                                if(checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                    moveAWarrior(warrior);
-                                }else{
-                                    warrior.setArrayX(warrior.getArrayX() - 1);
+                                    }
 
                                 }
+                            } else {
+                                if (warrior.getArrayX() != 14) {
+                                    if (warrior.getArrayX() < 14) {
+                                        warrior.setArrayX(warrior.getArrayX() + 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() - 1);
 
-                            } else if (warrior.getArrayX() > 14) {
-                                warrior.setArrayX(warrior.getArrayX() - 1);
-                                if(checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                    moveAWarrior(warrior);
-                                }else{
-                                    warrior.setArrayX(warrior.getArrayX() + 1);
+                                        }
 
+                                    } else if (warrior.getArrayX() > 14) {
+                                        warrior.setArrayX(warrior.getArrayX() - 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() + 1);
+
+                                        }
+
+                                    }
                                 }
-
                             }
                         }
                     }
-
-
                 }
             }
-        }
     }
 
     public void gameFaze2(){
-
-        if(round%1.0==0) bot.move();
-        for(Warrior warrior : warriorsInTheMap){
-            if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14) || warrior instanceof Building){
-
-                ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
-                if(nearWarriors.size() == 0 ) {
-                    if(teamsMap.get(warrior) == 0) {
-                        if(warrior.getArrayY() != - 14) {
-                            if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
-                                warrior.setArrayY(warrior.getArrayY() - 1);
-                                if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                    moveAWarrior(warrior);
-                                } else {
-                                    warrior.setArrayY(warrior.getArrayY() + 1);
-                                }
-                            }
-                        }
-                    }else{
-                        if(warrior.getArrayY() !=  9) {
-                            if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
-                                warrior.setArrayY(warrior.getArrayY() + 1);
-                                if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                    moveAWarrior(warrior);
-                                } else {
+            for (Warrior warrior : warriorsInTheMap) {
+                if ((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14) || warrior instanceof Building) {
+                    endOfFaze1Warrior.replace(warrior, true);
+                    ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
+                    if (nearWarriors.size() == 0) {
+                        if (teamsMap.get(warrior) == 0) {
+                            if (warrior.getArrayY() != -14) {
+                                if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
                                     warrior.setArrayY(warrior.getArrayY() - 1);
+                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        moveAWarrior(warrior);
+                                    } else {
+                                        warrior.setArrayY(warrior.getArrayY() + 1);
+                                    }
+                                }
+                            }
+                        } else {
+                            if (warrior.getArrayY() != 9) {
+                                if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                                    warrior.setArrayY(warrior.getArrayY() + 1);
+                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        moveAWarrior(warrior);
+                                    } else {
+                                        warrior.setArrayY(warrior.getArrayY() - 1);
+                                    }
                                 }
                             }
                         }
+                    } else {
+                        damage(warrior, nearWarriors);
                     }
-                }else {
-                    if(warrior instanceof RealWarriors ) {
-                        if(((int)(round*1000) % (int)((((RealWarriors) warrior).getHitSpeed())*1000)) == 0) {
+                }
+            }
+    }
 
-
-                            for (Warrior nearWarrior : nearWarriors) {
-                                if (nearWarrior instanceof RealWarriors) {
-                                    System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
-                                    if (warrior instanceof Troop) {
-                                        ((RealWarriors) nearWarrior).damage
-                                                (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
+    public void gameFaze3(){
+        for(Warrior warrior : warriorsInTheMap) {
+            if (warrior instanceof Troop) {
+                if ((teamsMap.get(warrior) == 0 && warrior.getArrayY() == -14)
+                        || (teamsMap.get(warrior) == 1 && warrior.getArrayY() == 9) ) {
+                    ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
+                    if(nearWarriors.size() == 0) {
+                        if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                            if (warrior.getArrayX() != 9) {
+                                if (warrior.getArrayX() < 9) {
+                                    warrior.setArrayX(warrior.getArrayX() + 1);
+                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        moveAWarrior(warrior);
                                     } else {
-                                        ((RealWarriors) nearWarrior).damage
-                                                (((RealWarriors) warrior).getDamage());
+                                        warrior.setArrayX(warrior.getArrayX() - 1);
+
                                     }
-                                    if(((RealWarriors) warrior).getRange() == 0
-                                            || warrior instanceof KingTower || warrior instanceof QueenTower){
-                                        break;
+
+                                } else if (warrior.getArrayX() > 9) {
+                                    warrior.setArrayX(warrior.getArrayX() - 1);
+                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        moveAWarrior(warrior);
+                                    } else {
+                                        warrior.setArrayX(warrior.getArrayX() + 1);
+
                                     }
+
                                 }
+
                             }
+                        }
+                    } else {
+                        damage(warrior, nearWarriors);
+                    }
+
+                }
+            }
+        }
+    }
+
+    private void damage(Warrior warrior, ArrayList<Warrior> nearWarriors) {
+        if (warrior instanceof RealWarriors) {
+            if (((int) (round * 1000) % (int) ((((RealWarriors) warrior).getHitSpeed()) * 1000)) == 0) {
+                for (Warrior nearWarrior : nearWarriors) {
+                    if (nearWarrior instanceof RealWarriors) {
+                        System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
+                        if (warrior instanceof Troop) {
+                            ((RealWarriors) nearWarrior).damage
+                                    (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
+                        } else {
+                            ((RealWarriors) nearWarrior).damage
+                                    (((RealWarriors) warrior).getDamage());
+                        }
+                        if (((RealWarriors) warrior).getRange() == 0
+                                || warrior instanceof KingTower || warrior instanceof QueenTower) {
+                            break;
                         }
                     }
                 }
@@ -294,13 +347,11 @@ public class Game {
         }
     }
 
-    public void gameFaze3(){
-
-    }
-    public void endCheck(){
+    public boolean endCheck(){
         if(round>=180 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()){
-            endGame();
+            return true;
         }
+        return false;
     }
 
     public ArrayList<Warrior> checkNearWarriors(Warrior warrior){
@@ -339,7 +390,7 @@ public class Game {
     public boolean checkValidMove(Warrior selfWarrior, int x, int y) {
         for (Warrior warrior : warriorsInTheMap) {
             if(warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))){
-                if(!(warrior instanceof Building)) {
+                if((!(warrior instanceof Building)) && (!(warrior instanceof Spell))) {
                     return false;
                 }
             }
@@ -405,6 +456,7 @@ public class Game {
             int Y = (int) ((y - 240) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
             teamsMap.put(warrior, 0);
+            endOfFaze1Warrior.put(warrior, false);
             map[X][Y + 14] = warrior;
             warriorsInTheMap.add(warrior);
             warrior.buildImageView("blue");
@@ -421,11 +473,12 @@ public class Game {
             int Y = (int) ((y - 143) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
             teamsMap.put(warrior, 0);
+            endOfFaze1Warrior.put(warrior, false);
             map[X][Y + 10] = warrior;
             warriorsInTheMap.add(warrior);
             warrior.buildImageView("blue");
             middlePane.getChildren().add(warrior.imageView);
-            System.out.println(map[X][Y + 10].getClass().getName() + " at (" + X + "," + (Y + 10) + ")");
+            System.out.println(map[X][Y + 10].getClass().getName() + " at (" + X + "," + (Y) + ")");
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
@@ -437,11 +490,12 @@ public class Game {
             int Y = (int) ((y - 143) / 14.29);
             Warrior warrior = card.getWarrior(user, X, Y);
             teamsMap.put(warrior, 0);
+            endOfFaze1Warrior.put(warrior, false);
             map[X + 9][Y + 10] = warrior;
             warriorsInTheMap.add(warrior);
             warrior.buildImageView("blue");
             middlePane.getChildren().add(warrior.imageView);
-            System.out.println(map[X + 9][Y + 10].getClass().getName() + " at (" + (X + 9) + "," + (Y + 10) + ")");
+            System.out.println(map[X + 9][Y + 10].getClass().getName() + " at (" + (X) + "," + (Y) + ")");
             setNextCard(selectedCardIndex);
             elixir -= card.getCost();
             selectedCardIndex = -1;
