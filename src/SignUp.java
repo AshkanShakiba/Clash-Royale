@@ -105,8 +105,8 @@ public class SignUp {
 
 
         String insertFields = "INSERT INTO userdata" +
-                " (username, password, Xp, Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card8) VALUES ('";
-        String insertValues = username + "','" + password + "','" + 0 + "','','','','','','','','')";
+                " (username, password, Xp, Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card8, Title) VALUES ('";
+        String insertValues = username + "','" + password + "','" + 0 + "','','','','','','','','','" + 0 + "')";
         String insertToDB = insertFields + insertValues;
         try {
             Statement statement = connectDB.createStatement();

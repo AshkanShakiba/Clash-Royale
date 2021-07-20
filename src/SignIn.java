@@ -147,6 +147,7 @@ public class SignIn {
     public User currentUser(){
         String[] currentCards = new String[8];
         int xp  = 0;
+        int title = 0;
         User user = null;
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -160,12 +161,13 @@ public class SignIn {
 
             while (queryResult.next()) {
                 xp = queryResult.getInt(4);
+                title = queryResult.getInt(13);
                 for(int i = 5; i <= 12; i++){
                     currentCards[i-5] = (queryResult.getString(i));
                 }
             }
 
-            user = new User(usernameTextField.getText(), xp, currentCards);
+            user = new User(usernameTextField.getText(), xp, currentCards, title);
 
         } catch (Exception e) {
             e.printStackTrace();

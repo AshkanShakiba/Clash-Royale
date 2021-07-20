@@ -6,6 +6,7 @@ public class User {
     private String username;
     private int xp;
     private int level;
+    private int title;
     private ArrayList<Card> cards;
     private Card[] currentCards;
     private SecureRandom random;
@@ -33,6 +34,7 @@ public class User {
     public User() {
         xp = 0;
         level = 1;
+        title = 0;
     }
 
     public User(String username, int xp) {
@@ -52,7 +54,7 @@ public class User {
 
     }
 
-    public User(String username, int xp, String[] currentCards ){
+    public User(String username, int xp, String[] currentCards, int title ){
         this(username, xp);
         int i = 0;
         for(String cardName : currentCards){
@@ -63,6 +65,7 @@ public class User {
             }
             i++;
         }
+        this.title = title;
 
     }
 
