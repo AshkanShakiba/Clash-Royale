@@ -166,14 +166,16 @@ public class Game {
         }
 
 
-        starterWarriorsMovement();
-        game();
+        gameFaze1();
+        gameFaze2();
+        gameFaze3();
         towerManagement();
+        endCheck();
         round = round + 0.125;
 
     }
 
-    public void starterWarriorsMovement() {
+    public void gameFaze1() {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Troop) {
                 if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0 )) {
@@ -233,54 +235,8 @@ public class Game {
         }
     }
 
-    public ArrayList<Warrior> checkNearWarriors(Warrior warrior){
+    public void gameFaze2(){
 
-        ArrayList<Warrior> nearWarriors = new ArrayList<>();
-
-        if(warrior instanceof  RealWarriors ){
-            for(Warrior wrr : warriorsInTheMap) {
-                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((RealWarriors) warrior).getRange()) + 1){
-                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((RealWarriors) warrior).getRange() + 1){
-                        if(!wrr.equals(warrior)) {
-                            if(wrr instanceof RealWarriors){
-                                if(!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
-                                    nearWarriors.add(wrr);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        /*
-        if(warrior instanceof RealWarriors){
-            if(((RealWarriors) warrior).getRange() == 0
-                    || warrior instanceof KingTower || warrior instanceof QueenTower){
-                Warrior oneWarrior = nearWarriors.get(0);
-                nearWarriors = new ArrayList<>();
-                nearWarriors.add(oneWarrior);
-            }
-        }
-
-         */
-        return nearWarriors;
-    }
-
-    public boolean checkValidMove(Warrior selfWarrior, int x, int y) {
-        for (Warrior warrior : warriorsInTheMap) {
-            if(warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))){
-                if(!(warrior instanceof Building)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public void game(){
-        if(round>=180){
-            endGame();
-        }
         if(round%1.0==0) bot.move();
         for(Warrior warrior : warriorsInTheMap){
             if((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14) || warrior instanceof Building){
@@ -336,6 +292,59 @@ public class Game {
                 }
             }
         }
+    }
+
+    public void gameFaze3(){
+
+    }
+    public void endCheck(){
+        if(round>=180 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()){
+            endGame();
+        }
+    }
+
+    public ArrayList<Warrior> checkNearWarriors(Warrior warrior){
+
+        ArrayList<Warrior> nearWarriors = new ArrayList<>();
+
+        if(warrior instanceof  RealWarriors ){
+            for(Warrior wrr : warriorsInTheMap) {
+                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((RealWarriors) warrior).getRange()) + 1){
+                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((RealWarriors) warrior).getRange() + 1){
+                        if(!wrr.equals(warrior)) {
+                            if(wrr instanceof RealWarriors){
+                                if(!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
+                                    nearWarriors.add(wrr);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*
+        if(warrior instanceof RealWarriors){
+            if(((RealWarriors) warrior).getRange() == 0
+                    || warrior instanceof KingTower || warrior instanceof QueenTower){
+                Warrior oneWarrior = nearWarriors.get(0);
+                nearWarriors = new ArrayList<>();
+                nearWarriors.add(oneWarrior);
+            }
+        }
+
+         */
+        return nearWarriors;
+    }
+
+    public boolean checkValidMove(Warrior selfWarrior, int x, int y) {
+        for (Warrior warrior : warriorsInTheMap) {
+            if(warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))){
+                if(!(warrior instanceof Building)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void towerManagement(){
