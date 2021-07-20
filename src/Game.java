@@ -106,7 +106,7 @@ public class Game {
 
     public void construct(User user,Stage stage) {
         this.stage=stage;
-        bot=new Bot(this, 1);
+        bot=new Bot(this, 2);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -173,9 +173,9 @@ public class Game {
             gameFaze1();
             gameFaze2();
             gameFaze3();
-//            if(round % 1 == 0){
-//                bot.move();
-//            }
+            if(round % 1 == 0){
+                bot.move();
+            }
             towerManagement();
             endCheck();
             round = round + 0.125;
