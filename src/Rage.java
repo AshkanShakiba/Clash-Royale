@@ -1,3 +1,4 @@
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Rage extends Spell {
@@ -31,4 +32,5 @@ public class Rage extends Spell {
     public String toString() {
         return "Rage";
     }
+
 }

@@ -87,7 +87,8 @@ public class Menu {
             }
         }
         if(cheatCode.equalsIgnoreCase("royalGiant")){
-
+            Giant.upgrade();
+            System.out.println("Giant upgraded");
         }
     }
 }

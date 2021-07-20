@@ -1,3 +1,4 @@
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Giant extends Troop {
@@ -48,7 +49,7 @@ public class Giant extends Troop {
 
     public static void upgrade() {
         damageArray = new int[]{252, 276, 304, 334, 366};
-        imageBluePath = "RoyalGiantBlue.gif";
-        imageRedPath = "RoyalGiantRed.gif";
+        imageBluePath = "sprites/RoyalGiantBlue.gif";
+        imageRedPath = "sprites/RoyalGiantRed.gif";
     }
 }
