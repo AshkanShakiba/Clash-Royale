@@ -10,10 +10,9 @@ import java.io.IOException;
 public class About {
     public void back(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("entrance.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
