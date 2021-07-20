@@ -491,17 +491,19 @@ public class Game {
     public void putWarrior(int X, int Y){
         Card card = availableCards.get(selectedCardIndex);
         Warrior warrior = card.getWarrior(user, X, Y);
-        warriorsInTheMap.add(warrior);
-        teamsMap.put(warrior, 0);
-        endOfFaze1Warrior.put(warrior, false);
-        //map[X][Y + 10] = warrior;
-        warrior.buildImageView("blue");
-        middlePane.getChildren().add(warrior.imageView);
-        System.out.println(card.toString() + " at (" + X + "," + (Y) + ")");
-        setNextCard(selectedCardIndex);
-        elixir -= card.getCost();
-        selectedCardIndex = -1;
-        playAudio(card.getAudio());
+        if(checkValidMove(warrior, X, Y)) {
+            warriorsInTheMap.add(warrior);
+            teamsMap.put(warrior, 0);
+            endOfFaze1Warrior.put(warrior, false);
+            //map[X][Y + 10] = warrior;
+            warrior.buildImageView("blue");
+            middlePane.getChildren().add(warrior.imageView);
+            System.out.println(card.toString() + " at (" + X + "," + (Y) + ")");
+            setNextCard(selectedCardIndex);
+            elixir -= card.getCost();
+            selectedCardIndex = -1;
+            playAudio(card.getAudio());
+        }
     }
 
     private void setNextCard(int index) {
