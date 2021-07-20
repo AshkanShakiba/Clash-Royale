@@ -4,17 +4,23 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Menu {
+public class Menu implements Initializable {
+    @FXML
+    private ImageView theme;
     @FXML
     private PasswordField cheatField;
 
@@ -25,7 +31,7 @@ public class Menu {
             Parent root = loader.load();
             Game game = loader.getController();
             User user = new User();
-            game.construct(user,stage);
+            game.construct(user, stage);
 
             Timeline updateTimeLine = new Timeline(
                     new KeyFrame(Duration.millis(125),
@@ -71,9 +77,9 @@ public class Menu {
         }
     }
 
-    public void check(ActionEvent event){
-        String cheatCode=cheatField.getText();
-        if(cheatCode.equalsIgnoreCase("theme")){
+    public void check(ActionEvent event) {
+        String cheatCode = cheatField.getText();
+        if (cheatCode.equalsIgnoreCase("theme")) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("themes.fxml"));
                 Parent root = loader.load();
@@ -86,9 +92,14 @@ public class Menu {
                 exception.printStackTrace();
             }
         }
-        if(cheatCode.equalsIgnoreCase("royalGiant")){
+        if (cheatCode.equalsIgnoreCase("royalGiant")) {
             Giant.upgrade();
             System.out.println("Giant upgraded");
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        theme.setImage(Main.getTheme().getIcon());
     }
 }

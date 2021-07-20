@@ -12,13 +12,19 @@ public enum Theme {
     JUNGLE,
     SPELL;
 
+    private Image icon;
     private Image image;
 
-    Theme(){
-        image=new Image("themes/"+name()+".png");
+    Theme() {
+        icon = new Image("themes/" + name() + "..png");
+        image = new Image("themes/" + name() + ".png");
     }
 
     public Image getImage() {
         return image;
+    }
+
+    public Image getIcon() {
+        return icon;
     }
 }
