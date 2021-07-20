@@ -30,6 +30,7 @@ public class Valkyrie extends Troop {
         target = 0;
         range = 0;
         areaSplash = true;
+        zone = 0;
         count = 1;
         imageBlue = "sprites/ValkyrieBlue.gif";
         imageRed = "sprites/ValkyrieRed.gif";

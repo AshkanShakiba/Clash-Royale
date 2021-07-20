@@ -29,6 +29,7 @@ public class InfernoTower extends Building {
         target = 2;
         range = 6;
         lifetime = 40;
+        zone = 0;
         imageBlue = "sprites/InfernoTowerBlue.png";
         imageRed = "sprites/InfernoTowerRed.png";
         imageWidth=50;

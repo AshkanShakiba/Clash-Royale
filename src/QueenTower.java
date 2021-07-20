@@ -27,6 +27,7 @@ public class QueenTower extends Building{
         hitSpeed = 0.75;
         target = 1;
         range = 7.5;
+        zone = 0;
         lifetime = 180;
     }
 

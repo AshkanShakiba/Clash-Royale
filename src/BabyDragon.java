@@ -31,6 +31,7 @@ public class BabyDragon extends Troop {
         range = 3;
         areaSplash = true;
         count = 1;
+        zone = 1;
         imageBlue = "sprites/BabyDragonBlue.gif";
         imageRed = "sprites/BabyDragonRed.gif";
         imageWidth=90;

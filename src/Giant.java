@@ -37,6 +37,7 @@ public class Giant extends Troop {
         range = 0;
         areaSplash = false;
         count = 1;
+        zone = 0;
         imageBlue = imageBluePath;
         imageRed = imageRedPath;
         imageWidth = 120;

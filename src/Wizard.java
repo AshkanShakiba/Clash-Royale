@@ -31,6 +31,7 @@ public class Wizard extends Troop {
         range = 5;
         areaSplash = true;
         count = 1;
+        zone = 0;
         imageBlue = "sprites/WizardBlue.gif";
         imageRed = "sprites/WizardRed.gif";
         imageWidth=80;

@@ -31,6 +31,7 @@ public class Barbarians extends Troop {
         range = 0;
         areaSplash = false;
         count = 4;
+        zone = 0;
         imageBlue = "sprites/BarbariansBlue.gif";
         imageRed = "sprites/BarbariansRed.gif";
         imageWidth=80;

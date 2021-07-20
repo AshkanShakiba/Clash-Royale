@@ -29,6 +29,7 @@ public class Cannon extends Building {
         target = 0;
         range = 5.5;
         lifetime = 30;
+        zone = 0;
         imageBlue = "sprites/CannonBlue.png";
         imageRed = "sprites/CannonRed.png";
         imageWidth=50;

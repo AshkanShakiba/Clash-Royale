@@ -27,6 +27,7 @@ public class KingTower extends Building{
         target = 1;
         range = 7;
         lifetime = 180;
+        zone = 0;
     }
 
     @Override

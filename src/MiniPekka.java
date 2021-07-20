@@ -31,6 +31,7 @@ public class MiniPekka extends Troop {
         range = 0;
         areaSplash = false;
         count = 1;
+        zone = 0;
         imageBlue = "sprites/MiniPekkaBlue.gif";
         imageRed = "sprites/MiniPekkaRed.gif";
         imageWidth=60;

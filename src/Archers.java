@@ -29,6 +29,7 @@ public class Archers extends Troop {
         range = 5;
         areaSplash = false;
         count = 2;
+        zone = 0;
         imageBlue = "sprites/ArchersBlue.gif";
         imageRed = "sprites/ArchersRed.gif";
         imageWidth=50;
