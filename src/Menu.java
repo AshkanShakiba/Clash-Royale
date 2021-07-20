@@ -86,5 +86,8 @@ public class Menu {
                 exception.printStackTrace();
             }
         }
+        if(cheatCode.equalsIgnoreCase("royalGiant")){
+
+        }
     }
 }
