@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class Main extends Application {
+    private static Theme theme = Theme.DEFAULT;
 
     private static ArrayList<User> users = new ArrayList<>();
 
@@ -47,5 +48,9 @@ public class Main extends Application {
             stage.close();
             System.exit(0);
         }
+    }
+
+    public static Theme getTheme() {
+        return theme;
     }
 }

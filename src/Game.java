@@ -77,6 +77,11 @@ public class Game {
     @FXML
     private ImageView queenUpLeft2;
 
+    @FXML
+    private ImageView topArena;
+    @FXML
+    private ImageView bottomArena;
+
     private Bot bot;
     private User user;
     private Stage stage;
