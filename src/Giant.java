@@ -3,6 +3,7 @@ import javafx.scene.image.ImageView;
 
 public class Giant extends Troop {
     private static int[] damageArray = new int[]{126, 138, 152, 167, 183};
+    private static int[] hpArray = new int[]{2000, 2200, 2420, 2660, 2920};
     private static String imageBluePath = "sprites/GiantBlue.gif";
     private static String imageRedPath = "sprites/GiantRed.gif";
 
@@ -11,23 +12,23 @@ public class Giant extends Troop {
         this.arrayY = y;
         switch (user.getLevel()) {
             case 1:
-                hp = 2000;
+                hp = hpArray[0];
                 damage = damageArray[0];
                 break;
             case 2:
-                hp = 2200;
+                hp = hpArray[1];
                 damage = damageArray[1];
                 break;
             case 3:
-                hp = 2420;
+                hp = hpArray[2];
                 damage = damageArray[2];
                 break;
             case 4:
-                hp = 2660;
+                hp = hpArray[3];
                 damage = damageArray[3];
                 break;
             case 5:
-                hp = 2920;
+                hp = hpArray[4];
                 damage = damageArray[4];
         }
         hitSpeed = 1.5;
@@ -49,6 +50,7 @@ public class Giant extends Troop {
 
     public static void upgrade() {
         damageArray = new int[]{252, 276, 304, 334, 366};
+        hpArray = new int[]{3000, 3300, 3630, 3990, 4380};
         imageBluePath = "sprites/RoyalGiantBlue.gif";
         imageRedPath = "sprites/RoyalGiantRed.gif";
     }
