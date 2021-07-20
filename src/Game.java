@@ -99,6 +99,8 @@ public class Game {
     private HashMap<Warrior, Integer> teamsMap = new HashMap<>(); // team = 0 -> down team = 1 -> up
     private HashMap<Warrior, Boolean> endOfFaze1Warrior = new HashMap<>();
 
+    private int score1=0;
+    private int score2=0;
 
     private KingTower kingTowerUp;
     private KingTower kingTowerDown;
@@ -410,35 +412,43 @@ public class Game {
     }
 
     public void towerManagement() {
+        score1=0;
         if (!queenTowerUpLeft.isAlive() || !queenTowerUpRight.isAlive()) {
             warriorsInTheMap.add(kingTowerUp);
             teamsMap.put(kingTowerUp, 1);
             if (!queenTowerUpLeft.isAlive()) {
+                score1++;
                 queenUpLeft1.setImage(null);
                 queenUpLeft2.setImage(null);
             } else {
+                score1++;
                 queenUpRight1.setImage(null);
                 queenUpRight2.setImage(null);
             }
         }
+        score2=0;
         if (!queenTowerDownRight.isAlive() || !queenTowerDownLeft.isAlive()) {
             warriorsInTheMap.add(kingTowerDown);
             teamsMap.put(kingTowerDown, 0);
             if (!queenTowerDownLeft.isAlive()) {
+                score2++;
                 queenDownLeft1.setImage(null);
                 queenDownLeft2.setImage(null);
             } else {
+                score2++;
                 queenDownRight1.setImage(null);
                 queenDownRight2.setImage(null);
             }
         }
 
         if (!kingTowerUp.isAlive()) {
+            score1=3;
             kingUp1.setImage(null);
             kingUp2.setImage(null);
         }
 
         if (!kingTowerDown.isAlive()) {
+            score2=3;
             kingDown1.setImage(null);
             kingDown2.setImage(null);
         }
@@ -556,7 +566,7 @@ public class Game {
             Parent root = loader.load();
             EndGame endGame = loader.getController();
             //stage.initStyle(StageStyle.DECORATED);
-            endGame.setScores(0, 3);
+            endGame.setScores(score1,score2);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

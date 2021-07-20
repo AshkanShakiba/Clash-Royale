@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndGame">
-
+   <children>
+      <Label layoutX="400.0" layoutY="56.0" text="Bot">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="red2" fitHeight="150.0" fitWidth="150.0" layoutX="361.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sprites/CrownRed.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="red1" fitHeight="150.0" fitWidth="150.0" layoutX="268.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sprites/CrownRed.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="red3" fitHeight="150.0" fitWidth="150.0" layoutX="449.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sprites/CrownRed.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="386.0" layoutY="321.0" text="Player">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="blue2" fitHeight="150.0" fitWidth="150.0" layoutX="361.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sprites/CrownBlue.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="blue1" fitHeight="150.0" fitWidth="150.0" layoutX="268.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sprites/CrownBlue.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="blue3" fitHeight="150.0" fitWidth="150.0" layoutX="449.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sprites/CrownBlue.gif" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
