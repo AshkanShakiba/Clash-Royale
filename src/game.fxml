@@ -48,27 +48,27 @@
                   </ImageView>
                   <AnchorPane prefHeight="200.0" prefWidth="400.0" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="252.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="queenDownRight1" fitHeight="100.0" fitWidth="100.0" layoutX="252.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="55.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="queenDownLeft1" fitHeight="100.0" fitWidth="100.0" layoutX="55.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="156.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="KingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="156.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="130.0" layoutX="136.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="KingUp2" fitHeight="150.0" fitWidth="130.0" layoutX="136.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingBlue.gif" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="275.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                        <ImageView fx:id="queenDownRight2" fitHeight="80.0" fitWidth="80.0" layoutX="275.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                            <image>
                               <Image url="@sprites/PrincessShootingBlue.gif" />
                            </image>
@@ -76,7 +76,7 @@
                               <Point3D y="1.0" />
                            </rotationAxis>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="80.0" layoutX="43.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="queenDownLeft2" fitHeight="100.0" fitWidth="80.0" layoutX="43.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessShootingBlue.gif" />
                            </image>
@@ -95,32 +95,32 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="400.0">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="58.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="queenUpLeft1" fitHeight="100.0" fitWidth="100.0" layoutX="58.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerRed.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="255.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="queenUpRight1" fitHeight="100.0" fitWidth="100.0" layoutX="255.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessTowerRed.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="KingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingTowerRed.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="137.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="KingUp2" fitHeight="150.0" fitWidth="150.0" layoutX="137.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingRed.gif" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="243.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="queenUpRight2" fitHeight="80.0" fitWidth="80.0" layoutX="243.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/PrincessShootingRed.gif" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="80.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                        <ImageView fx:id="queenUpLeft2" fitHeight="100.0" fitWidth="80.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                            <image>
                               <Image url="@sprites/PrincessShootingRed.gif" />
                            </image>

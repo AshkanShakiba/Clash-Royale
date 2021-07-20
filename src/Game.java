@@ -1,7 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,7 +14,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Paths;
 import java.util.*;
 
@@ -50,10 +48,16 @@ public class Game {
     private ImageView queenDownLeft1;
 
     @FXML
-    private ImageView KingUp1;
+    private ImageView kingUp1;
 
     @FXML
-    private ImageView KingUp2;
+    private ImageView kingUp2;
+
+    @FXML
+    private ImageView kingDown1;
+
+    @FXML
+    private ImageView kingDown2;
 
     @FXML
     private ImageView queenDownRight2;
@@ -164,6 +168,7 @@ public class Game {
 
         starterWarriorsMovement();
         game();
+        towerManagement();
         round = round + 0.125;
 
     }
@@ -320,6 +325,42 @@ public class Game {
                 }
             }
         }
+    }
+
+    public void towerManagement(){
+        if(!queenTowerUpLeft.isAlive() || !queenTowerUpRight.isAlive()){
+            warriorsInTheMap.add(kingTowerUp);
+            teamsMap.put(kingTowerUp, 1);
+            if(!queenTowerUpLeft.isAlive()){
+                queenUpLeft1.setImage(null);
+                queenUpLeft2.setImage(null);
+            }else{
+                queenUpRight1.setImage(null);
+                queenUpRight2.setImage(null);
+            }
+        }
+        if(!queenTowerDownRight.isAlive() || !queenTowerDownLeft.isAlive()){
+            warriorsInTheMap.add(kingTowerDown);
+            teamsMap.put(kingTowerDown, 0);
+            if(!queenTowerDownLeft.isAlive()){
+                queenDownLeft1.setImage(null);
+                queenDownLeft2.setImage(null);
+            }else{
+                queenDownRight1.setImage(null);
+                queenDownRight2.setImage(null);
+            }
+        }
+
+        if(!kingTowerUp.isAlive()){
+            kingUp1.setImage(null);
+            kingUp2.setImage(null);
+        }
+
+        if(!kingTowerDown.isAlive()){
+            kingDown1.setImage(null);
+            kingDown2.setImage(null);
+        }
+
     }
 
     public void moveAWarrior(Warrior warrior) {
