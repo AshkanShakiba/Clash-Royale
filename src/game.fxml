@@ -151,7 +151,14 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rightPane" layoutX="600.0" prefHeight="600.0" prefWidth="200.0" />
+      <AnchorPane fx:id="rightPane" layoutX="600.0" prefHeight="600.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="timer" layoutX="6.0" layoutY="559.0" text="3:00" textFill="#b700b7">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
       <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0">
          <children>
             <Button fx:id="next" layoutX="135.0" layoutY="523.0" mnemonicParsing="false" onAction="#select" prefHeight="62.0" prefWidth="50.0" />
