@@ -110,6 +110,9 @@ public class Game {
     private double round = 0;
 
     public void construct(User user,Stage stage) {
+        topArena.setImage(Main.getTheme().getImage());
+        bottomArena.setImage(Main.getTheme().getImage());
+
         this.stage=stage;
         bot=new Bot(this, 2);
         elixir = 4;

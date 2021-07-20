@@ -28,7 +28,7 @@
                 <RowConstraints fx:id="player" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" GridPane.halignment="CENTER">
+                  <ImageView fx:id="topArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" GridPane.halignment="CENTER">
                      <image>
                         <Image url="@assets/ARENA.png" />
                      </image>
@@ -38,7 +38,7 @@
                         <Image url="@assets/water.gif" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <ImageView fx:id="bottomArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <image>
                         <Image url="@assets/ARENA.png" />
                      </image>

@@ -53,4 +53,8 @@ public class Main extends Application {
     public static Theme getTheme() {
         return theme;
     }
+
+    public static void setTheme(Theme selectedTheme){
+        theme=selectedTheme;
+    }
 }
