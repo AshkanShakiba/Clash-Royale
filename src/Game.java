@@ -474,36 +474,85 @@ public class Game {
         if (243 <= x && x <= 557 && 240 <= y && y <= 440) {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
-            putWarrior(X, Y);
+            putWarriorLogic(X, Y);
         }
         if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
-            putWarrior(X, Y);
+            putWarriorLogic(X, Y);
         }
         if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
             int X = (int) ((x - 400) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
-            putWarrior(X, Y);
+            putWarriorLogic(X, Y);
         }
     }
 
-    public void putWarrior(int X, int Y){
+    public void putWarriorLogic(int X, int Y){
         Card card = availableCards.get(selectedCardIndex);
         Warrior warrior = card.getWarrior(user, X, Y);
-        if(checkValidMove(warrior, X, Y)) {
-            warriorsInTheMap.add(warrior);
-            teamsMap.put(warrior, 0);
-            endOfFaze1Warrior.put(warrior, false);
-            //map[X][Y + 10] = warrior;
-            warrior.buildImageView("blue");
-            middlePane.getChildren().add(warrior.imageView);
-            System.out.println(card.toString() + " at (" + X + "," + (Y) + ")");
-            setNextCard(selectedCardIndex);
-            elixir -= card.getCost();
-            selectedCardIndex = -1;
+
+        if(warrior instanceof Barbarians){
+            ArrayList<Warrior> toPut = new ArrayList<>();
+            if(checkValidMove(warrior, X, Y)){
+                toPut.add(warrior);
+            }
+            if(checkValidMove(warrior, X + 1, Y)){
+                warrior = card.getWarrior(user, X + 1, Y);
+                toPut.add(warrior);
+            }
+            if(checkValidMove(warrior, X, Y - 1 )){
+                warrior = card.getWarrior(user, X, Y - 1);
+                toPut.add(warrior);
+            }
+            if(checkValidMove(warrior, X + 1, Y - 1)){
+                warrior = card.getWarrior(user, X + 1, Y - 1);
+                toPut.add(warrior);
+            }
+            if(toPut.size() == 4){
+                for(Warrior wrr : toPut){
+                    putWarriorInThePoint(wrr, wrr.getArrayX(), wrr.arrayY);
+                }
+                elixir -= card.getCost();
+                playAudio(card.getAudio());
+                setNextCard(selectedCardIndex);
+                selectedCardIndex = -1;
+            }
+        } if(warrior instanceof Archers){
+            ArrayList<Warrior> toPut = new ArrayList<>();
+            if(checkValidMove(warrior, X, Y)){
+                toPut.add(warrior);
+            }
+            if(checkValidMove(warrior, X + 1, Y)){
+                warrior = card.getWarrior(user, X + 1, Y);
+                toPut.add(warrior);
+            }
+            if(toPut.size() == 2){
+                for(Warrior wrr : toPut){
+                    putWarriorInThePoint(wrr, wrr.getArrayX(), wrr.arrayY);
+                }
+                elixir -= card.getCost();
+                playAudio(card.getAudio());
+                setNextCard(selectedCardIndex);
+                selectedCardIndex = -1;
+            }
+        }else if(checkValidMove(warrior, X, Y)) {
+            putWarriorInThePoint(warrior, X, Y);
             playAudio(card.getAudio());
+            setNextCard(selectedCardIndex);
+            selectedCardIndex = -1;
         }
+    }
+
+    public void putWarriorInThePoint(Warrior warrior, int X, int Y){
+        warriorsInTheMap.add(warrior);
+        teamsMap.put(warrior, 0);
+        endOfFaze1Warrior.put(warrior, false);
+        //map[X][Y + 10] = warrior;
+        warrior.buildImageView("blue");
+        middlePane.getChildren().add(warrior.imageView);
+        System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
+
     }
 
     private void setNextCard(int index) {
