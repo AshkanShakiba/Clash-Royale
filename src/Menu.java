@@ -28,7 +28,7 @@ public class Menu {
             game.construct(user,stage);
 
             Timeline updateTimeLine = new Timeline(
-                    new KeyFrame(Duration.millis(250),
+                    new KeyFrame(Duration.millis(125),
                             new EventHandler<javafx.event.ActionEvent>() {
 
                                 @Override
