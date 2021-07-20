@@ -472,56 +472,36 @@ public class Game {
     public void click(double x, double y) {
         if (selectedCardIndex == -1) return;
         if (243 <= x && x <= 557 && 240 <= y && y <= 440) {
-            Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
-            Warrior warrior = card.getWarrior(user, X, Y);
-            teamsMap.put(warrior, 0);
-            endOfFaze1Warrior.put(warrior, false);
-            map[X][Y + 14] = warrior;
-            warriorsInTheMap.add(warrior);
-            warrior.buildImageView("blue");
-            middlePane.getChildren().add(warrior.imageView);
-            System.out.println(map[X][Y + 14].getClass().getName() + " at (" + X + "," + (Y) + ")");
-            setNextCard(selectedCardIndex);
-            elixir -= card.getCost();
-            selectedCardIndex = -1;
-            playAudio(card.getAudio());
+            putWarrior(X, Y);
         }
         if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
-            Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
-            Warrior warrior = card.getWarrior(user, X, Y);
-            teamsMap.put(warrior, 0);
-            endOfFaze1Warrior.put(warrior, false);
-            map[X][Y + 10] = warrior;
-            warriorsInTheMap.add(warrior);
-            warrior.buildImageView("blue");
-            middlePane.getChildren().add(warrior.imageView);
-            System.out.println(map[X][Y + 10].getClass().getName() + " at (" + X + "," + (Y) + ")");
-            setNextCard(selectedCardIndex);
-            elixir -= card.getCost();
-            selectedCardIndex = -1;
-            playAudio(card.getAudio());
+            putWarrior(X, Y);
         }
         if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
-            Card card = availableCards.get(selectedCardIndex);
             int X = (int) ((x - 400) / 17.44);
             int Y = (int) ((y - 143) / 14.29);
-            Warrior warrior = card.getWarrior(user, X, Y);
-            teamsMap.put(warrior, 0);
-            endOfFaze1Warrior.put(warrior, false);
-            map[X + 9][Y + 10] = warrior;
-            warriorsInTheMap.add(warrior);
-            warrior.buildImageView("blue");
-            middlePane.getChildren().add(warrior.imageView);
-            System.out.println(map[X + 9][Y + 10].getClass().getName() + " at (" + (X) + "," + (Y) + ")");
-            setNextCard(selectedCardIndex);
-            elixir -= card.getCost();
-            selectedCardIndex = -1;
-            playAudio(card.getAudio());
+            putWarrior(X, Y);
         }
+    }
+
+    public void putWarrior(int X, int Y){
+        Card card = availableCards.get(selectedCardIndex);
+        Warrior warrior = card.getWarrior(user, X, Y);
+        warriorsInTheMap.add(warrior);
+        teamsMap.put(warrior, 0);
+        endOfFaze1Warrior.put(warrior, false);
+        //map[X][Y + 10] = warrior;
+        warrior.buildImageView("blue");
+        middlePane.getChildren().add(warrior.imageView);
+        System.out.println(card.toString() + " at (" + X + "," + (Y) + ")");
+        setNextCard(selectedCardIndex);
+        elixir -= card.getCost();
+        selectedCardIndex = -1;
+        playAudio(card.getAudio());
     }
 
     private void setNextCard(int index) {
