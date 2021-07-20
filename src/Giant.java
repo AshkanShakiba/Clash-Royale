@@ -54,4 +54,11 @@ public class Giant extends Troop {
         imageBluePath = "sprites/RoyalGiantBlue.gif";
         imageRedPath = "sprites/RoyalGiantRed.gif";
     }
+
+    @Override
+    public void buildImageView(String color){
+        super.buildImageView(color);
+        imageView.setX(mapX-15);
+        imageView.setY(mapY-20);
+    }
 }

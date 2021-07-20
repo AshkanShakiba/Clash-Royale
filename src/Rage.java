@@ -33,4 +33,10 @@ public class Rage extends Spell {
         return "Rage";
     }
 
+    @Override
+    public void buildImageView(String color){
+        super.buildImageView(color);
+        imageView.setX(mapX+15);
+        imageView.setY(mapY+15);
+    }
 }

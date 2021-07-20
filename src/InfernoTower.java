@@ -39,4 +39,10 @@ public class InfernoTower extends Building {
     public String toString() {
         return "InfernoTower";
     }
+
+    @Override
+    public void buildImageView(String color){
+        super.buildImageView(color);
+        imageView.setY(mapY-10);
+    }
 }
