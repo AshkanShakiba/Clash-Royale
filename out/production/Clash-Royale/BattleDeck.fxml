@@ -78,5 +78,6 @@
          </image>
       </ImageView>
       <Button fx:id="saveButton" layoutX="701.0" layoutY="290.0" mnemonicParsing="false" onAction="#saveButtonOnAction" prefHeight="58.0" prefWidth="73.0" style="-fx-background-radius: 100; -fx-background-color: #2596be; -fx-border-radius: 300; -fx-border-color: #FFFFFF;" text="Save" textFill="WHITE" />
+      <Button layoutX="14.0" layoutY="562.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

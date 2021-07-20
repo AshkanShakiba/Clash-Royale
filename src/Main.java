@@ -42,7 +42,7 @@ public class Main extends Application {
     public static void exit(Stage stage) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
-        alert.setHeaderText("Unsaved data will be fucked");
+        alert.setHeaderText("Unsaved data won't be saved");
         alert.setContentText("Are you sure to exit?");
         if (alert.showAndWait().get() == ButtonType.OK) {
             stage.close();
