@@ -38,6 +38,18 @@ public class User {
     public User(String username, int xp) {
         this.username = username;
         this.xp = xp;
+        if(xp < 300 ){
+            level = 1;
+        }else if(xp < 500 ){
+            level = 2;
+        }else if(xp < 900 ){
+            level = 3;
+        }else if(xp < 1700 ){
+            level = 4;
+        }else if(xp < 3500 ){
+            level = 5;
+        }
+
     }
 
     public User(String username, int xp, String[] currentCards ){

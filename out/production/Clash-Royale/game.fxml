@@ -58,12 +58,12 @@
                               <Image url="@sprites/PrincessTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="KingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="156.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="kingDown1" fitHeight="100.0" fitWidth="100.0" layoutX="156.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingTowerBlue.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="KingUp2" fitHeight="150.0" fitWidth="130.0" layoutX="136.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="kingDown2" fitHeight="150.0" fitWidth="130.0" layoutX="136.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingBlue.gif" />
                            </image>
@@ -105,12 +105,12 @@
                               <Image url="@sprites/PrincessTowerRed.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="KingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="kingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingTowerRed.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="KingUp2" fitHeight="150.0" fitWidth="150.0" layoutX="137.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="kingUp2" fitHeight="150.0" fitWidth="150.0" layoutX="137.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@sprites/KingRed.gif" />
                            </image>
