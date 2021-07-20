@@ -1,0 +1,19 @@
+#anchorPane {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/back1.jpg");
+}
+
+#start {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/startLabel.png");
+}
+
+#about {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/aboutLabel.png");
+}
+
+#exit {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/exitLabel.png");
+}

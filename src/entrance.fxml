@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Entrance">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@entrance.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Entrance">
    <children>
-      <Button layoutX="380.0" layoutY="300.0" mnemonicParsing="false" onAction="#start" text="Start" />
-      <Button layoutX="376.0" layoutY="344.0" mnemonicParsing="false" onAction="#about" text="About" />
-      <Button layoutX="382.0" layoutY="389.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
-      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="start" layoutX="605.0" layoutY="501.0" mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="100.0">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="about" layoutX="605.0" layoutY="533.0" mnemonicParsing="false" onAction="#about" prefHeight="25.0" prefWidth="100.0">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="exit" layoutX="605.0" layoutY="565.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="100.0">
+         <font>
+            <Font name="Arial Narrow" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

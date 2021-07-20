@@ -47,6 +47,6 @@
             <Image url="@sprites/CrownxRed.gif" />
          </image>
       </ImageView>
-      <Button layoutX="11.0" layoutY="560.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button fx:id="back" layoutX="11.0" layoutY="560.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="100.0" />
    </children>
 </AnchorPane>
