@@ -4,4 +4,9 @@ public abstract class Building extends RealWarriors {
     public int getLifetime() {
         return lifetime;
     }
+
+    @Override
+    public int getHp() {
+        return hp;
+    }
 }

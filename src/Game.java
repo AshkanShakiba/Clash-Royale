@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -674,19 +675,22 @@ public class Game {
     }
 
     private void endGame() {
-        if(score2==score1){
-
-        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("endGame.fxml"));
             Parent root = loader.load();
             EndGame endGame = loader.getController();
             //stage.initStyle(StageStyle.DECORATED);
+            // score2: Bot, score1: Player
             endGame.setScores(score2, score1);
-            endGame.setEmotes();
             endGame.setUserXp(user);
             endGame.setUserTitle(user);
             endGame.updateUserData();
+            if(score2==score1){
+                int botHp=kingTowerUp.getHp()+queenTowerUpLeft.getHp()+queenTowerUpRight.getHp();
+                int playerHp=kingTowerDown.getHp()+queenTowerDownLeft.getHp()+queenTowerDownRight.getHp();
+                endGame.setHps(botHp,playerHp);
+            }
+            endGame.setEmotes();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -694,6 +698,7 @@ public class Game {
             exception.printStackTrace();
         }
     }
+
 
     public ArrayList<Warrior> getPlayerWarriors() {
         ArrayList<Warrior> warriors = new ArrayList<>();
