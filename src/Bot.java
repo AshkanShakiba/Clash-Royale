@@ -34,9 +34,9 @@ public class Bot {
         }
     }
 
-    public void increaseElixir() {
+    public void increaseElixir(double added) {
         if (elixir < 10)
-            elixir += 0.125;
+            elixir += added;
     }
 
     public void move() {
@@ -55,6 +55,8 @@ public class Bot {
     private void move1() {
         Card card = cards.get(random.nextInt(8));
 
+        if (elixir < card.getCost()) return;
+
         int x = random.nextInt(18);
         int y = random.nextInt(14) - 18;
 
@@ -63,57 +65,22 @@ public class Bot {
 
     private void move2() {
         Card card = cards.get(random.nextInt(8));
-        ArrayList<Warrior> warriors = game.getPlayerWarriors();
-        Warrior warrior = warriors.get(random.nextInt(warriors.size()));
-        if (warrior instanceof Giant) {
-            card = Card.BARBARIANS;
-        }
-        if (warrior instanceof BabyDragon) {
-            card = Card.BABYDRAGON;
-        }
-        if (warrior instanceof Barbarians) {
-            card = Card.VALKYRIE;
-        }
-        if (warrior instanceof MiniPekka) {
-            card = Card.ARCHERS;
-        }
 
-        int x = warrior.getArrayX();
-        int y = warrior.getArrayY();
+        if (elixir < card.getCost()) return;
+
+        int y, x = random.nextInt(18);
+
+        if (card == Card.ARROWS || card == Card.FIREBALL) {
+            y = random.nextInt(14) - 4;
+        } else {
+            y = random.nextInt(14) - 18;
+        }
 
         putWarriorLogic(card, x, y, 1);
     }
 
     private void move3() {
-        Card card = cards.get(random.nextInt(8));
-        ArrayList<Warrior> warriors = game.getPlayerWarriors();
-        Warrior warrior = warriors.get(random.nextInt(warriors.size()));
-        while (card == Card.FIREBALL || card == Card.ARROWS) {
-            card = cards.get(random.nextInt(8));
-        }
-        if (warrior instanceof Cannon) {
-            card = Card.FIREBALL;
-        }
-        if (warrior instanceof Giant) {
-            card = Card.BARBARIANS;
-        }
-        if (warrior instanceof BabyDragon) {
-            card = Card.BABYDRAGON;
-        }
-        if (warrior instanceof Archers) {
-            card = Card.ARROWS;
-        }
-        if (warrior instanceof Barbarians) {
-            card = Card.VALKYRIE;
-        }
-        if (warrior instanceof MiniPekka) {
-            card = Card.ARCHERS;
-        }
-
-        int x = warrior.getArrayX();
-        int y = warrior.getArrayY();
-
-        putWarriorLogic(card, x, y, 1);
+        
     }
 
 
@@ -176,15 +143,13 @@ public class Bot {
 
         game.getEndOfFaze1Warrior().put(warrior, false);
         //map[X][Y + 10] = warrior;
-        if(warrior instanceof Arrows){
-            if(X<9){
+        if (warrior instanceof Arrows) {
+            if (X < 9) {
                 warrior.buildImageView("red left");
-            }
-            else{
+            } else {
                 warrior.buildImageView("red right");
             }
-        }
-        else{
+        } else {
             warrior.buildImageView("red");
         }
         game.getMiddlePane().getChildren().add(warrior.imageView);

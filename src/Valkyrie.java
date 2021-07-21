@@ -34,8 +34,8 @@ public class Valkyrie extends Troop {
         count = 1;
         imageBlue = "sprites/ValkyrieBlue.gif";
         imageRed = "sprites/ValkyrieRed.gif";
-        imageWidth=70;
-        imageHeight=70;
+        imageWidth=80;
+        imageHeight=80;
     }
 
     @Override

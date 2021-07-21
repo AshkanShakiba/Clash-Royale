@@ -121,7 +121,7 @@ public class Game {
         setTheme();
 
         this.stage = stage;
-        bot = new Bot(this, 1);
+        bot = new Bot(this, 2);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -174,13 +174,15 @@ public class Game {
             if (elixir < 10) {
                 if (round < 60) {
                     elixir += 0.125;
+                    bot.increaseElixir(0.125);
                 } else {
                     elixir += 0.250;
+                    bot.increaseElixir(0.250);
                 }
             }
             elixirBar.setProgress(((int) elixir) / 10.0);
 
-            bot.increaseElixir();
+
 
             Iterator iterator = warriorsInTheMap.iterator();
             while (iterator.hasNext()) {

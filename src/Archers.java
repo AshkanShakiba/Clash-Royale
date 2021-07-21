@@ -32,8 +32,8 @@ public class Archers extends Troop {
         zone = 0;
         imageBlue = "sprites/ArchersBlue.gif";
         imageRed = "sprites/ArchersRed.gif";
-        imageWidth=50;
-        imageHeight=50;
+        imageWidth=40;
+        imageHeight=40;
     }
 
     @Override

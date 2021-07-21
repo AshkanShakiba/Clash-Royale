@@ -21,8 +21,8 @@ public class Fireball extends DamagingSpells {
         range = 2.5;
         imageBlue = "sprites/FireballBlue.gif";
         imageRed = "sprites/FireballRed.gif";
-        imageWidth=125;
-        imageHeight=125;
+        imageWidth=100;
+        imageHeight=100;
         duration = 0.125;
     }
 
