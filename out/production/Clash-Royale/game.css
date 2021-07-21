@@ -1,5 +1,7 @@
 #anchorPane{
-    -fx-background-image: url("themes/DEFAULTl.PNG");
+    -fx-background-size: 130% 100%;
+    -fx-background-position: center;
+    -fx-background-image: url("themes/DEFAULTr.PNG");
 }
 
 #leftPane, #rightPane, #middlePane {
@@ -8,7 +10,7 @@
 }
 
 #middlePane {
-    -fx-background-color: #8DBF39;
+    /*-fx-background-color: #8DBF39;*/
 }
 
 #card0, #card1, #card2, #card3, #next {

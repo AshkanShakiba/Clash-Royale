@@ -162,36 +162,6 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/arena_training_sprite_04.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="180.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/level_legendary_arena_sprite_47.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="66.0" layoutX="129.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/level_electric_arena_sprite_13.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="135.0" fitWidth="100.0" layoutX="89.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/building_barbarian_hut_sprite_1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="132.0" fitWidth="66.0" layoutX="16.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/level_electric_arena_sprite_26.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="77.0" fitWidth="66.0" layoutX="-31.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/building_elixir_collector_sprite_4.png" />
-               </image>
-            </ImageView>
          </children></AnchorPane>
       <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0">
          <children>
@@ -201,36 +171,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="170.0" fitWidth="170.0" layoutX="34.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/arena_training_sprite_05.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="180.0" layoutX="3.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/level_legendary_arena_sprite_50.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="109.0" fitWidth="86.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/building_barbarian_hut_sprite_0.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="66.0" layoutX="119.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/level_electric_arena_sprite_29.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="109.0" fitWidth="100.0" layoutX="14.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/building_goblin_hut_sprite_0.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="80.0" layoutX="138.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/sides/building_bomb_tower_sprite_2.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>

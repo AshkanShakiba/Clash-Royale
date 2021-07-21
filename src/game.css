@@ -1,4 +1,4 @@
-#anchorPane{
+#anchorPane {
     -fx-background-size: 130% 100%;
     -fx-background-position: center;
     -fx-background-image: url("themes/DEFAULTr.PNG");
@@ -23,4 +23,9 @@
 
 #elixirBar {
     -fx-accent: purple;
+}
+
+#timer {
+    -fx-font-family: Consolas;
+    -fx-background-color: white;
 }
