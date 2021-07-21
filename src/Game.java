@@ -345,13 +345,8 @@ public class Game {
                 for (Warrior nearWarrior : nearWarriors) {
                     if (nearWarrior instanceof RealWarriors) {
                         System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
-                        if (warrior instanceof Troop) {
-                            ((RealWarriors) nearWarrior).damage
-                                    (((Troop) warrior).getDamage() * ((Troop) warrior).getCount());
-                        } else {
-                            ((RealWarriors) nearWarrior).damage
-                                    (((RealWarriors) warrior).getDamage());
-                        }
+                        ((RealWarriors) nearWarrior).damage(((RealWarriors) warrior).getDamage());
+
                         if (((RealWarriors) warrior).getRange() == 0
                                 || warrior instanceof KingTower || warrior instanceof QueenTower) {
                             break;
