@@ -117,11 +117,11 @@ public class Game {
 
     private double round = 0;
 
-    public void construct(User user, Stage stage) {
+    public void construct(User user, Stage stage,int botLevel) {
         setTheme();
 
         this.stage = stage;
-        bot = new Bot(this, 1);
+        bot = new Bot(this, botLevel);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {

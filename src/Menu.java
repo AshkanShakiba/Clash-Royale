@@ -34,7 +34,7 @@ public class Menu {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
             Parent root = loader.load();
             Game game = loader.getController();
-            game.construct(user, stage);
+            game.construct(user, stage,0);
 
             Timeline updateTimeLine = new Timeline(
                     new KeyFrame(Duration.millis(250),
