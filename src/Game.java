@@ -640,7 +640,7 @@ public class Game {
     }
 
     private void setTimer() {
-        int seconds = 180 - (int) round;
+        int seconds = 180 - (int) (round * 2);
         String label = seconds / 60 + ":";
         if (seconds % 60 < 10) label += "0";
         label += seconds % 60;
