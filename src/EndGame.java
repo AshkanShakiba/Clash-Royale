@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +24,9 @@ public class EndGame {
     private int score1;
     private int score2;
     private User user;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private ImageView red1;
@@ -105,12 +109,14 @@ public class EndGame {
         if (score1 > score2) {
             botSad.setImage(null);
             playerHappy.setImage(null);
+            anchorPane.setStyle("-fx-background-size: 100%;-fx-background-image: url('assets/background4.png');");
         }
         // Player Wins
         else {
             botHappy.setImage(null);
             playerSad.setImage(null);
         }
+
     }
 
     public void updateUserData() {
