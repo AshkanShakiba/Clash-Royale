@@ -1,6 +1,10 @@
+#anchorPane{
+    -fx-background-image: url("themes/DEFAULTl.PNG");
+}
+
 #leftPane, #rightPane, #middlePane {
     /*-fx-background-color: lime;*/
-    -fx-background-image: url("assets/green.png");
+    /*-fx-background-image: url("assets/green.png");*/
 }
 
 #middlePane {
