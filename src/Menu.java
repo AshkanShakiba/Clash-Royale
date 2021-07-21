@@ -18,9 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Menu implements Initializable {
-    @FXML
-    private ImageView theme;
+public class Menu {
     @FXML
     private PasswordField cheatField;
 
@@ -85,17 +83,7 @@ public class Menu implements Initializable {
     public void check(ActionEvent event) {
         String cheatCode = cheatField.getText();
         if (cheatCode.equalsIgnoreCase("theme")) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("themes.fxml"));
-                Parent root = loader.load();
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.initStyle(StageStyle.DECORATED);
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
+            theme(event);
         }
         if (cheatCode.equalsIgnoreCase("royalGiant")) {
             Giant.upgrade();
@@ -103,8 +91,17 @@ public class Menu implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        theme.setImage(Main.getTheme().getIcon());
+    public void theme(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("themes.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }

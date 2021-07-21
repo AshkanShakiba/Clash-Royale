@@ -1,3 +1,24 @@
-.AnchorPane {
-    -fx-background-color: dodgerblue;
+#anchorPane {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/back2.jpg");
+}
+
+#battle {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/battle.png");
+}
+
+#themeButton {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/theme.png");
+}
+
+#battleDeck {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/battleDeck.png");
+}
+
+#check {
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/check.png");
 }
