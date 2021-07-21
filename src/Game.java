@@ -504,21 +504,21 @@ public class Game {
 
     public void click(double x, double y) {
         if (selectedCardIndex == -1) return;
+
+        Card card=availableCards.get(selectedCardIndex);
+        if (card==Card.ARROWS || card==Card.FIREBALL){
+            int X = (int) ((x - 243) / 17.44);
+            int Y = (int) ((y - 240) / 14.29);
+            putWarriorLogic(X, Y, 0);
+            return;
+        }
+
         if (243 <= x && x <= 557 && 240 <= y && y <= 440) {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
             putWarriorLogic(X, Y, 0);
         }
-        if (map2IsValid && 243 <= x && x < 400 && 143 <= y && y <= 200) {
-            int X = (int) ((x - 243) / 17.44);
-            int Y = (int) ((y - 143) / 14.29);
-            putWarriorLogic(X, Y, 0);
-        }
-        if (map3IsValid && 400 <= x && x <= 557 && 143 <= y && y <= 200) {
-            int X = (int) ((x - 400) / 17.44);
-            int Y = (int) ((y - 143) / 14.29);
-            putWarriorLogic(X, Y, 0);
-        }
+        
     }
 
     public void putWarriorLogic(int X, int Y, int team) {
@@ -552,7 +552,7 @@ public class Game {
                 selectedCardIndex = -1;
             }
         }
-        if (warrior instanceof Archers) {
+        else if (warrior instanceof Archers) {
             ArrayList<Warrior> toPut = new ArrayList<>();
             if (checkValidMove(warrior, X, Y)) {
                 toPut.add(warrior);
@@ -570,7 +570,8 @@ public class Game {
                 setNextCard(selectedCardIndex);
                 selectedCardIndex = -1;
             }
-        } else if (checkValidMove(warrior, X, Y)) {
+        }
+        else if (checkValidMove(warrior, X, Y)) {
             putWarriorInThePoint(warrior, X, Y, team);
             playAudio(card.getAudio());
             setNextCard(selectedCardIndex);
