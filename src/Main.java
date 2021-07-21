@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Entrance.fxml"));
+        stage.getIcons().add(new Image("assets/icon.jpg"));
+        stage.setTitle("Clash Royale");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
