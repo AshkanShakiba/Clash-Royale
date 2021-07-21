@@ -168,7 +168,13 @@ public class Game {
             card3.setStyle("-fx-background-image: url('" + availableCards.get(3).getImage() + "');");
             next.setStyle("-fx-background-image: url('" + nextCard.getImage() + "');");
 
-            if (elixir < 10) elixir += 0.125;
+            if (elixir < 10) {
+                if(round < 60){
+                    elixir += 0.125;
+                }else{
+                    elixir += 0.250;
+                }
+            }
             elixirBar.setProgress(((int) elixir) / 10.0);
 
             bot.increaseElixir();
@@ -538,6 +544,7 @@ public class Game {
             playAudio(card.getAudio());
             setNextCard(selectedCardIndex);
             selectedCardIndex = -1;
+            elixir -= card.getCost();
         }
     }
 
