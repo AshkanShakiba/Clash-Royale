@@ -34,7 +34,7 @@ public class Menu implements Initializable {
             game.construct(user, stage);
 
             Timeline updateTimeLine = new Timeline(
-                    new KeyFrame(Duration.millis(125),
+                    new KeyFrame(Duration.millis(250),
                             new EventHandler<javafx.event.ActionEvent>() {
 
                                 @Override

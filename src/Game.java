@@ -98,6 +98,7 @@ public class Game {
     private HashSet<Warrior> warriorsInTheMap = new HashSet<>();
     private HashMap<Warrior, Integer> teamsMap = new HashMap<>(); // team = 0 -> down team = 1 -> up
     private HashMap<Warrior, Boolean> endOfFaze1Warrior = new HashMap<>();
+    private HashMap<Warrior, Double> buildingBuiltTime = new HashMap<>();
 
     private int score1=0;
     private int score2=0;
@@ -185,6 +186,7 @@ public class Game {
             gameFaze1();
             gameFaze2();
             gameFaze3();
+            checkBuildingLifeTime();
             if (round % 1 == 0) {
                 bot.move();
             }
@@ -361,7 +363,7 @@ public class Game {
     }
 
     public boolean endCheck() {
-        if (round >= 180 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()) {
+        if (round >= 90 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()) {
             return true;
         }
         return false;
@@ -547,12 +549,30 @@ public class Game {
     public void putWarriorInThePoint(Warrior warrior, int X, int Y){
         warriorsInTheMap.add(warrior);
         teamsMap.put(warrior, 0);
+        buildingBuiltTime.put(warrior, round);
+
         endOfFaze1Warrior.put(warrior, false);
         //map[X][Y + 10] = warrior;
         warrior.buildImageView("blue");
         middlePane.getChildren().add(warrior.imageView);
         System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
 
+    }
+
+    public void checkBuildingLifeTime(){
+        for(Warrior warrior : warriorsInTheMap){
+            if(warrior instanceof Building){
+                if(buildingBuiltTime.get(warrior) != null &&
+                        (round - buildingBuiltTime.get(warrior)) > (((Building) warrior).getLifetime() / 2 )){
+                    warrior.setAlive(false);
+                }
+            } else if(warrior instanceof Spell){
+                if(buildingBuiltTime.get(warrior) != null &&
+                        (round - buildingBuiltTime.get(warrior)) > (((Spell) warrior).getDuration() / 2 )){
+                    warrior.setAlive(false);
+                }
+            }
+        }
     }
 
     private void setNextCard(int index) {

@@ -65,24 +65,6 @@ public class SignIn {
     }
 
     public void signUpButtonOnAction(ActionEvent event) {
-        /*
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.7));
-        slide.setNode(signUpGradiant);
-
-        slide.setToX(450);
-        slide.play();
-
-        layer1label1.setVisible(false);
-        layer1label2.setVisible(false);
-        layer1label3.setVisible(false);
-        layer1label4.setVisible(false);
-        layer1usernameTextField.setVisible(false);
-        passwordTextField.setVisible(false);
-        layer1Image.setVisible(false);
-        layer1passwordLable.setVisible(false);
-        layer1usernameLable.setVisible(false);
-         */
         createAccountForm(event);
 
     }
