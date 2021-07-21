@@ -37,6 +37,15 @@ public class EndGame {
     @FXML
     private ImageView blue3;
 
+    @FXML
+    private ImageView botSad;
+    @FXML
+    private ImageView botHappy;
+    @FXML
+    private ImageView playerSad;
+    @FXML
+    private ImageView playerHappy;
+
     public void setScores(int score1,int score2){
         this.score1=score1;
         this.score2=score2;
@@ -67,6 +76,19 @@ public class EndGame {
             blue3.setImage(null);
         }
 
+    }
+
+    public void setEmotes(){
+        // Bot wins
+        if(score1>score2){
+            botSad.setImage(null);
+            playerHappy.setImage(null);
+        }
+        // Player Wins
+        else{
+            botHappy.setImage(null);
+            playerSad.setImage(null);
+        }
     }
 
     public void updateUserData(){
