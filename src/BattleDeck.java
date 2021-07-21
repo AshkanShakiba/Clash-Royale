@@ -143,7 +143,6 @@ public class BattleDeck implements Initializable {
     }
 
     public void saveButtonOnAction(){
-        int xp  = 0;
         String message = "";
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();

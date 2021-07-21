@@ -112,4 +112,7 @@ public class User {
             level = 5;
         }
     }
+    public void increaseTitle(int addedTitle){
+        title += addedTitle;
+    }
 }

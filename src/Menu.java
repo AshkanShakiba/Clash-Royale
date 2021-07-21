@@ -24,13 +24,18 @@ public class Menu implements Initializable {
     @FXML
     private PasswordField cheatField;
 
+    private User user = new User();
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void battle(ActionEvent event) {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
             Parent root = loader.load();
             Game game = loader.getController();
-            User user = new User();
             game.construct(user, stage);
 
             Timeline updateTimeLine = new Timeline(

@@ -130,6 +130,7 @@ public class Game {
         map2IsValid = true;
         map3IsValid = true;
         this.user = user;
+
         availableCards = new ArrayList<>();
         availableCards.add(getNextCard());
         availableCards.add(getNextCard());
@@ -620,7 +621,9 @@ public class Game {
             EndGame endGame = loader.getController();
             //stage.initStyle(StageStyle.DECORATED);
             endGame.setScores(score2,score1);
-            endGame.setUser(user);
+            endGame.setUserXp(user);
+            endGame.setUserTitle(user);
+            endGame.updateUserData();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

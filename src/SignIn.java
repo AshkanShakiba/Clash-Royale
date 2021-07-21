@@ -55,7 +55,7 @@ public class SignIn {
             if(validateSignIn()){
                 Main.getUsers().add(currentUser());
                 Main.printUsers();
-                goToMenu(event);
+                goToMenu(event, currentUser());
             }
         } else {
             signInMessage.setText("please enter password & username");
@@ -111,11 +111,12 @@ public class SignIn {
         }
     }
 
-    public void goToMenu(ActionEvent event) {
+    public void goToMenu(ActionEvent event, User user) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Parent root = loader.load();
             Menu menu = loader.getController();
+            menu.setUser(user);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
