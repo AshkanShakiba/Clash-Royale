@@ -77,6 +77,14 @@ public class User {
         return level;
     }
 
+    public int getXp() {
+        return xp;
+    }
+
+    public int getTitle() {
+        return title;
+    }
+
     public Card getRandomCard() {
         return cards.get(random.nextInt(12)); // 8
         //return currentCards[random.nextInt(8)];

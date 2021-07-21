@@ -110,6 +110,30 @@ public class EndGame {
                 e.getCause();
             }
         }
+
+        message = "UPDATE userdata SET Xp"
+                + " = '" + user.getXp() + "' WHERE username = '" + user.getUsername() + "'";
+        try {
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(message);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        message = "UPDATE userdata SET Title"
+                + " = '" + user.getTitle() + "' WHERE username = '" + user.getUsername() + "'";
+        try {
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(message);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+
     }
 
     public void setUserXp(User user){
