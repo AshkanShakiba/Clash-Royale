@@ -1,5 +1,3 @@
-import javafx.scene.image.ImageView;
-
 public class Arrows extends DamagingSpells{
     public Arrows(User user,int x,int y){
         this.arrayX=x;
@@ -20,7 +18,7 @@ public class Arrows extends DamagingSpells{
             case 5:
                 areaDamage = 210;
         }
-        radius = 4;
+        range = 4;
         imageBlue = "sprites/ArrowsBlue.gif";
         imageRed = "sprites/ArrowsRed.gif";
         imageWidth=50;

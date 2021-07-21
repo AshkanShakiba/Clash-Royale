@@ -1,6 +1,3 @@
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 public class Rage extends Spell {
     public Rage(User user, int x, int y) {
         this.arrayX = x;
@@ -21,7 +18,7 @@ public class Rage extends Spell {
             case 5:
                 duration = 8;
         }
-        radius = 5;
+        range = 5;
         imageBlue = "sprites/Rage.png";
         imageRed = "sprites/Rage.png";
         imageWidth=25;

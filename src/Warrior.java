@@ -12,7 +12,12 @@ public abstract class Warrior {
     protected String imageRed;
     protected ImageView imageView;
     protected boolean isAlive = true;
+    protected double range;
 
+
+    public double getRange() {
+        return range;
+    }
 
     public int getArrayY() {
         return arrayY;

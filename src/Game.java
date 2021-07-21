@@ -361,8 +361,16 @@ public class Game {
                     }
                 }
             }
+        } else if (warrior instanceof DamagingSpells){
+            for (Warrior nearWarrior : nearWarriors) {
+                if (nearWarrior instanceof RealWarriors) {
+                    System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
+                    ((RealWarriors) nearWarrior).damage(((DamagingSpells) warrior).getAreaDamage());
+                    }
+                }
+            }
         }
-    }
+
 
     public boolean endCheck() {
         if (round >= 90 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()) {
@@ -375,32 +383,22 @@ public class Game {
 
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
-        if (warrior instanceof RealWarriors) {
+        if (warrior instanceof RealWarriors || warrior instanceof DamagingSpells) {
             for (Warrior wrr : warriorsInTheMap) {
-                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (((RealWarriors) warrior).getRange()) + 1) {
-                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((RealWarriors) warrior).getRange() + 1) {
+                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= (( warrior).getRange()) + 1) {
+                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ( warrior).getRange() + 1) {
                         if (!wrr.equals(warrior)) {
                             if (wrr instanceof RealWarriors) {
-                                if (!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
+                                //if (!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
                                     nearWarriors.add(wrr);
-                                }
+                                //}
                             }
                         }
                     }
                 }
             }
         }
-        /*
-        if(warrior instanceof RealWarriors){
-            if(((RealWarriors) warrior).getRange() == 0
-                    || warrior instanceof KingTower || warrior instanceof QueenTower){
-                Warrior oneWarrior = nearWarriors.get(0);
-                nearWarriors = new ArrayList<>();
-                nearWarriors.add(oneWarrior);
-            }
-        }
 
-         */
         return nearWarriors;
     }
 

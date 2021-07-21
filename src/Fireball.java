@@ -1,5 +1,3 @@
-import javafx.scene.image.ImageView;
-
 public class Fireball extends DamagingSpells {
     public Fireball(User user,int x,int y){
         this.arrayX=x;
@@ -20,7 +18,7 @@ public class Fireball extends DamagingSpells {
             case 5:
                 areaDamage = 474;
         }
-        radius = 2.5;
+        range = 2.5;
         imageBlue = "sprites/FireballBlue.gif";
         imageRed = "sprites/FireballRed.gif";
         imageWidth=50;
