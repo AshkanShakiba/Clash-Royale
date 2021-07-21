@@ -518,7 +518,16 @@ public class Game {
             int Y = (int) ((y - 240) / 14.29);
             putWarriorLogic(X, Y, 0);
         }
-        
+        if (map2IsValid && 243 <= x && x < 400 && 120 <= y && y <= 200) {
+            int X = (int) ((x - 243) / 17.44);
+            int Y = (int) ((y - 240) / 14.29);
+            putWarriorLogic(X, Y, 0);
+        }
+        if (map3IsValid && 400 <= x && x <= 557 && 120 <= y && y <= 200) {
+            int X = (int) ((x - 243) / 17.44);
+            int Y = (int) ((y - 240) / 14.29);
+            putWarriorLogic(X, Y, 0);
+        }
     }
 
     public void putWarriorLogic(int X, int Y, int team) {
