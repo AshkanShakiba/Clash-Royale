@@ -681,35 +681,7 @@ public class Game {
         Theme theme = Main.getTheme();
         topArena.setImage(theme.getImage());
         bottomArena.setImage(theme.getImage());
-        if (theme == Theme.DEFAULT) {
-            anchorPane.setStyle("-fx-background-size: 130% 100%;");
-        }
-        if (theme == Theme.BONE) {
-
-        }
-        if (theme == Theme.BARBARIAN) {
-
-        }
-        if (theme == Theme.ICE) {
-
-        }
-        if (theme == Theme.GOBLIN) {
-
-        }
-        if (theme == Theme.BUILDER) {
-
-        }
-        if (theme == Theme.JUNGLE) {
-
-        }
-        if (theme == Theme.DARK) {
-
-        }
-        if (theme == Theme.CHAMPION) {
-
-        }
         String url = "themes/" + theme.name() + "r.PNG";
         anchorPane.setStyle(anchorPane.getStyle() + "-fx-background-image: url('" + url + "');");
-        anchorPane.setStyle(anchorPane.getStyle() + "-fx-background-position: center;");
     }
 }
