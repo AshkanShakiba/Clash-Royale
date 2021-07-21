@@ -121,7 +121,7 @@ public class Game {
         setTheme();
 
         this.stage = stage;
-        bot = new Bot(this, 3);
+        bot = new Bot(this, 1);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {

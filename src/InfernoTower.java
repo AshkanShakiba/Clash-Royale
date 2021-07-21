@@ -44,6 +44,6 @@ public class InfernoTower extends Building {
     @Override
     public void buildImageView(String color){
         super.buildImageView(color);
-        imageView.setY(mapY-10);
+        imageView.setY(mapY-50);
     }
 }
