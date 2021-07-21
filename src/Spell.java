@@ -1,17 +1,12 @@
 public abstract class Spell extends Warrior {
-    protected double radius;
     protected double duration;
-    protected int areaDamage;
-
-    public double getRadius() {
-        return radius;
-    }
+    protected double radius;
 
     public double getDuration() {
         return duration;
     }
 
-    public int getAreaDamage() {
-        return areaDamage;
+    public double getRadius() {
+        return radius;
     }
 }

@@ -1,6 +1,6 @@
 import javafx.scene.image.ImageView;
 
-public class Arrows extends Spell {
+public class Arrows extends DamagingSpells{
     public Arrows(User user,int x,int y){
         this.arrayX=x;
         this.arrayY =y;
@@ -25,6 +25,7 @@ public class Arrows extends Spell {
         imageRed = "sprites/ArrowsRed.gif";
         imageWidth=50;
         imageHeight=50;
+        duration = 0.125;
     }
     @Override
     public String toString() {

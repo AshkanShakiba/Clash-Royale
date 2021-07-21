@@ -1,6 +1,6 @@
 import javafx.scene.image.ImageView;
 
-public class Fireball extends Spell {
+public class Fireball extends DamagingSpells {
     public Fireball(User user,int x,int y){
         this.arrayX=x;
         this.arrayY =y;
@@ -25,6 +25,7 @@ public class Fireball extends Spell {
         imageRed = "sprites/FireballRed.gif";
         imageWidth=50;
         imageHeight=50;
+        duration = 0.125;
     }
 
     @Override
