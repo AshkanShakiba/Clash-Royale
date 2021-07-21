@@ -30,33 +30,12 @@ public class Menu {
 
     public void battle(ActionEvent event) {
         try {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("botLevel.fxml"));
             Parent root = loader.load();
-            Game game = loader.getController();
-            game.construct(user, stage,0);
-
-            Timeline updateTimeLine = new Timeline(
-                    new KeyFrame(Duration.millis(250),
-                            new EventHandler<javafx.event.ActionEvent>() {
-
-                                @Override
-                                public void handle(javafx.event.ActionEvent event) {
-                                    game.update();
-                                    //System.out.println("this is called every 5 seconds on UI thread");
-                                }
-                            }));
-
-            updateTimeLine.setCycleCount(Timeline.INDEFINITE);
-            updateTimeLine.play();
-
-            root.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    game.click(event.getSceneX(), event.getSceneY());
-                }
-            });
-
+            BotLevel botLevel = loader.getController();
+            botLevel.setUser(user);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -91,7 +70,7 @@ public class Menu {
         }
     }
 
-    public void theme(ActionEvent event){
+    public void theme(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("themes.fxml"));
             Parent root = loader.load();

@@ -16,12 +16,17 @@ import java.io.IOException;
 public class BotLevel {
     private User user;
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void battle(ActionEvent event) {
-        int botLevel=1;
+        int botLevel = 1;
         String level = ((Button) (event.getSource())).getId();
         if (level.equals("easy")) botLevel = 1;
         if (level.equals("medium")) botLevel = 2;
         if (level.equals("hard")) botLevel = 3;
+        
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
