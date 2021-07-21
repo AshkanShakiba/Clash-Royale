@@ -92,8 +92,8 @@ public class User {
     }
 
     public Card getRandomCard() {
-        return cards.get(random.nextInt(12)); // 8
-        //return currentCards[random.nextInt(8)];
+        //return cards.get(random.nextInt(12)); // 8
+        return currentCards[random.nextInt(8)];
     }
 
     public ArrayList<Card> getCards() {

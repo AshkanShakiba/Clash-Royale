@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class Main extends Application {
+    private static User user;
+
     private static Theme theme = Theme.DEFAULT;
 
     private static ArrayList<User> users = new ArrayList<>();
@@ -57,7 +59,15 @@ public class Main extends Application {
         return theme;
     }
 
-    public static void setTheme(Theme selectedTheme){
-        theme=selectedTheme;
+    public static void setTheme(Theme selectedTheme) {
+        theme = selectedTheme;
+    }
+
+    public static void setUser(User userInput) {
+        user = userInput;
+    }
+
+    public static User getUser() {
+        return user;
     }
 }

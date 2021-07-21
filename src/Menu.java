@@ -22,18 +22,12 @@ public class Menu {
     @FXML
     private PasswordField cheatField;
 
-    private User user = new User();
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public void battle(ActionEvent event) {
+        System.out.println(Main.getUser().getUsername());
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("botLevel.fxml"));
             Parent root = loader.load();
             BotLevel botLevel = loader.getController();
-            botLevel.setUser(user);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
