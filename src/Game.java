@@ -121,7 +121,7 @@ public class Game {
         setTheme();
 
         this.stage = stage;
-        bot = new Bot(this, 2);
+        bot = new Bot(this, 1);
         elixir = 4;
         map = new Warrior[18][28];
         for (int i = 0; i < 18; i++) {
@@ -584,10 +584,32 @@ public class Game {
 
         endOfFaze1Warrior.put(warrior, false);
         //map[X][Y + 10] = warrior;
-        warrior.buildImageView("blue");
+        if(warrior instanceof Arrows){
+            if(X<9){
+                warrior.buildImageView("blue left");
+            }
+            else{
+                warrior.buildImageView("blue right");
+            }
+        }
+        else{
+            warrior.buildImageView("blue");
+        }
         middlePane.getChildren().add(warrior.imageView);
         System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
 
+    }
+
+    public HashMap<Warrior, Boolean> getEndOfFaze1Warrior() {
+        return endOfFaze1Warrior;
+    }
+
+    public double getRound() {
+        return round;
+    }
+
+    public HashMap<Warrior, Double> getBuildingBuiltTime() {
+        return buildingBuiltTime;
     }
 
     public void checkBuildingLifeTime() {

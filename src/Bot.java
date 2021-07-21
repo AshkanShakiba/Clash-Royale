@@ -1,5 +1,5 @@
-import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Bot {
     private Game game;
@@ -7,19 +7,30 @@ public class Bot {
     private double elixir;
     private Card nextCard;
     private ArrayList<Card> cards;
-    private SecureRandom random;
+    private Random random;
+    private User user;
 
     public Bot(Game game, int level) {
         elixir = 4;
         this.game = game;
         this.level = level;
         cards = new ArrayList<>();
-        random = new SecureRandom();
+        random = new Random();
         for (int i = 0; i < 8; i++) {
             Card card = Main.getUsers().get(0).getCards().get(random.nextInt(12));
             while (cards.contains(card))
                 card = Main.getUsers().get(0).getCards().get(random.nextInt(12));
             cards.add(card);
+            System.out.println("**** " + card.name() + " ****");
+        }
+        if (level == 1) {
+            user = new User(1);
+        }
+        if (level == 2) {
+            user = new User(3);
+        }
+        if (level == 3) {
+            user = new User(5);
         }
     }
 
@@ -43,7 +54,11 @@ public class Bot {
 
     private void move1() {
         Card card = cards.get(random.nextInt(8));
-        putCard(card);
+
+        int x = random.nextInt(18);
+        int y = random.nextInt(14) - 18;
+
+        putWarriorLogic(card, x, y, 1);
     }
 
     private void move2() {
@@ -63,14 +78,17 @@ public class Bot {
             card = Card.ARCHERS;
         }
 
-        putCard(card, warrior.getArrayX(), warrior.getArrayY());
+        int x = warrior.getArrayX();
+        int y = warrior.getArrayY();
+
+        putWarriorLogic(card, x, y, 1);
     }
 
     private void move3() {
         Card card = cards.get(random.nextInt(8));
         ArrayList<Warrior> warriors = game.getPlayerWarriors();
         Warrior warrior = warriors.get(random.nextInt(warriors.size()));
-        while (card==Card.FIREBALL || card==Card.ARROWS){
+        while (card == Card.FIREBALL || card == Card.ARROWS) {
             card = cards.get(random.nextInt(8));
         }
         if (warrior instanceof Cannon) {
@@ -82,8 +100,8 @@ public class Bot {
         if (warrior instanceof BabyDragon) {
             card = Card.BABYDRAGON;
         }
-        if(warrior instanceof  Archers){
-            card=Card.ARROWS;
+        if (warrior instanceof Archers) {
+            card = Card.ARROWS;
         }
         if (warrior instanceof Barbarians) {
             card = Card.VALKYRIE;
@@ -91,49 +109,87 @@ public class Bot {
         if (warrior instanceof MiniPekka) {
             card = Card.ARCHERS;
         }
-        if (elixir < card.getCost()) return;
+
         int x = warrior.getArrayX();
         int y = warrior.getArrayY();
-        User user = new User();
-        warrior = card.getWarrior(user, x, y);
-        if (!(warrior instanceof Spell) && y>-14) return;
-        game.getTeamsMap().put(warrior, 1);
-        game.getMap()[x][y + 18] = warrior;
-        game.getWarriorsInTheMap().add(warrior);
-        warrior.buildImageView("red");
-        elixir -= card.getCost();
-        game.getMiddlePane().getChildren().add(warrior.imageView);
-        Game.playAudio(card.getAudio());
+
+        putWarriorLogic(card, x, y, 1);
     }
 
-    private void putCard(Card card) {
-        if (elixir < card.getCost()) return;
-        int x = random.nextInt(18);
-        int y = random.nextInt(14);
-        if (y - 18 > -4) return;
-        User user = new User();
-        Warrior warrior = card.getWarrior(user, x, y - 18);
-        game.getTeamsMap().put(warrior, 1);
-        game.getMap()[x][y] = warrior;
-        game.getWarriorsInTheMap().add(warrior);
-        warrior.buildImageView("red");
-        game.getMiddlePane().getChildren().add(warrior.imageView);
-        elixir -= card.getCost();
-        Game.playAudio(card.getAudio());
+
+    public void putWarriorLogic(Card card, int X, int Y, int team) {
+
+        Warrior warrior = card.getWarrior(user, X, Y);
+
+        if (warrior instanceof Barbarians) {
+            ArrayList<Warrior> toPut = new ArrayList<>();
+            if (game.checkValidMove(warrior, X, Y)) {
+                toPut.add(warrior);
+            }
+            if (game.checkValidMove(warrior, X + 1, Y)) {
+                warrior = card.getWarrior(user, X + 1, Y);
+                toPut.add(warrior);
+            }
+            if (game.checkValidMove(warrior, X, Y - 1)) {
+                warrior = card.getWarrior(user, X, Y - 1);
+                toPut.add(warrior);
+            }
+            if (game.checkValidMove(warrior, X + 1, Y - 1)) {
+                warrior = card.getWarrior(user, X + 1, Y - 1);
+                toPut.add(warrior);
+            }
+            if (toPut.size() == 4) {
+                for (Warrior wrr : toPut) {
+                    putWarriorInThePoint(wrr, wrr.getArrayX(), wrr.arrayY, team);
+                }
+                elixir -= card.getCost();
+                Game.playAudio(card.getAudio());
+            }
+        }
+        if (warrior instanceof Archers) {
+            ArrayList<Warrior> toPut = new ArrayList<>();
+            if (game.checkValidMove(warrior, X, Y)) {
+                toPut.add(warrior);
+            }
+            if (game.checkValidMove(warrior, X + 1, Y)) {
+                warrior = card.getWarrior(user, X + 1, Y);
+                toPut.add(warrior);
+            }
+            if (toPut.size() == 2) {
+                for (Warrior wrr : toPut) {
+                    putWarriorInThePoint(wrr, wrr.getArrayX(), wrr.arrayY, team);
+                }
+                elixir -= card.getCost();
+                Game.playAudio(card.getAudio());
+            }
+        } else if (game.checkValidMove(warrior, X, Y)) {
+            putWarriorInThePoint(warrior, X, Y, team);
+            Game.playAudio(card.getAudio());
+            elixir -= card.getCost();
+        }
     }
 
-    private void putCard(Card card, int x, int y) {
-        if (elixir < card.getCost()) return;
-        User user = new User();
-        Warrior warrior = card.getWarrior(user, x, y);
-        if (warrior instanceof Spell || y > -14) return;
-        game.getTeamsMap().put(warrior, 1);
-        game.getMap()[x][y + 18] = warrior;
+    public void putWarriorInThePoint(Warrior warrior, int X, int Y, int team) {
         game.getWarriorsInTheMap().add(warrior);
-        warrior.buildImageView("red");
+        game.getTeamsMap().put(warrior, team);
+        game.getBuildingBuiltTime().put(warrior, game.getRound());
+
+        game.getEndOfFaze1Warrior().put(warrior, false);
+        //map[X][Y + 10] = warrior;
+        if(warrior instanceof Arrows){
+            if(X<9){
+                warrior.buildImageView("red left");
+            }
+            else{
+                warrior.buildImageView("red right");
+            }
+        }
+        else{
+            warrior.buildImageView("red");
+        }
         game.getMiddlePane().getChildren().add(warrior.imageView);
-        Game.playAudio(card.getAudio());
-        elixir -= card.getCost();
+        System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
+
     }
 
 }

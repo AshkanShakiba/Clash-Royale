@@ -37,29 +37,35 @@ public class User {
         title = 0;
     }
 
+    public User(int level) {
+        xp = 0;
+        title = 1;
+        this.level = level;
+    }
+
     public User(String username, int xp) {
         this.username = username;
         this.xp = xp;
-        if(xp < 300 ){
+        if (xp < 300) {
             level = 1;
-        }else if(xp < 500 ){
+        } else if (xp < 500) {
             level = 2;
-        }else if(xp < 900 ){
+        } else if (xp < 900) {
             level = 3;
-        }else if(xp < 1700 ){
+        } else if (xp < 1700) {
             level = 4;
-        }else if(xp < 2500 ){
+        } else if (xp < 2500) {
             level = 5;
         }
 
     }
 
-    public User(String username, int xp, String[] currentCards, int title ){
+    public User(String username, int xp, String[] currentCards, int title) {
         this(username, xp);
         int i = 0;
-        for(String cardName : currentCards){
-            for(Card card : cards){
-                if(card.toString().equalsIgnoreCase(cardName)){
+        for (String cardName : currentCards) {
+            for (Card card : cards) {
+                if (card.toString().equalsIgnoreCase(cardName)) {
                     this.currentCards[i] = card;
                 }
             }
@@ -106,21 +112,22 @@ public class User {
                 '}';
     }
 
-    public void increaseXp(int addedXp){
-        xp+=addedXp;
-        if(xp < 300 ){
+    public void increaseXp(int addedXp) {
+        xp += addedXp;
+        if (xp < 300) {
             level = 1;
-        }else if(xp < 500 ){
+        } else if (xp < 500) {
             level = 2;
-        }else if(xp < 900 ){
+        } else if (xp < 900) {
             level = 3;
-        }else if(xp < 1700 ){
+        } else if (xp < 1700) {
             level = 4;
-        }else if(xp < 2500 ){
+        } else if (xp < 2500) {
             level = 5;
         }
     }
-    public void increaseTitle(int addedTitle){
+
+    public void increaseTitle(int addedTitle) {
         title += addedTitle;
     }
 }

@@ -1,4 +1,11 @@
+import javafx.scene.image.Image;
+
 public class Arrows extends DamagingSpells{
+    private String imageRedLeft;
+    private String imageRedRight;
+    private String imageBlueLeft;
+    private String imageBlueRight;
+
     public Arrows(User user,int x,int y){
         this.arrayX=x;
         this.arrayY =y;
@@ -24,9 +31,36 @@ public class Arrows extends DamagingSpells{
         imageWidth=50;
         imageHeight=50;
         duration = 0.125;
+
+        imageRedLeft="sprites/ArrowsRedLeft.png";
+        imageRedRight="sprites/ArrowsRedRight.png";
+        imageBlueLeft="sprites/ArrowsBlueLeft.png";
+        imageBlueRight="sprites/ArrowsBlueRight.png";
     }
     @Override
     public String toString() {
         return "Arrows";
+    }
+
+    @Override
+    public void buildImageView(String direction){
+        if(direction.contains("red")) {
+            super.buildImageView("red");
+            if(direction.contains("left")){
+                imageView.setImage(new Image(imageRedLeft));
+            }
+            if(direction.contains("right")){
+                imageView.setImage(new Image(imageRedRight));
+            }
+        }
+        if(direction.contains("blue")) {
+            super.buildImageView("blue");
+            if(direction.contains("left")){
+                imageView.setImage(new Image(imageBlueLeft));
+            }
+            if(direction.contains("right")){
+                imageView.setImage(new Image(imageBlueRight));
+            }
+        }
     }
 }
