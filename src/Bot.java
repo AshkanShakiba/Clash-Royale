@@ -80,7 +80,40 @@ public class Bot {
     }
 
     private void move3() {
-        
+        Card card = cards.get(random.nextInt(8));
+
+        ArrayList<Warrior> warriors = game.getPlayerWarriors();
+        Warrior warrior = warriors.get(random.nextInt(warriors.size()));
+
+        if (warrior instanceof Cannon) {
+            card = Card.FIREBALL;
+        }
+        if (warrior instanceof Giant) {
+            card = Card.BARBARIANS;
+        }
+        if (warrior instanceof BabyDragon) {
+            card = Card.BABYDRAGON;
+        }
+        if (warrior instanceof Archers) {
+            card = Card.ARROWS;
+        }
+        if (warrior instanceof Barbarians) {
+            card = Card.VALKYRIE;
+        }
+        if (warrior instanceof MiniPekka) {
+            card = Card.ARCHERS;
+        }
+
+        if (elixir < card.getCost()) return;
+
+        int x = warrior.getArrayX();
+        int y = warrior.getArrayY();
+
+        if (y > -4 && card != Card.ARROWS && card != Card.FIREBALL) {
+            y = -4;
+        }
+
+        putWarriorLogic(card, x, y, 1);
     }
 
 
