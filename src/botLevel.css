@@ -3,5 +3,11 @@
     -fx-background-image: url("assets/bot.jpg");
 }
 #easy{
-
+    -fx-background-image: url("assets/easy.png");
+}
+#medium{
+    -fx-background-image: url("assets/medium.png");
+}
+#hard{
+    -fx-background-image: url("assets/hard.png");
 }

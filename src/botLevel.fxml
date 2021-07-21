@@ -26,5 +26,10 @@
             <Image url="@assets/3.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="317.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/ChooseBotLevel.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
