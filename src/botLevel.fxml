@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@botLevel.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BotLevel">
+   <children>
+      <Button fx:id="easy" layoutX="519.0" layoutY="56.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#battle" />
+      <ImageView fitHeight="50.0" fitWidth="95.0" layoutX="447.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="medium" layoutX="586.0" layoutY="127.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#battle" />
+      <ImageView fitHeight="50.0" fitWidth="95.0" layoutX="514.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="hard" layoutX="659.0" layoutY="198.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#battle" />
+      <ImageView fitHeight="80.0" fitWidth="95.0" layoutX="580.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/3.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

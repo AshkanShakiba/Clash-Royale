@@ -674,6 +674,9 @@ public class Game {
     }
 
     private void endGame() {
+        if(score2==score1){
+
+        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("endGame.fxml"));
             Parent root = loader.load();
