@@ -16,8 +16,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
+/**
+ * The Game manager class.
+ */
 public class Game {
     @FXML
     private AnchorPane leftPane;
@@ -119,6 +125,25 @@ public class Game {
 
     private double round = 0;
 
+    /**
+     * Play audio.
+     *
+     * @param audioPath the audio path
+     */
+    public static void playAudio(String audioPath) {
+        //AudioClip audioClip=new AudioClip(getClass().getResource(audioPath).toString());
+        //audioClip.play();
+        Media m = new Media(Paths.get("src//" + audioPath).toUri().toString());
+        new MediaPlayer(m).play();
+    }
+
+    /**
+     * Construct a new game.
+     *
+     * @param user     the user
+     * @param stage    the stage
+     * @param botLevel the bot level
+     */
     public void construct(User user, Stage stage, int botLevel) {
         setTheme();
 
@@ -165,6 +190,9 @@ public class Game {
 
     }
 
+    /**
+     * Update.
+     */
     public void update() {
         if (!endCheck()) {
             card0.setStyle("-fx-background-image: url('" + availableCards.get(0).getImage() + "');");
@@ -219,6 +247,9 @@ public class Game {
 
     }
 
+    /**
+     * Game faze 1.
+     */
     public void gameFaze1() {
         for (Warrior warrior : warriorsInTheMap) {
             if (endOfFaze1Warrior.get(warrior) != null && !endOfFaze1Warrior.get(warrior)) {
@@ -282,6 +313,9 @@ public class Game {
         }
     }
 
+    /**
+     * Game faze 2.
+     */
     public void gameFaze2() {
         for (Warrior warrior : warriorsInTheMap) {
             if ((warrior.getArrayX() == 3) || (warrior.getArrayX() == 14) || warrior instanceof Building) {
@@ -318,6 +352,9 @@ public class Game {
         }
     }
 
+    /**
+     * Game faze 3.
+     */
     public void gameFaze3() {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Troop) {
@@ -384,6 +421,11 @@ public class Game {
         }
     }
 
+    /**
+     * End check boolean.
+     *
+     * @return the boolean
+     */
     public boolean endCheck() {
         if (round >= 90 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()) {
             return true;
@@ -391,6 +433,12 @@ public class Game {
         return false;
     }
 
+    /**
+     * Check near warriors array list.
+     *
+     * @param warrior the warrior
+     * @return the array list
+     */
     public ArrayList<Warrior> checkNearWarriors(Warrior warrior) {
 
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
@@ -448,6 +496,12 @@ public class Game {
         return nearWarriors;
     }
 
+    /**
+     * Fight animation manager.
+     *
+     * @param warrior the warrior
+     * @param size    the size
+     */
     public void fightAnimationManager(Warrior warrior, int size) {
         if (warrior instanceof Troop) {
             String image = "";
@@ -475,21 +529,19 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Barbarians) {
-                        if(Barbarians.isViki()){
+                        if (Barbarians.isViki()) {
                             if (size > 0) {
                                 image = "sprites/VikiBarbariansFightBlue.gif";
                             } else {
                                 image = "sprites/VikiBarbariansBlue.gif";
                             }
-                        }
-                        else if(Barbarians.isQuick()){
+                        } else if (Barbarians.isQuick()) {
                             if (size > 0) {
                                 image = "sprites/QuickBarbariansFightBlue.gif";
                             } else {
                                 image = "sprites/QuickBarbariansBlue.gif";
                             }
-                        }
-                        else {
+                        } else {
                             if (size > 0) {
                                 image = "sprites/BarbariansFightBlue.gif";
                             } else {
@@ -512,14 +564,13 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Giant) {
-                        if(Giant.isRoyal()){
+                        if (Giant.isRoyal()) {
                             if (size > 0) {
                                 image = "sprites/RoyalGiantFightBlue.gif";
                             } else {
                                 image = "sprites/RoyalGiantBlue.gif";
                             }
-                        }
-                        else{
+                        } else {
                             if (size > 0) {
                                 image = "sprites/GiantFightBlue.gif";
                             } else {
@@ -551,21 +602,19 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Barbarians) {
-                        if(Barbarians.isViki()){
+                        if (Barbarians.isViki()) {
                             if (size > 0) {
                                 image = "sprites/VikiBarbariansFightRed.gif";
                             } else {
                                 image = "sprites/VikiBarbariansRed.gif";
                             }
-                        }
-                        else if(Barbarians.isQuick()){
+                        } else if (Barbarians.isQuick()) {
                             if (size > 0) {
                                 image = "sprites/QuickBarbariansFightRed.gif";
                             } else {
                                 image = "sprites/QuickBarbariansRed.gif";
                             }
-                        }
-                        else {
+                        } else {
                             if (size > 0) {
                                 image = "sprites/BarbariansFightRed.gif";
                             } else {
@@ -588,14 +637,13 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Giant) {
-                        if(Giant.isRoyal()){
+                        if (Giant.isRoyal()) {
                             if (size > 0) {
                                 image = "sprites/RoyalGiantFightRed.gif";
                             } else {
                                 image = "sprites/RoyalGiantRed.gif";
                             }
-                        }
-                        else{
+                        } else {
                             if (size > 0) {
                                 image = "sprites/GiantFightRed.gif";
                             } else {
@@ -611,6 +659,12 @@ public class Game {
 
     }
 
+    /**
+     * Inferno tower management.
+     *
+     * @param warrior the warrior
+     * @param size    the size
+     */
     public void infernoTowerManagement(Warrior warrior, int size) {
         if (warrior instanceof InfernoTower) {
             if (size > 0) {
@@ -624,6 +678,9 @@ public class Game {
         }
     }
 
+    /**
+     * Rage management.
+     */
     public void rageManagement() {
         Iterator<Warrior> it = warriorsOnRage.keySet().iterator();
         ArrayList<Warrior> toRemove = new ArrayList<>();
@@ -654,6 +711,14 @@ public class Game {
         }
     }
 
+    /**
+     * Check valid point boolean.
+     *
+     * @param selfWarrior the self warrior
+     * @param x           the x
+     * @param y           the y
+     * @return the boolean
+     */
     public boolean checkValidPoint(Warrior selfWarrior, int x, int y) {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))) {
@@ -665,6 +730,14 @@ public class Game {
         return true;
     }
 
+    /**
+     * Check valid point only teammate boolean.
+     *
+     * @param selfWarrior the self warrior
+     * @param x           the x
+     * @param y           the y
+     * @return the boolean
+     */
     public boolean checkValidPointOnlyTeammate(Warrior selfWarrior, int x, int y) {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))) {
@@ -678,6 +751,9 @@ public class Game {
         return true;
     }
 
+    /**
+     * Tower management.
+     */
     public void towerManagement() {
         score1 = 0;
         if (!queenTowerUpLeft.isAlive() || !queenTowerUpRight.isAlive()) {
@@ -724,12 +800,22 @@ public class Game {
 
     }
 
+    /**
+     * Move a warrior.
+     *
+     * @param warrior the warrior
+     */
     public void moveAWarrior(Warrior warrior) {
         System.out.println(warrior.toString() + " " + warrior.getArrayX() + " " + warrior.getArrayY());
         warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 17.44);
         warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 220);
     }
 
+    /**
+     * Select.
+     *
+     * @param event the event
+     */
     public void select(ActionEvent event) {
         Button selected = (Button) event.getSource();
         if (selected == card0 && elixir >= availableCards.get(0).getCost()) selectedCardIndex = 0;
@@ -738,6 +824,12 @@ public class Game {
         if (selected == card3 && elixir >= availableCards.get(3).getCost()) selectedCardIndex = 3;
     }
 
+    /**
+     * Click.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void click(double x, double y) {
         if (selectedCardIndex == -1) return;
 
@@ -766,6 +858,13 @@ public class Game {
         }
     }
 
+    /**
+     * Put warrior logic.
+     *
+     * @param X    the x
+     * @param Y    the y
+     * @param team the team
+     */
     public void putWarriorLogic(int X, int Y, int team) {
         Card card = availableCards.get(selectedCardIndex);
         Warrior warrior = card.getWarrior(user, X, Y);
@@ -823,6 +922,14 @@ public class Game {
         }
     }
 
+    /**
+     * Put warrior in the point.
+     *
+     * @param warrior the warrior
+     * @param X       the x
+     * @param Y       the y
+     * @param team    the team
+     */
     public void putWarriorInThePoint(Warrior warrior, int X, int Y, int team) {
         warriorsInTheMap.add(warrior);
         teamsMap.put(warrior, team);
@@ -849,6 +956,9 @@ public class Game {
 
     }
 
+    /**
+     * Check building life time.
+     */
     public void checkBuildingLifeTime() {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Building) {
@@ -865,21 +975,31 @@ public class Game {
         }
     }
 
+    /**
+     * Gets end of faze 1 warrior.
+     *
+     * @return the end of faze 1 warrior
+     */
     public HashMap<Warrior, Boolean> getEndOfFaze1Warrior() {
         return endOfFaze1Warrior;
     }
 
+    /**
+     * Gets round.
+     *
+     * @return the round
+     */
     public double getRound() {
         return round;
     }
 
+    /**
+     * Gets building built time.
+     *
+     * @return the building built time
+     */
     public HashMap<Warrior, Double> getBuildingBuiltTime() {
         return buildingBuiltTime;
-    }
-
-    private void setNextCard(int index) {
-        availableCards.set(index, nextCard);
-        nextCard = getNextCard();
     }
 
     private Card getNextCard() {
@@ -890,25 +1010,43 @@ public class Game {
         return card;
     }
 
-    public static void playAudio(String audioPath) {
-        //AudioClip audioClip=new AudioClip(getClass().getResource(audioPath).toString());
-        //audioClip.play();
-        Media m = new Media(Paths.get("src//" + audioPath).toUri().toString());
-        new MediaPlayer(m).play();
+    private void setNextCard(int index) {
+        availableCards.set(index, nextCard);
+        nextCard = getNextCard();
     }
 
+    /**
+     * Gets teams map.
+     *
+     * @return the teams map
+     */
     public HashMap<Warrior, Integer> getTeamsMap() {
         return teamsMap;
     }
 
+    /**
+     * Get map warrior [ ] [ ].
+     *
+     * @return the warrior [ ] [ ]
+     */
     public Warrior[][] getMap() {
         return map;
     }
 
+    /**
+     * Gets warriors in the map.
+     *
+     * @return the warriors in the map
+     */
     public HashSet<Warrior> getWarriorsInTheMap() {
         return warriorsInTheMap;
     }
 
+    /**
+     * Gets middle pane.
+     *
+     * @return the middle pane
+     */
     public AnchorPane getMiddlePane() {
         return middlePane;
     }
@@ -939,6 +1077,11 @@ public class Game {
     }
 
 
+    /**
+     * Gets player warriors.
+     *
+     * @return the player warriors
+     */
     public ArrayList<Warrior> getPlayerWarriors() {
         ArrayList<Warrior> warriors = new ArrayList<>();
         for (Warrior warrior : teamsMap.keySet()) {

@@ -1,23 +1,29 @@
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 
+/**
+ * The Entrance scene controller.
+ */
 public class Entrance {
+    /**
+     * The Image view.
+     */
     @FXML
     ImageView imageView;
 
+    /**
+     * Start.
+     *
+     * @param event the event
+     */
     public void start(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("signIn.fxml"));
@@ -32,6 +38,11 @@ public class Entrance {
         }
     }
 
+    /**
+     * About.
+     *
+     * @param event the event
+     */
     public void about(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("about.fxml"));
@@ -45,6 +56,11 @@ public class Entrance {
         }
     }
 
+    /**
+     * Exit.
+     *
+     * @param event the event
+     */
     public void exit(ActionEvent event) {
         Main.exit((Stage) ((Node) event.getSource()).getScene().getWindow());
     }

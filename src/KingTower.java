@@ -1,4 +1,14 @@
-public class KingTower extends Building{
+/**
+ * The type King tower.
+ */
+public class KingTower extends Building {
+    /**
+     * Instantiates a new King tower.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public KingTower(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;

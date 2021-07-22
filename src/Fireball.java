@@ -1,8 +1,18 @@
+/**
+ * The type Fireball.
+ */
 public class Fireball extends DamagingSpells {
-    public Fireball(User user,int x,int y){
-        this.arrayX=x;
-        this.arrayY =y;
-        switch (user.getLevel()){
+    /**
+     * Instantiates a new Fireball.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
+    public Fireball(User user, int x, int y) {
+        this.arrayX = x;
+        this.arrayY = y;
+        switch (user.getLevel()) {
             case 1:
                 areaDamage = 325;
                 break;
@@ -21,8 +31,8 @@ public class Fireball extends DamagingSpells {
         range = 3;
         imageBlue = "sprites/FireballBlue.gif";
         imageRed = "sprites/FireballRed.gif";
-        imageWidth=100;
-        imageHeight=100;
+        imageWidth = 100;
+        imageHeight = 100;
         duration = 0;
     }
 
@@ -32,9 +42,9 @@ public class Fireball extends DamagingSpells {
     }
 
     @Override
-    public void buildImageView(String color){
+    public void buildImageView(String color) {
         super.buildImageView(color);
-        imageView.setX(mapX-15);
-        imageView.setY(mapY-20);
+        imageView.setX(mapX - 15);
+        imageView.setY(mapY - 20);
     }
 }

@@ -10,12 +10,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Menu.
+ */
 public class Menu {
     @FXML
     private PasswordField cheatField;
     @FXML
     private Label battleDeckLabel;
 
+    /**
+     * Battle.
+     *
+     * @param event the event
+     */
     public void battle(ActionEvent event) {
         System.out.println(Main.getUsers().get(0).getUsername());
         boolean goNext = true;
@@ -41,6 +49,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Battle deck.
+     *
+     * @param event the event
+     */
     public void battleDeck(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("battleDeck.fxml"));
@@ -56,6 +69,11 @@ public class Menu {
         }
     }
 
+    /**
+     * History.
+     *
+     * @param event the event
+     */
     public void history(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("battleHistory.fxml"));
@@ -73,6 +91,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Check.
+     *
+     * @param event the event
+     */
     public void check(ActionEvent event) {
         String cheatCode = cheatField.getText();
         if (cheatCode.equalsIgnoreCase("exit")) {
@@ -102,6 +125,11 @@ public class Menu {
         cheatField.setText("");
     }
 
+    /**
+     * Theme.
+     *
+     * @param event the event
+     */
     public void theme(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("themes.fxml"));
@@ -116,6 +144,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Scoreboard.
+     *
+     * @param event the event
+     */
     public void scoreboard(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("leaderBoard.fxml"));

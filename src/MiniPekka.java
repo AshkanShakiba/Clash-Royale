@@ -1,10 +1,18 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Mini pekka.
+ */
 public class MiniPekka extends Troop {
-    public MiniPekka(User user,int x,int y){
-        this.arrayX=x;
-        this.arrayY =y;
-        switch (user.getLevel()){
+    /**
+     * Instantiates a new Mini pekka.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
+    public MiniPekka(User user, int x, int y) {
+        this.arrayX = x;
+        this.arrayY = y;
+        switch (user.getLevel()) {
             case 1:
                 hp = 600;
                 damage = 325;
@@ -34,8 +42,8 @@ public class MiniPekka extends Troop {
         zone = 0;
         imageBlue = "sprites/MiniPekkaBlue.gif";
         imageRed = "sprites/MiniPekkaRed.gif";
-        imageWidth=60;
-        imageHeight=60;
+        imageWidth = 60;
+        imageHeight = 60;
     }
 
     @Override

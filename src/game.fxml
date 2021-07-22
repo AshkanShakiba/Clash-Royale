@@ -2,176 +2,198 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Point3D?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@game.css" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
-   <children>
-      <AnchorPane fx:id="middlePane" layoutX="200.0" prefHeight="600.0" prefWidth="400.0">
-         <children>
-            <ProgressBar fx:id="elixirBar" layoutY="564.0" prefHeight="35.0" prefWidth="400.0" progress="0.5" />
-            <GridPane prefHeight="440.0" prefWidth="400.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints fx:id="opponent" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-                <RowConstraints fx:id="middle" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints fx:id="player" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ImageView fx:id="topArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" GridPane.halignment="CENTER">
-                     <image>
-                        <Image url="@assets/ARENA.png" />
-                     </image>
-                  </ImageView>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <children>
-                        <ImageView fitHeight="45.0" fitWidth="315.0" layoutX="41.0" pickOnBounds="true" smooth="false">
-                           <image>
-                              <Image url="@assets/water.gif" />
-                           </image>
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="800.0" stylesheets="@game.css" xmlns="http://javafx.com/javafx/11"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
+    <children>
+        <AnchorPane fx:id="middlePane" layoutX="200.0" prefHeight="600.0" prefWidth="400.0">
+            <children>
+                <ProgressBar fx:id="elixirBar" layoutY="564.0" prefHeight="35.0" prefWidth="400.0" progress="0.5"/>
+                <GridPane prefHeight="440.0" prefWidth="400.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fx:id="opponent" maxHeight="200.0" minHeight="200.0" prefHeight="200.0"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints fx:id="middle" maxHeight="40.0" minHeight="40.0" prefHeight="40.0"
+                                        valignment="CENTER" vgrow="SOMETIMES"/>
+                        <RowConstraints fx:id="player" maxHeight="200.0" minHeight="200.0" prefHeight="200.0"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <ImageView fx:id="topArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true"
+                                   preserveRatio="true" rotate="180.0" GridPane.halignment="CENTER">
+                            <image>
+                                <Image url="@assets/ARENA.png"/>
+                            </image>
                         </ImageView>
-                     </children>
-                  </AnchorPane>
-                  <ImageView fx:id="bottomArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                     <image>
-                        <Image url="@assets/ARENA.png" />
-                     </image>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </ImageView>
-                  <AnchorPane prefHeight="200.0" prefWidth="400.0" GridPane.rowIndex="2">
-                     <children>
-                        <ImageView fx:id="queenDownRight1" fitHeight="100.0" fitWidth="100.0" layoutX="252.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/PrincessTowerBlue.png" />
-                           </image>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                            <children>
+                                <ImageView fitHeight="45.0" fitWidth="315.0" layoutX="41.0" pickOnBounds="true"
+                                           smooth="false">
+                                    <image>
+                                        <Image url="@assets/water.gif"/>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <ImageView fx:id="bottomArena" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true"
+                                   preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2"
+                                   GridPane.valignment="CENTER">
+                            <image>
+                                <Image url="@assets/ARENA.png"/>
+                            </image>
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
                         </ImageView>
-                        <ImageView fx:id="queenDownLeft1" fitHeight="100.0" fitWidth="100.0" layoutX="55.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/PrincessTowerBlue.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="kingDown1" fitHeight="100.0" fitWidth="100.0" layoutX="156.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/KingTowerBlue.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="kingDown2" fitHeight="150.0" fitWidth="130.0" layoutX="136.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/KingBlue.gif" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="queenDownRight2" fitHeight="80.0" fitWidth="80.0" layoutX="275.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@sprites/PrincessShootingBlue.gif" />
-                           </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
-                        </ImageView>
-                        <ImageView fx:id="queenDownLeft2" fitHeight="100.0" fitWidth="80.0" layoutX="43.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/PrincessShootingBlue.gif" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="35.0" layoutX="83.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@assets/bridge.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="35.0" layoutX="281.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@assets/bridge.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="400.0">
-                     <children>
-                        <ImageView fx:id="queenUpLeft1" fitHeight="100.0" fitWidth="100.0" layoutX="58.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/PrincessTowerRed.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="queenUpRight1" fitHeight="100.0" fitWidth="100.0" layoutX="255.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/PrincessTowerRed.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="kingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/KingTowerRed.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="kingUp2" fitHeight="150.0" fitWidth="150.0" layoutX="137.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/KingRed.gif" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="queenUpRight2" fitHeight="80.0" fitWidth="80.0" layoutX="243.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@sprites/PrincessShootingRed.gif" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="queenUpLeft2" fitHeight="100.0" fitWidth="80.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@sprites/PrincessShootingRed.gif" />
-                           </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </GridPane>
-            <GridPane fx:id="cardsPane" layoutY="438.0" prefHeight="125.0" prefWidth="400.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="card0" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" />
-                  <Button fx:id="card1" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="1" />
-                  <Button fx:id="card2" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="2" />
-                  <Button fx:id="card3" mnemonicParsing="false" onAction="#select" prefHeight="125.0" prefWidth="100.0" GridPane.columnIndex="3" />
-               </children>
-            </GridPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="rightPane" layoutX="600.0" prefHeight="600.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="timer" layoutX="6.0" layoutY="567.0" text="3:00" textFill="#b700b7">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children></AnchorPane>
-      <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="next" layoutX="135.0" layoutY="523.0" mnemonicParsing="false" onAction="#select" prefHeight="62.0" prefWidth="50.0" />
-            <Label fx:id="nextLabel" layoutX="140.0" layoutY="487.0" text="Next">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </children>
+                        <AnchorPane prefHeight="200.0" prefWidth="400.0" GridPane.rowIndex="2">
+                            <children>
+                                <ImageView fx:id="queenDownRight1" fitHeight="100.0" fitWidth="100.0" layoutX="252.0"
+                                           layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/PrincessTowerBlue.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="queenDownLeft1" fitHeight="100.0" fitWidth="100.0" layoutX="55.0"
+                                           layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/PrincessTowerBlue.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="kingDown1" fitHeight="100.0" fitWidth="100.0" layoutX="156.0"
+                                           layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/KingTowerBlue.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="kingDown2" fitHeight="150.0" fitWidth="130.0" layoutX="136.0"
+                                           layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/KingBlue.gif"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="queenDownRight2" fitHeight="80.0" fitWidth="80.0" layoutX="275.0"
+                                           layoutY="83.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                    <image>
+                                        <Image url="@sprites/PrincessShootingBlue.gif"/>
+                                    </image>
+                                    <rotationAxis>
+                                        <Point3D y="1.0"/>
+                                    </rotationAxis>
+                                </ImageView>
+                                <ImageView fx:id="queenDownLeft2" fitHeight="100.0" fitWidth="80.0" layoutX="43.0"
+                                           layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/PrincessShootingBlue.gif"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="100.0" fitWidth="35.0" layoutX="83.0" layoutY="-25.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/bridge.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="100.0" fitWidth="35.0" layoutX="281.0" layoutY="-25.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/bridge.png"/>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="400.0">
+                            <children>
+                                <ImageView fx:id="queenUpLeft1" fitHeight="100.0" fitWidth="100.0" layoutX="58.0"
+                                           layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/PrincessTowerRed.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="queenUpRight1" fitHeight="100.0" fitWidth="100.0" layoutX="255.0"
+                                           layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/PrincessTowerRed.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="kingUp1" fitHeight="100.0" fitWidth="100.0" layoutX="154.0"
+                                           layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/KingTowerRed.png"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="kingUp2" fitHeight="150.0" fitWidth="150.0" layoutX="137.0"
+                                           layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/KingRed.gif"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="queenUpRight2" fitHeight="80.0" fitWidth="80.0" layoutX="243.0"
+                                           layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@sprites/PrincessShootingRed.gif"/>
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="queenUpLeft2" fitHeight="100.0" fitWidth="80.0" layoutX="75.0"
+                                           layoutY="14.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                    <image>
+                                        <Image url="@sprites/PrincessShootingRed.gif"/>
+                                    </image>
+                                    <rotationAxis>
+                                        <Point3D y="1.0"/>
+                                    </rotationAxis>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+                <GridPane fx:id="cardsPane" layoutY="438.0" prefHeight="125.0" prefWidth="400.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="card0" mnemonicParsing="false" onAction="#select" prefHeight="125.0"
+                                prefWidth="100.0"/>
+                        <Button fx:id="card1" mnemonicParsing="false" onAction="#select" prefHeight="125.0"
+                                prefWidth="100.0" GridPane.columnIndex="1"/>
+                        <Button fx:id="card2" mnemonicParsing="false" onAction="#select" prefHeight="125.0"
+                                prefWidth="100.0" GridPane.columnIndex="2"/>
+                        <Button fx:id="card3" mnemonicParsing="false" onAction="#select" prefHeight="125.0"
+                                prefWidth="100.0" GridPane.columnIndex="3"/>
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="rightPane" layoutX="600.0" prefHeight="600.0" prefWidth="200.0">
+            <children>
+                <Label fx:id="timer" layoutX="6.0" layoutY="567.0" text="3:00" textFill="#b700b7">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="next" layoutX="135.0" layoutY="523.0" mnemonicParsing="false" onAction="#select"
+                        prefHeight="62.0" prefWidth="50.0"/>
+                <Label fx:id="nextLabel" layoutX="140.0" layoutY="487.0" text="Next">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

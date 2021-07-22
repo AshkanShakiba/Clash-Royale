@@ -1,4 +1,3 @@
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +15,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
+/**
+ * The leader board scene controller.
+ */
 public class LeaderBoard implements Initializable {
 
     @FXML
@@ -68,19 +70,19 @@ public class LeaderBoard implements Initializable {
             ResultSet queryResult = statement.executeQuery(message);
 
             while (queryResult.next()) {
-                users.put(queryResult.getString(2), queryResult.getInt(1)); }
+                users.put(queryResult.getString(2), queryResult.getInt(1));
+            }
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }
 
-        List<Map.Entry<String, Integer> > list =
-                new LinkedList<Map.Entry<String, Integer> >(users.entrySet());
+        List<Map.Entry<String, Integer>> list =
+                new LinkedList<Map.Entry<String, Integer>>(users.entrySet());
 
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> o1,
-                               Map.Entry<String, Integer> o2)
-            {
+                               Map.Entry<String, Integer> o2) {
                 return (o2.getValue()).compareTo(o1.getValue());
             }
         });
@@ -92,38 +94,38 @@ public class LeaderBoard implements Initializable {
 
         users = temp;
 
-        int  i = 0;
+        int i = 0;
 
-        for(String key : users.keySet()){
+        for (String key : users.keySet()) {
             i++;
             //System.out.println(key + " " + users.get(key));
-            switch (i){
-                case 1:{
+            switch (i) {
+                case 1: {
                     username1.setText(key);
                     crown1.setText(users.get(key) + "");
                     break;
                 }
-                case 2:{
+                case 2: {
                     username2.setText(key);
                     crown2.setText(users.get(key) + "");
                     break;
                 }
-                case 3:{
+                case 3: {
                     username3.setText(key);
                     crown3.setText(users.get(key) + "");
                     break;
                 }
-                case 4:{
+                case 4: {
                     username4.setText(key);
                     crown4.setText(users.get(key) + "");
                     break;
                 }
-                case 5:{
+                case 5: {
                     username5.setText(key);
                     crown5.setText(users.get(key) + "");
                     break;
                 }
-                case 6:{
+                case 6: {
                     username6.setText(key);
                     crown6.setText(users.get(key) + "");
                     break;
@@ -133,7 +135,12 @@ public class LeaderBoard implements Initializable {
 
     }
 
-    public void back(ActionEvent event){
+    /**
+     * Back.
+     *
+     * @param event the event
+     */
+    public void back(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Parent root = loader.load();

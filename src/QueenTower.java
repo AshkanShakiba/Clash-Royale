@@ -1,5 +1,14 @@
-
-public class QueenTower extends Building{
+/**
+ * The type Queen tower.
+ */
+public class QueenTower extends Building {
+    /**
+     * Instantiates a new Queen tower.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public QueenTower(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;

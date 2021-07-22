@@ -1,9 +1,17 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Inferno tower.
+ */
 public class InfernoTower extends Building {
-    private  int maxDamage;
+    private int maxDamage;
     private int baseDamage;
 
+    /**
+     * Instantiates a new Inferno tower.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public InfernoTower(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -41,15 +49,25 @@ public class InfernoTower extends Building {
         zone = 0;
         imageBlue = "sprites/InfernoTowerBlue.png";
         imageRed = "sprites/InfernoTowerRed.png";
-        imageWidth=50;
-        imageHeight=75;
+        imageWidth = 50;
+        imageHeight = 75;
     }
 
 
+    /**
+     * Gets max damage.
+     *
+     * @return the max damage
+     */
     public int getMaxDamage() {
         return maxDamage;
     }
 
+    /**
+     * Gets base damage.
+     *
+     * @return the base damage
+     */
     public int getBaseDamage() {
         return baseDamage;
     }
@@ -60,8 +78,8 @@ public class InfernoTower extends Building {
     }
 
     @Override
-    public void buildImageView(String color){
+    public void buildImageView(String color) {
         super.buildImageView(color);
-        imageView.setY(mapY-50);
+        imageView.setY(mapY - 50);
     }
 }

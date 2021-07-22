@@ -1,6 +1,6 @@
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Giant.
+ */
 public class Giant extends Troop {
     private static int[] damageArray = new int[]{126, 138, 152, 167, 183};
     private static int[] hpArray = new int[]{2000, 2200, 2420, 2660, 2920};
@@ -10,6 +10,13 @@ public class Giant extends Troop {
 
     private static boolean isRoyal = false;
 
+    /**
+     * Instantiates a new Giant.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Giant(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -47,11 +54,9 @@ public class Giant extends Troop {
         imageHeight = 120;
     }
 
-    @Override
-    public String toString() {
-        return "Giant";
-    }
-
+    /**
+     * Upgrade.
+     */
     public static void upgrade() {
         damageArray = new int[]{252, 276, 304, 334, 366};
         hpArray = new int[]{3000, 3300, 3630, 3990, 4380};
@@ -60,14 +65,24 @@ public class Giant extends Troop {
         isRoyal = true;
     }
 
+    /**
+     * Is royal boolean.
+     *
+     * @return the boolean
+     */
+    public static boolean isRoyal() {
+        return isRoyal;
+    }
+
+    @Override
+    public String toString() {
+        return "Giant";
+    }
+
     @Override
     public void buildImageView(String color) {
         super.buildImageView(color);
         imageView.setX(mapX - 15);
         imageView.setY(mapY - 20);
-    }
-
-    public static boolean isRoyal(){
-        return isRoyal;
     }
 }

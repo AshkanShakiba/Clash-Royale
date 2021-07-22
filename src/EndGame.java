@@ -1,7 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,15 +10,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
-import java.util.PrimitiveIterator;
 import java.util.Random;
-import java.util.ResourceBundle;
 
+/**
+ * The End game scene controller.
+ */
 public class EndGame {
     private int score1;
     private int score2;
@@ -56,6 +55,12 @@ public class EndGame {
     @FXML
     private Label playerHp;
 
+    /**
+     * Sets scores.
+     *
+     * @param score1 the score 1
+     * @param score2 the score 2
+     */
     public void setScores(int score1, int score2) {
         this.score1 = score1;
         this.score2 = score2;
@@ -88,22 +93,29 @@ public class EndGame {
 
     }
 
-    // hp1: Bot, hp2: Player
+    /**
+     * Sets hps.
+     *
+     * @param hp1 the hp 1
+     * @param hp2 the hp 2
+     */
+// hp1: Bot, hp2: Player
     public void setHps(int hp1, int hp2) {
-        if(hp1>hp2){
-            score1=3;
-        }
-        else if(hp1<hp2){
-            score2=3;
-        }
-        else {
+        if (hp1 > hp2) {
+            score1 = 3;
+        } else if (hp1 < hp2) {
+            score2 = 3;
+        } else {
             hp1--;
-            score2=3;
+            score2 = 3;
         }
-        botHp.setText("HP: "+hp1);
-        playerHp.setText("HP: "+hp2);
+        botHp.setText("HP: " + hp1);
+        playerHp.setText("HP: " + hp2);
     }
 
+    /**
+     * Sets emotes.
+     */
     public void setEmotes() {
         // Bot wins
         if (score1 > score2) {
@@ -119,6 +131,9 @@ public class EndGame {
 
     }
 
+    /**
+     * Update user data.
+     */
     public void updateUserData() {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -192,12 +207,22 @@ public class EndGame {
 
     }
 
+    /**
+     * Sets user xp.
+     *
+     * @param user the user
+     */
     public void setUserXp(User user) {
         this.user = user;
         if (score2 > score1) this.user.increaseXp(200);
         else this.user.increaseXp(70);
     }
 
+    /**
+     * Sets user title.
+     *
+     * @param user the user
+     */
     public void setUserTitle(User user) {
         Random random = new Random();
         int addedTitle = random.nextInt(32 - 27) + 27;
@@ -206,6 +231,11 @@ public class EndGame {
         else this.user.increaseTitle(-addedTitle);
     }
 
+    /**
+     * Menu.
+     *
+     * @param event the event
+     */
     public void menu(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));

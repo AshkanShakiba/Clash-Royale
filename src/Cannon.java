@@ -1,6 +1,14 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Cannon.
+ */
 public class Cannon extends Building {
+    /**
+     * Instantiates a new Cannon.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Cannon(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -32,8 +40,8 @@ public class Cannon extends Building {
         zone = 0;
         imageBlue = "sprites/CannonBlue.png";
         imageRed = "sprites/CannonRed.png";
-        imageWidth=50;
-        imageHeight=50;
+        imageWidth = 50;
+        imageHeight = 50;
     }
 
     @Override

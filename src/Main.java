@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+/**
+ * The starting class of program.
+ */
 public class Main extends Application {
     private static User user;
 
@@ -16,18 +19,74 @@ public class Main extends Application {
 
     private static ArrayList<User> users = new ArrayList<>();
 
+    /**
+     * Gets users.
+     *
+     * @return the users
+     */
     public static ArrayList<User> getUsers() {
         return users;
     }
 
+    /**
+     * Print users.
+     */
     public static void printUsers() {
         for (User user : users) {
             System.out.println(user);
         }
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    /**
+     * Exit.
+     *
+     * @param stage the stage
+     */
+    public static void exit(Stage stage) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Unsaved data won't be saved");
+        alert.setContentText("Are you sure to exit?");
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            stage.close();
+            System.exit(0);
+        }
+    }
+
+    /**
+     * Gets theme.
+     *
+     * @return the theme
+     */
+    public static Theme getTheme() {
+        return theme;
+    }
+
+    /**
+     * Sets theme.
+     *
+     * @param selectedTheme the selected theme
+     */
+    public static void setTheme(Theme selectedTheme) {
+        theme = selectedTheme;
+    }
+
+    /**
+     * Sets user.
+     *
+     * @param userInput the user input
+     */
+    public static void setUser(User userInput) {
+        user = userInput;
     }
 
     @Override
@@ -42,28 +101,5 @@ public class Main extends Application {
             event.consume();
             exit(stage);
         });
-    }
-
-    public static void exit(Stage stage) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Exit");
-        alert.setHeaderText("Unsaved data won't be saved");
-        alert.setContentText("Are you sure to exit?");
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            stage.close();
-            System.exit(0);
-        }
-    }
-
-    public static Theme getTheme() {
-        return theme;
-    }
-
-    public static void setTheme(Theme selectedTheme) {
-        theme = selectedTheme;
-    }
-
-    public static void setUser(User userInput) {
-        user = userInput;
     }
 }
