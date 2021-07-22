@@ -69,7 +69,25 @@ public class Barbarians extends Troop {
         isQuick = false;
     }
 
+    public static void upgradeToQuick() {
+        hitSpeedStatic = 3;
+        speedStatic = 6;
+
+        hpArray = new int[]{300, 330, 363, 438, 480};
+        damageArray = new int[]{75, 82, 90, 99, 109};
+
+        imageBluePath = "sprites/QuickBarbariansBlue.gif";
+        imageRedPath = "sprites/QuickBarbariansRed.gif";
+
+        isViki = false;
+        isQuick = true;
+    }
+
     public static boolean isViki() {
         return isViki;
+    }
+
+    public static boolean isQuick() {
+        return isQuick;
     }
 }
