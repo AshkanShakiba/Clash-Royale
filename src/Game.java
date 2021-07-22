@@ -218,58 +218,61 @@ public class Game {
     public void gameFaze1() {
         for (Warrior warrior : warriorsInTheMap) {
             if (endOfFaze1Warrior.get(warrior) != null && !endOfFaze1Warrior.get(warrior)) {
-                if (warrior instanceof Troop) {
-                    if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
+                if(nearWarriors.size() == 0) {
+                    if (warrior instanceof Troop) {
+                        if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                            if (Math.abs(warrior.getArrayX() - 14) > Math.abs(warrior.arrayX) - 3) {
 
-                        if (Math.abs(warrior.getArrayX() - 14) > Math.abs(warrior.arrayX) - 3) {
-
-                            if (warrior.getArrayX() != 3) {
-                                if (warrior.getArrayX() < 3) {
-                                    warrior.setArrayX(warrior.getArrayX() + 1);
-                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                        moveAWarrior(warrior);
-                                    } else {
-                                        warrior.setArrayX(warrior.getArrayX() - 1);
-
-                                    }
-
-
-                                } else if (warrior.getArrayX() > 3) {
-                                    warrior.setArrayX(warrior.getArrayX() - 1);
-                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                        moveAWarrior(warrior);
-                                    } else {
+                                if (warrior.getArrayX() != 3) {
+                                    if (warrior.getArrayX() < 3) {
                                         warrior.setArrayX(warrior.getArrayX() + 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() - 1);
+
+                                        }
+
+
+                                    } else if (warrior.getArrayX() > 3) {
+                                        warrior.setArrayX(warrior.getArrayX() - 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() + 1);
+
+                                        }
 
                                     }
 
                                 }
-
-                            }
-                        } else {
-                            if (warrior.getArrayX() != 14) {
-                                if (warrior.getArrayX() < 14) {
-                                    warrior.setArrayX(warrior.getArrayX() + 1);
-                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                        moveAWarrior(warrior);
-                                    } else {
-                                        warrior.setArrayX(warrior.getArrayX() - 1);
-
-                                    }
-
-                                } else if (warrior.getArrayX() > 14) {
-                                    warrior.setArrayX(warrior.getArrayX() - 1);
-                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
-                                        moveAWarrior(warrior);
-                                    } else {
+                            } else {
+                                if (warrior.getArrayX() != 14) {
+                                    if (warrior.getArrayX() < 14) {
                                         warrior.setArrayX(warrior.getArrayX() + 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() - 1);
 
+                                        }
+
+                                    } else if (warrior.getArrayX() > 14) {
+                                        warrior.setArrayX(warrior.getArrayX() - 1);
+                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                            moveAWarrior(warrior);
+                                        } else {
+                                            warrior.setArrayX(warrior.getArrayX() + 1);
+
+                                        }
                                     }
-
                                 }
                             }
                         }
                     }
+                }else{
+                    damage(warrior, nearWarriors);
                 }
             }
         }
