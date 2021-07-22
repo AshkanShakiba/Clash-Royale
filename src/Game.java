@@ -1,13 +1,11 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -203,6 +201,7 @@ public class Game {
             if (round % 1 == 0) {
                 bot.move();
             }
+            rageManagement();
             towerManagement();
             endCheck();
             round = round + 0.125;
@@ -353,14 +352,14 @@ public class Game {
     }
 
     private void damage(Warrior warrior, ArrayList<Warrior> nearWarriors) {
-        if (warrior instanceof RealWarriors) {
-            if (((int) (round * 1000) % (int) ((((RealWarriors) warrior).getHitSpeed()) * 1000)) == 0) {
+        if (warrior instanceof RealWarrior) {
+            if (((int) (round * 1000) % (int) ((((RealWarrior) warrior).getHitSpeed()) * 1000)) == 0) {
                 for (Warrior nearWarrior : nearWarriors) {
-                    if (nearWarrior instanceof RealWarriors) {
+                    if (nearWarrior instanceof RealWarrior) {
                         System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
-                        ((RealWarriors) nearWarrior).damage(((RealWarriors) warrior).getDamage());
+                        ((RealWarrior) nearWarrior).damage(((RealWarrior) warrior).getDamage());
 
-                        if (((RealWarriors) warrior).getRange() == 0
+                        if (((RealWarrior) warrior).getRange() == 0
                                 || warrior instanceof KingTower || warrior instanceof QueenTower) {
                             break;
                         }
@@ -369,9 +368,9 @@ public class Game {
             }
         } else if (warrior instanceof DamagingSpells) {
             for (Warrior nearWarrior : nearWarriors) {
-                if (nearWarrior instanceof RealWarriors) {
+                if (nearWarrior instanceof RealWarrior) {
                     System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
-                    ((RealWarriors) nearWarrior).damage(((DamagingSpells) warrior).getAreaDamage());
+                    ((RealWarrior) nearWarrior).damage(((DamagingSpells) warrior).getAreaDamage());
                 }
             }
         }
@@ -388,23 +387,23 @@ public class Game {
 
         ArrayList<Warrior> nearWarriors = new ArrayList<>();
 
-        if (warrior instanceof RealWarriors || warrior instanceof DamagingSpells) {
-            for (Warrior wrr : warriorsInTheMap) {
-                if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= ((warrior).getRange()) + 1) {
-                    if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= (warrior).getRange() + 1) {
-                        if (!wrr.equals(warrior)) {
-                            if (wrr instanceof RealWarriors) {
+        for (Warrior wrr : warriorsInTheMap) {
+            if (Math.abs(warrior.getArrayX() - wrr.getArrayX()) <= ((warrior).getRange()) + 1) {
+                if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((warrior).getRange() + 1)) {
+                    if (!wrr.equals(warrior)) {
+                        if (wrr instanceof RealWarrior) {
+                            if(warrior instanceof RealWarrior || warrior instanceof DamagingSpells) {
                                 if (!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
-                                    if (warrior instanceof RealWarriors) {
-                                        switch (((RealWarriors) warrior).getTarget()) {
+                                    if (warrior instanceof RealWarrior) {
+                                        switch (((RealWarrior) warrior).getTarget()) {
                                             case 0: {
-                                                if (((RealWarriors) wrr).getZone() == 0) {
+                                                if (((RealWarrior) wrr).getZone() == 0) {
                                                     nearWarriors.add(wrr);
                                                 }
                                                 break;
                                             }
                                             case 1: {
-                                                if (((RealWarriors) wrr).getZone() == 1) {
+                                                if (((RealWarrior) wrr).getZone() == 1) {
                                                     nearWarriors.add(wrr);
                                                 }
                                                 break;
@@ -419,11 +418,14 @@ public class Game {
                                                 }
                                                 break;
                                             }
-
                                         }
                                     } else {
                                         nearWarriors.add(wrr);
                                     }
+                                }
+                            }else {
+                                if (teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
+                                    nearWarriors.add(wrr);
                                 }
                             }
                         }
@@ -457,6 +459,30 @@ public class Game {
 
 
         return nearWarriors;
+    }
+
+    public void rageManagement(){
+        for(Warrior warrior : warriorsOnRage.keySet()){
+            if(round == warriorsOnRage.get(warrior)){
+                if(warrior instanceof RealWarrior){
+                    ((RealWarrior) warrior).setDamage((int)(((RealWarrior) warrior).getDamage()  * 1.4 ));
+                    ((RealWarrior) warrior).setHitSpeed(((RealWarrior) warrior).getHitSpeed() - 0.25);
+
+                    if(warrior instanceof Troop){
+                        ((Troop) warrior).setDamage((int)(((Troop) warrior).getDamage() * 1.4));
+                    }
+                }
+            }else if(round - warriorsOnRage.get(warrior) > (new Rage(user, 8 , 8).getDuration() / 2)){
+                ((RealWarrior) warrior).setDamage((int)(((RealWarrior) warrior).getDamage()  * 0.7 ));
+                ((RealWarrior) warrior).setHitSpeed(((RealWarrior) warrior).getHitSpeed() + 0.25);
+
+                if(warrior instanceof Troop){
+                    ((Troop) warrior).setDamage((int)(((Troop) warrior).getDamage() * 0.7));
+                }
+                warriorsOnRage.remove(warrior);
+            }
+
+        }
     }
 
     public boolean checkValidMove(Warrior selfWarrior, int x, int y) {
@@ -619,6 +645,11 @@ public class Game {
         warriorsInTheMap.add(warrior);
         teamsMap.put(warrior, team);
         buildingBuiltTime.put(warrior, round);
+        if(warrior instanceof  Rage){
+            for(Warrior wrr : checkNearWarriors(warrior)){
+                warriorsOnRage.put(wrr, round);
+            }
+        }
 
         endOfFaze1Warrior.put(warrior, false);
         //map[X][Y + 10] = warrior;

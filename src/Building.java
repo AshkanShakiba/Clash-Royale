@@ -1,4 +1,4 @@
-public abstract class Building extends RealWarriors {
+public abstract class Building extends RealWarrior {
     protected int lifetime;
     
     public int getLifetime() {

@@ -1,4 +1,4 @@
-public abstract class RealWarriors extends Warrior{
+public abstract class RealWarrior extends Warrior{
 
     protected int hp;
     protected int damage;
@@ -25,6 +25,10 @@ public abstract class RealWarriors extends Warrior{
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public void setHitSpeed(double hitSpeed) {
+        this.hitSpeed = hitSpeed;
     }
 
     public double getHitSpeed() {

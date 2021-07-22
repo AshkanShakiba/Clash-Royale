@@ -35,6 +35,8 @@ public abstract class Warrior {
         return isAlive;
     }
 
+
+
     public void setArrayX(int arrayX) {
         this.arrayX = arrayX;
     }
