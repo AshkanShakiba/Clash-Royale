@@ -24,7 +24,7 @@ public class KingTower extends Building{
                 damage = 64;
         }
         hitSpeed = 1.0;
-        target = 1;
+        target = 2;
         range = 7;
         lifetime = 180;
         zone = 0;

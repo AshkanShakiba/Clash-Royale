@@ -25,7 +25,7 @@ public class QueenTower extends Building{
                 damage = 69;
         }
         hitSpeed = 0.75;
-        target = 1;
+        target = 2;
         range = 7.5;
         zone = 0;
         lifetime = 180;

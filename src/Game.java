@@ -443,6 +443,19 @@ public class Game {
             //System.out.println( nearWarriors.size() + "         " + ((InfernoTower) warrior).getDamage());
         }
 
+//        if(warrior instanceof MiniPekka){
+//            String image;
+//            if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+//                if (nearWarriors.size() > 0) {
+//                    image = "sprites/MiniPekkaFightBlue.gif";
+//                } else {
+//                    image = "sprites/MiniPekkaBlue.gif";
+//                }
+//                warrior.getImageView().setImage(new Image(image));
+//            }
+//        }
+
+
         return nearWarriors;
     }
 
