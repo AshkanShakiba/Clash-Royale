@@ -119,7 +119,7 @@ public class Game {
 
     private double round = 0;
 
-    public void construct(User user, Stage stage,int botLevel) {
+    public void construct(User user, Stage stage, int botLevel) {
         setTheme();
 
         this.stage = stage;
@@ -220,7 +220,7 @@ public class Game {
         for (Warrior warrior : warriorsInTheMap) {
             if (endOfFaze1Warrior.get(warrior) != null && !endOfFaze1Warrior.get(warrior)) {
                 ArrayList<Warrior> nearWarriors = checkNearWarriors(warrior);
-                if(nearWarriors.size() == 0) {
+                if (nearWarriors.size() == 0) {
                     if (warrior instanceof Troop) {
                         if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
                             if (Math.abs(warrior.getArrayX() - 14) > Math.abs(warrior.arrayX) - 3) {
@@ -272,7 +272,7 @@ public class Game {
                             }
                         }
                     }
-                }else{
+                } else {
                     damage(warrior, nearWarriors);
                 }
             }
@@ -396,7 +396,7 @@ public class Game {
                 if (Math.abs(warrior.getArrayY() - wrr.getArrayY()) <= ((warrior).getRange() + 1)) {
                     if (!wrr.equals(warrior)) {
                         if (wrr instanceof RealWarrior) {
-                            if(warrior instanceof RealWarrior || warrior instanceof DamagingSpells) {
+                            if (warrior instanceof RealWarrior || warrior instanceof DamagingSpells) {
                                 if (!teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
                                     if (warrior instanceof RealWarrior) {
                                         switch (((RealWarrior) warrior).getTarget()) {
@@ -427,7 +427,7 @@ public class Game {
                                         nearWarriors.add(wrr);
                                     }
                                 }
-                            }else {
+                            } else {
                                 if (teamsMap.get(warrior).equals(teamsMap.get(wrr))) {
                                     nearWarriors.add(wrr);
                                 }
@@ -444,11 +444,11 @@ public class Game {
         return nearWarriors;
     }
 
-    public void fightAnimationManager(Warrior warrior, int size){
-        if(warrior instanceof Troop) {
+    public void fightAnimationManager(Warrior warrior, int size) {
+        if (warrior instanceof Troop) {
             String image = "";
             if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
-                if(teamsMap.get(warrior) == 0) {
+                if (teamsMap.get(warrior) == 0) {
                     if (warrior instanceof MiniPekka) {
                         if (size > 0) {
                             image = "sprites/MiniPekkaFightBlue.gif";
@@ -456,43 +456,42 @@ public class Game {
                             image = "sprites/MiniPekkaBlue.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Archers) {
+                    } else if (warrior instanceof Archers) {
                         if (size > 0) {
                             image = "sprites/ArchersFightBlue.gif";
                         } else {
                             image = "sprites/ArchersBlue.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof BabyDragon) {
+                    } else if (warrior instanceof BabyDragon) {
                         if (size > 0) {
                             image = "sprites/BabyDragonFightBlue.gif";
                         } else {
                             image = "sprites/BabyDragonBlue.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Barbarians) {
+                    } else if (warrior instanceof Barbarians) {
                         if (size > 0) {
                             image = "sprites/BarbariansFightBlue.gif";
                         } else {
                             image = "sprites/BarbariansBlue.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Valkyrie) {
+                    } else if (warrior instanceof Valkyrie) {
                         if (size > 0) {
                             image = "sprites/ValkyrieFightBlue.gif";
                         } else {
                             image = "sprites/ValkyrieBlue.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Wizard) {
+                    } else if (warrior instanceof Wizard) {
                         if (size > 0) {
                             image = "sprites/WizardFightBlue.gif";
                         } else {
                             image = "sprites/WizardBlue.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }
-                    else if (warrior instanceof Giant) {
+                    } else if (warrior instanceof Giant) {
                         if (size > 0) {
                             image = "sprites/GiantFightBlue.gif";
                         } else {
@@ -508,42 +507,42 @@ public class Game {
                             image = "sprites/MiniPekkaRed.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Archers) {
+                    } else if (warrior instanceof Archers) {
                         if (size > 0) {
                             image = "sprites/ArchersFightRed.gif";
                         } else {
                             image = "sprites/ArchersRed.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof BabyDragon) {
+                    } else if (warrior instanceof BabyDragon) {
                         if (size > 0) {
                             image = "sprites/BabyDragonFightRed.gif";
                         } else {
                             image = "sprites/BabyDragonRed.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Barbarians) {
+                    } else if (warrior instanceof Barbarians) {
                         if (size > 0) {
                             image = "sprites/BarbariansFightRed.gif";
                         } else {
                             image = "sprites/BarbariansRed.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Valkyrie) {
+                    } else if (warrior instanceof Valkyrie) {
                         if (size > 0) {
                             image = "sprites/ValkyrieFightRed.gif";
                         } else {
                             image = "sprites/ValkyrieRed.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Wizard) {
+                    } else if (warrior instanceof Wizard) {
                         if (size > 0) {
                             image = "sprites/WizardFightRed.gif";
                         } else {
                             image = "sprites/WizardRed.gif";
                         }
                         warrior.getImageView().setImage(new Image(image));
-                    }else if (warrior instanceof Giant) {
+                    } else if (warrior instanceof Giant) {
                         if (size > 0) {
                             image = "sprites/GiantFightRed.gif";
                         } else {
@@ -558,20 +557,20 @@ public class Game {
 
     }
 
-    public void infernoTowerManagement(Warrior warrior , int size){
-        if(warrior instanceof InfernoTower){
-            if(size > 0){
-                if(((InfernoTower) warrior).getDamage() < ((InfernoTower) warrior).getMaxDamage()) {
+    public void infernoTowerManagement(Warrior warrior, int size) {
+        if (warrior instanceof InfernoTower) {
+            if (size > 0) {
+                if (((InfernoTower) warrior).getDamage() < ((InfernoTower) warrior).getMaxDamage()) {
                     ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getDamage() + 4);
                 }
-            }else{
+            } else {
                 ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getBaseDamage());
             }
             //System.out.println( nearWarriors.size() + "         " + ((InfernoTower) warrior).getDamage());
         }
     }
 
-    public void rageManagement(){
+    public void rageManagement() {
         Iterator<Warrior> it = warriorsOnRage.keySet().iterator();
         ArrayList<Warrior> toRemove = new ArrayList<>();
         while (it.hasNext()) {
@@ -596,7 +595,7 @@ public class Game {
             }
         }
 
-        for(Warrior warrior : toRemove){
+        for (Warrior warrior : toRemove) {
             warriorsOnRage.remove(warrior);
         }
     }
@@ -616,7 +615,7 @@ public class Game {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))) {
                 if ((!(warrior instanceof Building)) && (!(warrior instanceof Spell))) {
-                    if((teamsMap.get(warrior).equals(teamsMap.get(selfWarrior)))) {
+                    if ((teamsMap.get(warrior).equals(teamsMap.get(selfWarrior)))) {
                         return false;
                     }
                 }
@@ -689,7 +688,7 @@ public class Game {
         if (selectedCardIndex == -1) return;
 
         Card card = availableCards.get(selectedCardIndex);
-        if (card == Card.ARROWS || card == Card.FIREBALL) {
+        if (card == Card.ARROWS || card == Card.FIREBALL || card == Card.RAGE) {
             int X = (int) ((x - 243) / 17.44);
             int Y = (int) ((y - 240) / 14.29);
             putWarriorLogic(X, Y, 0);
@@ -774,8 +773,8 @@ public class Game {
         warriorsInTheMap.add(warrior);
         teamsMap.put(warrior, team);
         buildingBuiltTime.put(warrior, round);
-        if(warrior instanceof  Rage){
-            for(Warrior wrr : checkNearWarriors(warrior)){
+        if (warrior instanceof Rage) {
+            for (Warrior wrr : checkNearWarriors(warrior)) {
                 warriorsOnRage.put(wrr, round);
             }
         }
@@ -871,10 +870,10 @@ public class Game {
             endGame.setUserXp(user);
             endGame.setUserTitle(user);
             endGame.updateUserData();
-            if(score2==score1){
-                int botHp=kingTowerUp.getHp()+queenTowerUpLeft.getHp()+queenTowerUpRight.getHp();
-                int playerHp=kingTowerDown.getHp()+queenTowerDownLeft.getHp()+queenTowerDownRight.getHp();
-                endGame.setHps(botHp,playerHp);
+            if (score2 == score1) {
+                int botHp = kingTowerUp.getHp() + queenTowerUpLeft.getHp() + queenTowerUpRight.getHp();
+                int playerHp = kingTowerDown.getHp() + queenTowerDownLeft.getHp() + queenTowerDownRight.getHp();
+                endGame.setHps(botHp, playerHp);
             }
             endGame.setEmotes();
             Scene scene = new Scene(root);

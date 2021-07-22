@@ -70,7 +70,7 @@ public class Bot {
 
         int y, x = random.nextInt(18);
 
-        if (card == Card.ARROWS || card == Card.FIREBALL) {
+        if (card == Card.ARROWS || card == Card.FIREBALL || card == Card.RAGE) {
             y = random.nextInt(14) - 4;
         } else {
             y = random.nextInt(14) - 18;
@@ -109,7 +109,7 @@ public class Bot {
         int x = warrior.getArrayX();
         int y = warrior.getArrayY();
 
-        if (y > -4 && card != Card.ARROWS && card != Card.FIREBALL) {
+        if (y > -4 && card != Card.ARROWS && card != Card.FIREBALL && card != Card.RAGE) {
             y = -4;
         }
 
