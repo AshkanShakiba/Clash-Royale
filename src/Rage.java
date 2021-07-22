@@ -1,4 +1,14 @@
+/**
+ * The type Rage.
+ */
 public class Rage extends Spell {
+    /**
+     * Instantiates a new Rage.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Rage(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -21,8 +31,8 @@ public class Rage extends Spell {
         range = 5;
         imageBlue = "sprites/Rage.png";
         imageRed = "sprites/Rage.png";
-        imageWidth=25;
-        imageHeight=25;
+        imageWidth = 25;
+        imageHeight = 25;
     }
 
     @Override
@@ -31,9 +41,9 @@ public class Rage extends Spell {
     }
 
     @Override
-    public void buildImageView(String color){
+    public void buildImageView(String color) {
         super.buildImageView(color);
-        imageView.setX(mapX+15);
-        imageView.setY(mapY+15);
+        imageView.setX(mapX + 15);
+        imageView.setY(mapY + 15);
     }
 }

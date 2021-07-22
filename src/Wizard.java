@@ -1,6 +1,14 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Wizard.
+ */
 public class Wizard extends Troop {
+    /**
+     * Instantiates a new Wizard.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Wizard(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -34,8 +42,8 @@ public class Wizard extends Troop {
         zone = 0;
         imageBlue = "sprites/WizardBlue.gif";
         imageRed = "sprites/WizardRed.gif";
-        imageWidth=80;
-        imageHeight=80;
+        imageWidth = 80;
+        imageHeight = 80;
     }
 
     @Override

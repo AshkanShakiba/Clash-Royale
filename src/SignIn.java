@@ -15,9 +15,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 
+/**
+ * The sign in scene controller.
+ */
 public class SignIn {
 
     @FXML
@@ -48,11 +50,16 @@ public class SignIn {
     private Label layer1passwordLable;
 
 
+    /**
+     * Sign in button on action.
+     *
+     * @param event the event
+     */
     public void signInButtonOnAction(ActionEvent event) {
 
         if (usernameTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false) {
             signInMessage.setText("You tried to login!");
-            if(validateSignIn()){
+            if (validateSignIn()) {
                 Main.getUsers().add(currentUser());
                 Main.printUsers();
                 goToMenu(event, currentUser());
@@ -64,11 +71,21 @@ public class SignIn {
 
     }
 
+    /**
+     * Sign up button on action.
+     *
+     * @param event the event
+     */
     public void signUpButtonOnAction(ActionEvent event) {
         createAccountForm(event);
 
     }
 
+    /**
+     * Validate sign in boolean.
+     *
+     * @return the boolean
+     */
     public boolean validateSignIn() {
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -96,6 +113,11 @@ public class SignIn {
         return false;
     }
 
+    /**
+     * Create account form.
+     *
+     * @param event the event
+     */
     public void createAccountForm(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("signUp.fxml"));
@@ -111,6 +133,12 @@ public class SignIn {
         }
     }
 
+    /**
+     * Go to menu.
+     *
+     * @param event the event
+     * @param user  the user
+     */
     public void goToMenu(ActionEvent event, User user) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
@@ -125,9 +153,14 @@ public class SignIn {
         }
     }
 
-    public User currentUser(){
+    /**
+     * Current user user.
+     *
+     * @return the user
+     */
+    public User currentUser() {
         String[] currentCards = new String[8];
-        int xp  = 0;
+        int xp = 0;
         int title = 0;
         User user = null;
         DataBaseConnection connectNow = new DataBaseConnection();
@@ -143,8 +176,8 @@ public class SignIn {
             while (queryResult.next()) {
                 xp = queryResult.getInt(4);
                 title = queryResult.getInt(13);
-                for(int i = 5; i <= 12; i++){
-                    currentCards[i-5] = (queryResult.getString(i));
+                for (int i = 5; i <= 12; i++) {
+                    currentCards[i - 5] = (queryResult.getString(i));
                 }
             }
 
@@ -158,8 +191,6 @@ public class SignIn {
         }
         return user;
     }
-
-
 
 
 }

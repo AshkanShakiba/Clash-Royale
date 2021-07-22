@@ -2,6 +2,9 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The type User.
+ */
 public class User {
     private String username;
     private int xp;
@@ -32,6 +35,9 @@ public class User {
         cards.add(Card.INFERNOTOWER);
     }
 
+    /**
+     * Instantiates a new User.
+     */
     public User() {
         xp = 0;
         level = 1;
@@ -39,6 +45,11 @@ public class User {
         league = getLeague(title);
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param level the level
+     */
     public User(int level) {
         xp = 0;
         title = 1;
@@ -46,6 +57,12 @@ public class User {
         league = getLeague(title);
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param username the username
+     * @param xp       the xp
+     */
     public User(String username, int xp) {
         this.username = username;
         this.xp = xp;
@@ -63,6 +80,14 @@ public class User {
         league = getLeague(title);
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param username     the username
+     * @param xp           the xp
+     * @param currentCards the current cards
+     * @param title        the title
+     */
     public User(String username, int xp, String[] currentCards, int title) {
         this(username, xp);
         int i = 0;
@@ -78,31 +103,86 @@ public class User {
         league = getLeague(title);
     }
 
+    /**
+     * Get current cards card [ ].
+     *
+     * @return the card [ ]
+     */
     public Card[] getCurrentCards() {
         return currentCards;
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Gets xp.
+     *
+     * @return the xp
+     */
     public int getXp() {
         return xp;
     }
 
+    /**
+     * Sets xp.
+     *
+     * @param xp the xp
+     */
+    public void setXp(int xp) {
+        this.xp = xp;
+        if (xp < 300) {
+            level = 1;
+        } else if (xp < 500) {
+            level = 2;
+        } else if (xp < 900) {
+            level = 3;
+        } else if (xp < 1700) {
+            level = 4;
+        } else {
+            level = 5;
+        }
+    }
+
+    /**
+     * Gets title.
+     *
+     * @return the title
+     */
     public int getTitle() {
         return title;
     }
 
+    /**
+     * Gets random card.
+     *
+     * @return the random card
+     */
     public Card getRandomCard() {
         //return cards.get(random.nextInt(12)); // 8
         return currentCards[random.nextInt(8)];
     }
 
+    /**
+     * Gets cards.
+     *
+     * @return the cards
+     */
     public ArrayList<Card> getCards() {
         return cards;
     }
 
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
     public String getUsername() {
         return username;
     }
@@ -115,6 +195,11 @@ public class User {
                 '}';
     }
 
+    /**
+     * Increase xp.
+     *
+     * @param addedXp the added xp
+     */
     public void increaseXp(int addedXp) {
         xp += addedXp;
         if (xp < 300) {
@@ -130,21 +215,11 @@ public class User {
         }
     }
 
-    public void setXp(int xp){
-       this.xp=xp;
-        if (xp < 300) {
-            level = 1;
-        } else if (xp < 500) {
-            level = 2;
-        } else if (xp < 900) {
-            level = 3;
-        } else if (xp < 1700) {
-            level = 4;
-        } else {
-            level = 5;
-        }
-    }
-
+    /**
+     * Increase title.
+     *
+     * @param addedTitle the added title
+     */
     public void increaseTitle(int addedTitle) {
         title += addedTitle;
         league = getLeague(title);
@@ -174,6 +249,11 @@ public class User {
         return league;
     }
 
+    /**
+     * Gets league.
+     *
+     * @return the league
+     */
     public String getLeague() {
         return league;
     }

@@ -11,13 +11,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * The sign up scene controller.
+ */
 public class SignUp {
 
     @FXML
@@ -50,6 +52,11 @@ public class SignUp {
     @FXML
     private Button layer2signUpButton;
 
+    /**
+     * Sign in button on action.
+     *
+     * @param event the event
+     */
     @FXML
     public void signInButtonOnAction(ActionEvent event) {
         try {
@@ -66,6 +73,11 @@ public class SignUp {
         }
     }
 
+    /**
+     * Sign up button on action.
+     *
+     * @param event the event
+     */
     @FXML
     public void signUpButtonOnAction(ActionEvent event) {
         if (layer2usernameTextField.getText().isBlank() == false && layer2passwordTextField.getText().isBlank() == false) {
@@ -76,6 +88,11 @@ public class SignUp {
         }
     }
 
+    /**
+     * Register user boolean.
+     *
+     * @return the boolean
+     */
     public boolean registerUser() {
 
         DataBaseConnection connectNow = new DataBaseConnection();
@@ -108,7 +125,7 @@ public class SignUp {
                 " (username, password, Xp, Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card8," +
                 " Title, Game1, Game2, Game3, Game4, Game5) VALUES ('";
         String insertValues = username + "','" + password + "','" + 0 + "','','','','','','','','','"
-                + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 +  "','" + 0  + "')";
+                + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "')";
         String insertToDB = insertFields + insertValues;
         try {
             Statement statement = connectDB.createStatement();

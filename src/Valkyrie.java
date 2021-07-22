@@ -1,6 +1,14 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Valkyrie.
+ */
 public class Valkyrie extends Troop {
+    /**
+     * Instantiates a new Valkyrie.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Valkyrie(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -34,8 +42,8 @@ public class Valkyrie extends Troop {
         count = 1;
         imageBlue = "sprites/ValkyrieBlue.gif";
         imageRed = "sprites/ValkyrieRed.gif";
-        imageWidth=80;
-        imageHeight=80;
+        imageWidth = 80;
+        imageHeight = 80;
     }
 
     @Override
