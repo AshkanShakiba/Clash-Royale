@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,19 +23,31 @@ import java.util.ResourceBundle;
 public class Menu {
     @FXML
     private PasswordField cheatField;
+    @FXML
+    private Label battleDeckLabel;
+
     public void battle(ActionEvent event) {
-        System.out.println(Main.getUser().getUsername());
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("botLevel.fxml"));
-            Parent root = loader.load();
-            BotLevel botLevel = loader.getController();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException exception) {
-            exception.printStackTrace();
+        System.out.println(Main.getUsers().get(0).getUsername());
+        boolean goNext = true;
+        for(int i = 0; i < 8 ; i++) {
+            if (Main.getUsers().get(0).getCurrentCards()[i] == null) {
+                goNext = false;
+                battleDeckLabel.setText("Please select 8 cards in battle deck first");
+            }
+        }
+        if(goNext) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("botLevel.fxml"));
+                Parent root = loader.load();
+                BotLevel botLevel = loader.getController();
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                //stage.initStyle(StageStyle.DECORATED);
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
         }
     }
 

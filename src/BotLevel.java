@@ -37,7 +37,6 @@ public class BotLevel {
                                 @Override
                                 public void handle(javafx.event.ActionEvent event) {
                                     game.update();
-                                    //System.out.println("this is called every 5 seconds on UI thread");
                                 }
                             }));
 

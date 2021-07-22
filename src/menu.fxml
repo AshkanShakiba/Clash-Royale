@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -16,5 +17,10 @@
       <PasswordField fx:id="cheatField" layoutX="3.0" layoutY="533.0" minWidth="50.0" prefWidth="100.0" />
       <Button fx:id="check" layoutX="27.0" layoutY="568.0" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" onAction="#check" prefHeight="25.0" prefWidth="75.0" />
       <Button fx:id="themeButton" layoutX="657.0" layoutY="568.0" maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" mnemonicParsing="false" onAction="#theme" prefHeight="25.0" prefWidth="62.0" />
+      <Label fx:id="battleDeckLabel" alignment="CENTER" layoutX="128.0" layoutY="560.0" prefHeight="18.0" prefWidth="410.0" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
