@@ -66,8 +66,4 @@ public class Main extends Application {
     public static void setUser(User userInput) {
         user = userInput;
     }
-
-    public static User getUser() {
-        return user;
-    }
 }

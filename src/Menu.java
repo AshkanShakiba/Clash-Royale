@@ -55,7 +55,25 @@ public class Menu {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("battleDeck.fxml"));
             Parent root = loader.load();
-            BattleDeck battleDeck = loader.getController();
+            BattleHistory battleHistory = loader.getController();
+            battleHistory.setUser(Main.getUsers().get(0));
+            battleHistory.show();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public void history(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BattleHistory.fxml"));
+            Parent root = loader.load();
+            BattleHistory battleHistory=loader.getController();
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
