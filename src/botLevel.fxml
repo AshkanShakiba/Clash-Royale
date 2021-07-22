@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@botLevel.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BotLevel">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@botLevel.css" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BotLevel">
    <children>
       <Button fx:id="easy" layoutX="519.0" layoutY="56.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#battle" />
       <ImageView fitHeight="50.0" fitWidth="95.0" layoutX="447.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">

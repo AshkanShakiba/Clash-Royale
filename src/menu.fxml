@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
    <children>
       <Button fx:id="battleDeck" layoutX="574.0" layoutY="563.0" maxHeight="25.0" maxWidth="80.0" minHeight="25.0" minWidth="80.0" mnemonicParsing="false" onAction="#battleDeck" prefHeight="25.0" prefWidth="80.0" />
       <Button fx:id="battle" layoutX="574.0" layoutY="479.0" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" mnemonicParsing="false" onAction="#battle" prefHeight="80.0" prefWidth="150.0">
