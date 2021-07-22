@@ -1,6 +1,14 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Baby dragon.
+ */
 public class BabyDragon extends Troop {
+    /**
+     * Instantiates a new Baby dragon.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public BabyDragon(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -34,8 +42,8 @@ public class BabyDragon extends Troop {
         zone = 1;
         imageBlue = "sprites/BabyDragonBlue.gif";
         imageRed = "sprites/BabyDragonRed.gif";
-        imageWidth=90;
-        imageHeight=90;
+        imageWidth = 90;
+        imageHeight = 90;
     }
 
     @Override

@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -5,19 +6,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
+/**
+ * The battle deck scene controller.
+ */
 public class BattleDeck implements Initializable {
 
     @FXML
@@ -84,7 +85,7 @@ public class BattleDeck implements Initializable {
     @FXML
     private Label statementLabel;
 
-    private User user = new User() ;
+    private User user = new User();
     private int storeSelectedCardIndex = -1;
     private int deckSelectedCardIndex = -1;
 
@@ -106,31 +107,38 @@ public class BattleDeck implements Initializable {
 
         user = Main.getUsers().get(0);
 
-        for(int i = 0 ; i < 8; i++){
-            if(user.getCurrentCards()[i] != null){
-                switch (i){
-                    case 0:{
+        for (int i = 0; i < 8; i++) {
+            if (user.getCurrentCards()[i] != null) {
+                switch (i) {
+                    case 0: {
                         deckCard1.setStyle("-fx-background-image: url('" + user.getCurrentCards()[0].getImage() + "');");
                         break;
-                    } case 1:{
+                    }
+                    case 1: {
                         deckCard2.setStyle("-fx-background-image: url('" + user.getCurrentCards()[1].getImage() + "');");
                         break;
-                    } case 2:{
+                    }
+                    case 2: {
                         deckCard3.setStyle("-fx-background-image: url('" + user.getCurrentCards()[2].getImage() + "');");
                         break;
-                    } case 3:{
+                    }
+                    case 3: {
                         deckCard4.setStyle("-fx-background-image: url('" + user.getCurrentCards()[3].getImage() + "');");
                         break;
-                    } case 4:{
+                    }
+                    case 4: {
                         deckCard5.setStyle("-fx-background-image: url('" + user.getCurrentCards()[4].getImage() + "');");
                         break;
-                    } case 5:{
+                    }
+                    case 5: {
                         deckCard6.setStyle("-fx-background-image: url('" + user.getCurrentCards()[5].getImage() + "');");
                         break;
-                    } case 6:{
+                    }
+                    case 6: {
                         deckCard7.setStyle("-fx-background-image: url('" + user.getCurrentCards()[6].getImage() + "');");
                         break;
-                    } case 7:{
+                    }
+                    case 7: {
                         deckCard8.setStyle("-fx-background-image: url('" + user.getCurrentCards()[7].getImage() + "');");
                         break;
                     }
@@ -142,16 +150,19 @@ public class BattleDeck implements Initializable {
 
     }
 
-    public void saveButtonOnAction(){
+    /**
+     * Save button on action.
+     */
+    public void saveButtonOnAction() {
         String message = "";
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        for(int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             Card currentCard = user.getCurrentCards()[i];
             System.out.print(currentCard + " ");
-            if( currentCard != null){
-                message = "UPDATE userdata SET Card" + (i+1)
+            if (currentCard != null) {
+                message = "UPDATE userdata SET Card" + (i + 1)
                         + " = '" + currentCard.toString() + "' WHERE username = '" + user.getUsername() + "'";
                 try {
                     Statement statement = connectDB.createStatement();
@@ -169,6 +180,11 @@ public class BattleDeck implements Initializable {
 
     }
 
+    /**
+     * Store select.
+     *
+     * @param event the event
+     */
     public void storeSelect(ActionEvent event) {
         Button selected = (Button) event.getSource();
         if (selected == storeCard1) storeSelectedCardIndex = 0;
@@ -186,6 +202,11 @@ public class BattleDeck implements Initializable {
         addCheck();
     }
 
+    /**
+     * Deck select.
+     *
+     * @param event the event
+     */
     public void deckSelect(ActionEvent event) {
         Button selected = (Button) event.getSource();
         if (selected == deckCard1) deckSelectedCardIndex = 0;
@@ -199,42 +220,52 @@ public class BattleDeck implements Initializable {
         addCheck();
     }
 
-    public void addCheck(){
-        if(deckSelectedCardIndex != -1 && storeSelectedCardIndex != -1){
+    /**
+     * Add check.
+     */
+    public void addCheck() {
+        if (deckSelectedCardIndex != -1 && storeSelectedCardIndex != -1) {
 
             Card currentCard = user.getCards().get(storeSelectedCardIndex);
 
-            if(checkDuplicateCards(user.getCurrentCards(), currentCard)){
+            if (checkDuplicateCards(user.getCurrentCards(), currentCard)) {
                 user.getCurrentCards()[deckSelectedCardIndex] = currentCard;
                 statementLabel.setText("");
-            }else{
+            } else {
                 statementLabel.setText("You have already picked this card");
                 return;
             }
 
-            switch (deckSelectedCardIndex){
-                case 0:{
+            switch (deckSelectedCardIndex) {
+                case 0: {
                     deckCard1.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 1:{
+                }
+                case 1: {
                     deckCard2.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 2:{
+                }
+                case 2: {
                     deckCard3.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 3:{
+                }
+                case 3: {
                     deckCard4.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 4:{
+                }
+                case 4: {
                     deckCard5.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 5:{
+                }
+                case 5: {
                     deckCard6.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 6:{
+                }
+                case 6: {
                     deckCard7.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
-                } case 7:{
+                }
+                case 7: {
                     deckCard8.setStyle("-fx-background-image: " + "url('" + currentCard.getImage() + "');");
                     break;
                 }
@@ -253,10 +284,17 @@ public class BattleDeck implements Initializable {
         }
     }
 
-    public boolean checkDuplicateCards(Card[] cards, Card targetCard){
-        for(int i = 0; i < cards.length; i++){
-            if(cards[i] != null){
-                if(cards[i].toString().equalsIgnoreCase(targetCard.toString())){
+    /**
+     * Check duplicate cards boolean.
+     *
+     * @param cards      the cards
+     * @param targetCard the target card
+     * @return the boolean
+     */
+    public boolean checkDuplicateCards(Card[] cards, Card targetCard) {
+        for (int i = 0; i < cards.length; i++) {
+            if (cards[i] != null) {
+                if (cards[i].toString().equalsIgnoreCase(targetCard.toString())) {
                     return false;
                 }
             }
@@ -264,15 +302,23 @@ public class BattleDeck implements Initializable {
         return true;
     }
 
-    public void printCards(){
-        for(Card card : user.getCurrentCards()){
-            if(card != null) {
+    /**
+     * Print cards.
+     */
+    public void printCards() {
+        for (Card card : user.getCurrentCards()) {
+            if (card != null) {
                 System.out.print(card.toString() + " ");
             }
         }
         System.out.println();
     }
 
+    /**
+     * Back to menu method.
+     *
+     * @param event the event
+     */
     public void back(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));

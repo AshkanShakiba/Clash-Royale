@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+/**
+ * The about scene controller.
+ */
 public class About {
 
     @FXML
@@ -19,6 +22,11 @@ public class About {
     @FXML
     private Hyperlink erfanLink;
 
+    /**
+     * Back to menu method.
+     *
+     * @param event the event
+     */
     public void back(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("entrance.fxml"));
@@ -32,6 +40,11 @@ public class About {
         }
     }
 
+    /**
+     * github.com/AshkanShakiba link method.
+     *
+     * @param event the event
+     */
     @FXML
     void ashkanLinkMethod(ActionEvent event) {
         ashkanLink.setOnAction(e -> {
@@ -46,6 +59,12 @@ public class About {
             }
         });
     }
+
+    /**
+     * github.com/amirerfantim link method.
+     *
+     * @param event the event
+     */
     @FXML
     void erfanLinkMethod(ActionEvent event) {
         erfanLink.setOnAction(e -> {

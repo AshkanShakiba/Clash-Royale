@@ -1,4 +1,14 @@
+/**
+ * The type Archers.
+ */
 public class Archers extends Troop {
+    /**
+     * Instantiates new Archers.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Archers(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -32,8 +42,8 @@ public class Archers extends Troop {
         zone = 0;
         imageBlue = "sprites/ArchersBlue.gif";
         imageRed = "sprites/ArchersRed.gif";
-        imageWidth=40;
-        imageHeight=40;
+        imageWidth = 40;
+        imageHeight = 40;
     }
 
     @Override

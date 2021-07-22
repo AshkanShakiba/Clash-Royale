@@ -1,5 +1,6 @@
-import javafx.scene.image.ImageView;
-
+/**
+ * The type Barbarians.
+ */
 public class Barbarians extends Troop {
     private static int[] hpArray = new int[]{300, 330, 363, 438, 480};
     private static int[] damageArray = new int[]{75, 82, 90, 99, 109};
@@ -13,6 +14,13 @@ public class Barbarians extends Troop {
     private static boolean isViki = false;
     private static boolean isQuick = false;
 
+    /**
+     * Instantiates new Barbarians.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
     public Barbarians(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -50,11 +58,9 @@ public class Barbarians extends Troop {
         imageHeight = 80;
     }
 
-    @Override
-    public String toString() {
-        return "Barbarians";
-    }
-
+    /**
+     * Upgrade to viki.
+     */
     public static void upgradeToViki() {
         hitSpeedStatic = 1.5;
         speedStatic = 3;
@@ -69,6 +75,9 @@ public class Barbarians extends Troop {
         isQuick = false;
     }
 
+    /**
+     * Upgrade to quick.
+     */
     public static void upgradeToQuick() {
         hitSpeedStatic = 3;
         speedStatic = 6;
@@ -83,11 +92,26 @@ public class Barbarians extends Troop {
         isQuick = true;
     }
 
+    /**
+     * Is viki boolean.
+     *
+     * @return the boolean
+     */
     public static boolean isViki() {
         return isViki;
     }
 
+    /**
+     * Is quick boolean.
+     *
+     * @return the boolean
+     */
     public static boolean isQuick() {
         return isQuick;
+    }
+
+    @Override
+    public String toString() {
+        return "Barbarians";
     }
 }

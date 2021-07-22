@@ -1,15 +1,25 @@
 import javafx.scene.image.Image;
 
-public class Arrows extends DamagingSpells{
+/**
+ * The type Arrows.
+ */
+public class Arrows extends DamagingSpells {
     private String imageRedLeft;
     private String imageRedRight;
     private String imageBlueLeft;
     private String imageBlueRight;
 
-    public Arrows(User user,int x,int y){
-        this.arrayX=x;
-        this.arrayY =y;
-        switch (user.getLevel()){
+    /**
+     * Instantiates new Arrows.
+     *
+     * @param user the user
+     * @param x    the x
+     * @param y    the y
+     */
+    public Arrows(User user, int x, int y) {
+        this.arrayX = x;
+        this.arrayY = y;
+        switch (user.getLevel()) {
             case 1:
                 areaDamage = 144;
                 break;
@@ -28,37 +38,38 @@ public class Arrows extends DamagingSpells{
         range = 4;
         imageBlue = "sprites/ArrowsBlue.gif";
         imageRed = "sprites/ArrowsRed.gif";
-        imageWidth=50;
-        imageHeight=50;
+        imageWidth = 50;
+        imageHeight = 50;
         duration = 0;
 
-        imageRedLeft="sprites/ArrowsRedLeft.png";
-        imageRedRight="sprites/ArrowsRedRight.png";
-        imageBlueLeft="sprites/ArrowsBlueLeft.png";
-        imageBlueRight="sprites/ArrowsBlueRight.png";
+        imageRedLeft = "sprites/ArrowsRedLeft.png";
+        imageRedRight = "sprites/ArrowsRedRight.png";
+        imageBlueLeft = "sprites/ArrowsBlueLeft.png";
+        imageBlueRight = "sprites/ArrowsBlueRight.png";
     }
+
     @Override
     public String toString() {
         return "Arrows";
     }
 
     @Override
-    public void buildImageView(String direction){
-        if(direction.contains("red")) {
+    public void buildImageView(String direction) {
+        if (direction.contains("red")) {
             super.buildImageView("red");
-            if(direction.contains("left")){
+            if (direction.contains("left")) {
                 imageView.setImage(new Image(imageRedLeft));
             }
-            if(direction.contains("right")){
+            if (direction.contains("right")) {
                 imageView.setImage(new Image(imageRedRight));
             }
         }
-        if(direction.contains("blue")) {
+        if (direction.contains("blue")) {
             super.buildImageView("blue");
-            if(direction.contains("left")){
+            if (direction.contains("left")) {
                 imageView.setImage(new Image(imageBlueLeft));
             }
-            if(direction.contains("right")){
+            if (direction.contains("right")) {
                 imageView.setImage(new Image(imageBlueRight));
             }
         }
