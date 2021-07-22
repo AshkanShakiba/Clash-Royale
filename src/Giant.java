@@ -4,8 +4,11 @@ import javafx.scene.image.ImageView;
 public class Giant extends Troop {
     private static int[] damageArray = new int[]{126, 138, 152, 167, 183};
     private static int[] hpArray = new int[]{2000, 2200, 2420, 2660, 2920};
+
     private static String imageBluePath = "sprites/GiantBlue.gif";
     private static String imageRedPath = "sprites/GiantRed.gif";
+
+    private static boolean isRoyal = false;
 
     public Giant(User user, int x, int y) {
         this.arrayX = x;
@@ -54,12 +57,17 @@ public class Giant extends Troop {
         hpArray = new int[]{3000, 3300, 3630, 3990, 4380};
         imageBluePath = "sprites/RoyalGiantBlue.gif";
         imageRedPath = "sprites/RoyalGiantRed.gif";
+        isRoyal = true;
     }
 
     @Override
-    public void buildImageView(String color){
+    public void buildImageView(String color) {
         super.buildImageView(color);
-        imageView.setX(mapX-15);
-        imageView.setY(mapY-20);
+        imageView.setX(mapX - 15);
+        imageView.setY(mapY - 20);
+    }
+
+    public static boolean isRoyal(){
+        return isRoyal;
     }
 }
