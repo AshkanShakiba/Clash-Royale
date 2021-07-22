@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@endGame.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndGame">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@endGame.css" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndGame">
    <children>
       <ImageView fx:id="red2" fitHeight="150.0" fitWidth="150.0" layoutX="330.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
          <image>

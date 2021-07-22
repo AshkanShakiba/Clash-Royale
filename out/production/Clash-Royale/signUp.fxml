@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUp">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUp">
     <right>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
@@ -119,7 +119,7 @@
                         </LinearGradient>
                     </textFill>
                 </Label>
-                <ImageView fx:id="layer2Image" fitHeight="214.0" fitWidth="137.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="layer2Image" fitHeight="308.0" fitWidth="171.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@assets/startUpGuy2.png" />
                     </image>
