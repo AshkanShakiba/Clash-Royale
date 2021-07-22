@@ -33,7 +33,7 @@
             <Image url="@assets/label4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="355.0" fitWidth="291.0" layoutX="267.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="355.0" fitWidth="291.0" layoutX="268.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/about.png" />
          </image>

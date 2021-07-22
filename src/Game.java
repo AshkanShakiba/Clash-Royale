@@ -367,7 +367,8 @@ public class Game {
                         ((RealWarrior) nearWarrior).damage(((RealWarrior) warrior).getDamage());
 
                         if (((RealWarrior) warrior).getRange() == 0
-                                || warrior instanceof KingTower || warrior instanceof QueenTower) {
+                                || warrior instanceof KingTower || warrior instanceof QueenTower
+                                || warrior instanceof Building) {
                             break;
                         }
                     }
