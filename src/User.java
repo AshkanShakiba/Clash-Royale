@@ -132,6 +132,17 @@ public class User {
 
     public void setXp(int xp){
        this.xp=xp;
+        if (xp < 300) {
+            level = 1;
+        } else if (xp < 500) {
+            level = 2;
+        } else if (xp < 900) {
+            level = 3;
+        } else if (xp < 1700) {
+            level = 4;
+        } else if (xp < 2500) {
+            level = 5;
+        }
     }
 
     public void increaseTitle(int addedTitle) {
