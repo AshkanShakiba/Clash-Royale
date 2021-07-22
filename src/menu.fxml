@@ -8,19 +8,20 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
    <children>
-      <Button fx:id="battleDeck" layoutX="569.0" layoutY="568.0" maxHeight="25.0" maxWidth="80.0" minHeight="25.0" minWidth="80.0" mnemonicParsing="false" onAction="#battleDeck" prefHeight="25.0" prefWidth="80.0" />
-      <Button fx:id="battle" layoutX="569.0" layoutY="479.0" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" mnemonicParsing="false" onAction="#battle" prefHeight="80.0" prefWidth="150.0">
+      <Button fx:id="battleDeck" layoutX="574.0" layoutY="563.0" maxHeight="25.0" maxWidth="80.0" minHeight="25.0" minWidth="80.0" mnemonicParsing="false" onAction="#battleDeck" prefHeight="25.0" prefWidth="80.0" />
+      <Button fx:id="battle" layoutX="574.0" layoutY="479.0" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" mnemonicParsing="false" onAction="#battle" prefHeight="80.0" prefWidth="150.0">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
       <PasswordField fx:id="cheatField" layoutX="3.0" layoutY="533.0" minWidth="50.0" prefWidth="100.0" />
       <Button fx:id="check" layoutX="27.0" layoutY="568.0" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" onAction="#check" prefHeight="25.0" prefWidth="75.0" />
-      <Button fx:id="themeButton" layoutX="657.0" layoutY="568.0" maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" mnemonicParsing="false" onAction="#theme" prefHeight="25.0" prefWidth="62.0" />
+      <Button fx:id="themeButton" layoutX="662.0" layoutY="563.0" maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" mnemonicParsing="false" onAction="#theme" prefHeight="25.0" prefWidth="62.0" />
       <Label fx:id="battleDeckLabel" alignment="CENTER" layoutX="128.0" layoutY="560.0" prefHeight="18.0" prefWidth="410.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="history" layoutX="534.0" layoutY="479.0" mnemonicParsing="false" onAction="#history" prefHeight="110.0" prefWidth="35.0" />
    </children>
 </AnchorPane>
