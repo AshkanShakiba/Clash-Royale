@@ -57,7 +57,7 @@ public class User {
             level = 3;
         } else if (xp < 1700) {
             level = 4;
-        } else if (xp < 2500) {
+        } else {
             level = 5;
         }
         league = getLeague(title);
@@ -125,7 +125,7 @@ public class User {
             level = 3;
         } else if (xp < 1700) {
             level = 4;
-        } else if (xp < 2500) {
+        } else {
             level = 5;
         }
     }
@@ -140,7 +140,7 @@ public class User {
             level = 3;
         } else if (xp < 1700) {
             level = 4;
-        } else if (xp < 2500) {
+        } else {
             level = 5;
         }
     }
