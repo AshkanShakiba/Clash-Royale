@@ -123,18 +123,18 @@ public class Bot {
 
         if (warrior instanceof Barbarians) {
             ArrayList<Warrior> toPut = new ArrayList<>();
-            if (game.checkValidMove(warrior, X, Y)) {
+            if (game.checkValidPoint(warrior, X, Y)) {
                 toPut.add(warrior);
             }
-            if (game.checkValidMove(warrior, X + 1, Y)) {
+            if (game.checkValidPoint(warrior, X + 1, Y)) {
                 warrior = card.getWarrior(user, X + 1, Y);
                 toPut.add(warrior);
             }
-            if (game.checkValidMove(warrior, X, Y - 1)) {
+            if (game.checkValidPoint(warrior, X, Y - 1)) {
                 warrior = card.getWarrior(user, X, Y - 1);
                 toPut.add(warrior);
             }
-            if (game.checkValidMove(warrior, X + 1, Y - 1)) {
+            if (game.checkValidPoint(warrior, X + 1, Y - 1)) {
                 warrior = card.getWarrior(user, X + 1, Y - 1);
                 toPut.add(warrior);
             }
@@ -148,10 +148,10 @@ public class Bot {
         }
         if (warrior instanceof Archers) {
             ArrayList<Warrior> toPut = new ArrayList<>();
-            if (game.checkValidMove(warrior, X, Y)) {
+            if (game.checkValidPoint(warrior, X, Y)) {
                 toPut.add(warrior);
             }
-            if (game.checkValidMove(warrior, X + 1, Y)) {
+            if (game.checkValidPoint(warrior, X + 1, Y)) {
                 warrior = card.getWarrior(user, X + 1, Y);
                 toPut.add(warrior);
             }
@@ -162,7 +162,7 @@ public class Bot {
                 elixir -= card.getCost();
                 Game.playAudio(card.getAudio());
             }
-        } else if (game.checkValidMove(warrior, X, Y)) {
+        } else if (game.checkValidPoint(warrior, X, Y)) {
             putWarriorInThePoint(warrior, X, Y, team);
             Game.playAudio(card.getAudio());
             elixir -= card.getCost();

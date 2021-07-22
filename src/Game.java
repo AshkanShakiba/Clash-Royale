@@ -227,7 +227,7 @@ public class Game {
                                 if (warrior.getArrayX() != 3) {
                                     if (warrior.getArrayX() < 3) {
                                         warrior.setArrayX(warrior.getArrayX() + 1);
-                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        if (checkValidPoint(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                             moveAWarrior(warrior);
                                         } else {
                                             warrior.setArrayX(warrior.getArrayX() - 1);
@@ -237,7 +237,7 @@ public class Game {
 
                                     } else if (warrior.getArrayX() > 3) {
                                         warrior.setArrayX(warrior.getArrayX() - 1);
-                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        if (checkValidPoint(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                             moveAWarrior(warrior);
                                         } else {
                                             warrior.setArrayX(warrior.getArrayX() + 1);
@@ -251,7 +251,7 @@ public class Game {
                                 if (warrior.getArrayX() != 14) {
                                     if (warrior.getArrayX() < 14) {
                                         warrior.setArrayX(warrior.getArrayX() + 1);
-                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        if (checkValidPoint(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                             moveAWarrior(warrior);
                                         } else {
                                             warrior.setArrayX(warrior.getArrayX() - 1);
@@ -260,7 +260,7 @@ public class Game {
 
                                     } else if (warrior.getArrayX() > 14) {
                                         warrior.setArrayX(warrior.getArrayX() - 1);
-                                        if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                        if (checkValidPoint(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                             moveAWarrior(warrior);
                                         } else {
                                             warrior.setArrayX(warrior.getArrayX() + 1);
@@ -288,7 +288,7 @@ public class Game {
                         if (warrior.getArrayY() != -14) {
                             if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
                                 warrior.setArrayY(warrior.getArrayY() - 1);
-                                if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                if (checkValidPointOnlyTeammate(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                     moveAWarrior(warrior);
                                 } else {
                                     warrior.setArrayY(warrior.getArrayY() + 1);
@@ -299,7 +299,7 @@ public class Game {
                         if (warrior.getArrayY() != 9) {
                             if (warrior instanceof Troop && (round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
                                 warrior.setArrayY(warrior.getArrayY() + 1);
-                                if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                if (checkValidPointOnlyTeammate(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                     moveAWarrior(warrior);
                                 } else {
                                     warrior.setArrayY(warrior.getArrayY() - 1);
@@ -325,7 +325,7 @@ public class Game {
                             if (warrior.getArrayX() != 9) {
                                 if (warrior.getArrayX() < 9) {
                                     warrior.setArrayX(warrior.getArrayX() + 1);
-                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                    if (checkValidPointOnlyTeammate(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                         moveAWarrior(warrior);
                                     } else {
                                         warrior.setArrayX(warrior.getArrayX() - 1);
@@ -334,7 +334,7 @@ public class Game {
 
                                 } else if (warrior.getArrayX() > 9) {
                                     warrior.setArrayX(warrior.getArrayX() - 1);
-                                    if (checkValidMove(warrior, warrior.getArrayX(), warrior.getArrayY())) {
+                                    if (checkValidPointOnlyTeammate(warrior, warrior.getArrayX(), warrior.getArrayY())) {
                                         moveAWarrior(warrior);
                                     } else {
                                         warrior.setArrayX(warrior.getArrayX() + 1);
@@ -468,7 +468,6 @@ public class Game {
         }
     }
 
-
     public void rageManagement(){
         Iterator<Warrior> it = warriorsOnRage.keySet().iterator();
         ArrayList<Warrior> toRemove = new ArrayList<>();
@@ -499,11 +498,24 @@ public class Game {
         }
     }
 
-    public boolean checkValidMove(Warrior selfWarrior, int x, int y) {
+    public boolean checkValidPoint(Warrior selfWarrior, int x, int y) {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))) {
                 if ((!(warrior instanceof Building)) && (!(warrior instanceof Spell))) {
                     return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean checkValidPointOnlyTeammate(Warrior selfWarrior, int x, int y) {
+        for (Warrior warrior : warriorsInTheMap) {
+            if (warrior.getArrayX() == x && warrior.getArrayY() == y && !(warrior.equals(selfWarrior))) {
+                if ((!(warrior instanceof Building)) && (!(warrior instanceof Spell))) {
+                    if((teamsMap.get(warrior).equals(teamsMap.get(selfWarrior)))) {
+                        return false;
+                    }
                 }
             }
         }
@@ -604,18 +616,18 @@ public class Game {
 
         if (warrior instanceof Barbarians) {
             ArrayList<Warrior> toPut = new ArrayList<>();
-            if (checkValidMove(warrior, X, Y)) {
+            if (checkValidPoint(warrior, X, Y)) {
                 toPut.add(warrior);
             }
-            if (checkValidMove(warrior, X + 1, Y)) {
+            if (checkValidPoint(warrior, X + 1, Y)) {
                 warrior = card.getWarrior(user, X + 1, Y);
                 toPut.add(warrior);
             }
-            if (checkValidMove(warrior, X, Y - 1)) {
+            if (checkValidPoint(warrior, X, Y - 1)) {
                 warrior = card.getWarrior(user, X, Y - 1);
                 toPut.add(warrior);
             }
-            if (checkValidMove(warrior, X + 1, Y - 1)) {
+            if (checkValidPoint(warrior, X + 1, Y - 1)) {
                 warrior = card.getWarrior(user, X + 1, Y - 1);
                 toPut.add(warrior);
             }
@@ -630,10 +642,10 @@ public class Game {
             }
         } else if (warrior instanceof Archers) {
             ArrayList<Warrior> toPut = new ArrayList<>();
-            if (checkValidMove(warrior, X, Y)) {
+            if (checkValidPoint(warrior, X, Y)) {
                 toPut.add(warrior);
             }
-            if (checkValidMove(warrior, X + 1, Y)) {
+            if (checkValidPoint(warrior, X + 1, Y)) {
                 warrior = card.getWarrior(user, X + 1, Y);
                 toPut.add(warrior);
             }
@@ -646,7 +658,7 @@ public class Game {
                 setNextCard(selectedCardIndex);
                 selectedCardIndex = -1;
             }
-        } else if (checkValidMove(warrior, X, Y)) {
+        } else if (checkValidPoint(warrior, X, Y)) {
             putWarriorInThePoint(warrior, X, Y, team);
             playAudio(card.getAudio());
             setNextCard(selectedCardIndex);
