@@ -103,6 +103,12 @@ public class Menu {
             Barbarians.upgradeToQuick();
             System.out.println("Barbarians upgraded to Quick");
         }
+        if (cheatCode.equalsIgnoreCase("xpAndLevel")) {
+            Main.getUsers().get(0).setXp(1000);
+        }
+        if (cheatCode.equalsIgnoreCase("xpAndLevelCheatCode")) {
+            Main.getUsers().get(0).setXp(3000);
+        }
     }
 
     public void theme(ActionEvent event) {

@@ -130,6 +130,10 @@ public class User {
         }
     }
 
+    public void setXp(int xp){
+       this.xp=xp;
+    }
+
     public void increaseTitle(int addedTitle) {
         title += addedTitle;
         league = getLeague(title);
