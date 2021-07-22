@@ -23,6 +23,10 @@ public abstract class RealWarriors extends Warrior{
         return hp;
     }
 
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     public double getHitSpeed() {
         return hitSpeed;
     }

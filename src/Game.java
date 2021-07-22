@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -103,6 +104,7 @@ public class Game {
     private HashMap<Warrior, Integer> teamsMap = new HashMap<>(); // team = 0 -> down team = 1 -> up
     private HashMap<Warrior, Boolean> endOfFaze1Warrior = new HashMap<>();
     private HashMap<Warrior, Double> buildingBuiltTime = new HashMap<>();
+    private HashMap<Warrior, Double> warriorsOnRage = new HashMap<>();
 
     private int score1 = 0;
     private int score2 = 0;
@@ -430,6 +432,17 @@ public class Game {
             }
         }
 
+        if(warrior instanceof InfernoTower){
+            if(nearWarriors.size() > 0){
+                if(((InfernoTower) warrior).getDamage() < ((InfernoTower) warrior).getMaxDamage()) {
+                    ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getDamage() + 4);
+                }
+            }else{
+                ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getBaseDamage());
+            }
+            //System.out.println( nearWarriors.size() + "         " + ((InfernoTower) warrior).getDamage());
+        }
+
         return nearWarriors;
     }
 
@@ -610,18 +623,6 @@ public class Game {
 
     }
 
-    public HashMap<Warrior, Boolean> getEndOfFaze1Warrior() {
-        return endOfFaze1Warrior;
-    }
-
-    public double getRound() {
-        return round;
-    }
-
-    public HashMap<Warrior, Double> getBuildingBuiltTime() {
-        return buildingBuiltTime;
-    }
-
     public void checkBuildingLifeTime() {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Building) {
@@ -636,6 +637,18 @@ public class Game {
                 }
             }
         }
+    }
+
+    public HashMap<Warrior, Boolean> getEndOfFaze1Warrior() {
+        return endOfFaze1Warrior;
+    }
+
+    public double getRound() {
+        return round;
+    }
+
+    public HashMap<Warrior, Double> getBuildingBuiltTime() {
+        return buildingBuiltTime;
     }
 
     private void setNextCard(int index) {

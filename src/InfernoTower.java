@@ -2,6 +2,8 @@ import javafx.scene.image.ImageView;
 
 public class InfernoTower extends Building {
     private  int maxDamage;
+    private int baseDamage;
+
     public InfernoTower(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -35,11 +37,21 @@ public class InfernoTower extends Building {
         target = 2;
         range = 6;
         lifetime = 40;
+        baseDamage = damage;
         zone = 0;
         imageBlue = "sprites/InfernoTowerBlue.png";
         imageRed = "sprites/InfernoTowerRed.png";
         imageWidth=50;
         imageHeight=75;
+    }
+
+
+    public int getMaxDamage() {
+        return maxDamage;
+    }
+
+    public int getBaseDamage() {
+        return baseDamage;
     }
 
     @Override
