@@ -97,7 +97,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ImageView fitHeight="184.0" fitWidth="148.0" layoutX="310.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="283.0" fitWidth="201.0" layoutX="241.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/StartupGuy.png" />
                </image>
