@@ -437,16 +437,7 @@ public class Game {
             }
         }
 
-        if(warrior instanceof InfernoTower){
-            if(nearWarriors.size() > 0){
-                if(((InfernoTower) warrior).getDamage() < ((InfernoTower) warrior).getMaxDamage()) {
-                    ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getDamage() + 4);
-                }
-            }else{
-                ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getBaseDamage());
-            }
-            //System.out.println( nearWarriors.size() + "         " + ((InfernoTower) warrior).getDamage());
-        }
+        infernoTowerManagement(warrior, nearWarriors.size());
 
 //        if(warrior instanceof MiniPekka){
 //            String image;
@@ -463,6 +454,20 @@ public class Game {
 
         return nearWarriors;
     }
+
+    public void infernoTowerManagement(Warrior warrior , int size){
+        if(warrior instanceof InfernoTower){
+            if(size > 0){
+                if(((InfernoTower) warrior).getDamage() < ((InfernoTower) warrior).getMaxDamage()) {
+                    ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getDamage() + 4);
+                }
+            }else{
+                ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getBaseDamage());
+            }
+            //System.out.println( nearWarriors.size() + "         " + ((InfernoTower) warrior).getDamage());
+        }
+    }
+
 
     public void rageManagement(){
         Iterator<Warrior> it = warriorsOnRage.keySet().iterator();
