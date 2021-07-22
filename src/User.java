@@ -152,7 +152,7 @@ public class User {
 
     private String getLeague(int title) {
         String league = "";
-        if (0 <= title && title <= 10) {
+        if (title <= 10) {
             league = "Goblins";
         }
         if (11 <= title && title <= 30) {
