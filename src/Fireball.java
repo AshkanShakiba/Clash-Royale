@@ -30,4 +30,11 @@ public class Fireball extends DamagingSpells {
     public String toString() {
         return "Fireball";
     }
+
+    @Override
+    public void buildImageView(String color){
+        super.buildImageView(color);
+        imageView.setX(mapX-15);
+        imageView.setY(mapY-20);
+    }
 }

@@ -199,9 +199,12 @@ public class Game {
             gameFaze2();
             gameFaze3();
             checkBuildingLifeTime();
+            /*
             if (round % 1 == 0) {
                 bot.move();
             }
+
+             */
             rageManagement();
             towerManagement();
             endCheck();
