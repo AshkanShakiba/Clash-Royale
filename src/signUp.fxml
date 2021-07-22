@@ -119,7 +119,7 @@
                         </LinearGradient>
                     </textFill>
                 </Label>
-                <ImageView fx:id="layer2Image" fitHeight="214.0" fitWidth="137.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="layer2Image" fitHeight="308.0" fitWidth="171.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@assets/startUpGuy2.png" />
                     </image>
