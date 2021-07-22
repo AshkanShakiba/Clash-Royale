@@ -455,36 +455,50 @@ public class Game {
                         } else {
                             image = "sprites/MiniPekkaBlue.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Archers) {
                         if (size > 0) {
                             image = "sprites/ArchersFightBlue.gif";
                         } else {
                             image = "sprites/ArchersBlue.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof BabyDragon) {
                         if (size > 0) {
                             image = "sprites/BabyDragonFightBlue.gif";
                         } else {
                             image = "sprites/BabyDragonBlue.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Barbarians) {
                         if (size > 0) {
                             image = "sprites/BarbariansFightBlue.gif";
                         } else {
                             image = "sprites/BarbariansBlue.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Valkyrie) {
                         if (size > 0) {
                             image = "sprites/ValkyrieFightBlue.gif";
                         } else {
                             image = "sprites/ValkyrieBlue.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Wizard) {
                         if (size > 0) {
                             image = "sprites/WizardFightBlue.gif";
                         } else {
                             image = "sprites/WizardBlue.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
+                    }
+                    else if (warrior instanceof Giant) {
+                        if (size > 0) {
+                            image = "sprites/GiantFightBlue.gif";
+                        } else {
+                            image = "sprites/GiantBlue.gif";
+                        }
+                        warrior.getImageView().setImage(new Image(image));
                     }
                 } else {
                     if (warrior instanceof MiniPekka) {
@@ -493,39 +507,51 @@ public class Game {
                         } else {
                             image = "sprites/MiniPekkaRed.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Archers) {
                         if (size > 0) {
                             image = "sprites/ArchersFightRed.gif";
                         } else {
                             image = "sprites/ArchersRed.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof BabyDragon) {
                         if (size > 0) {
                             image = "sprites/BabyDragonFightRed.gif";
                         } else {
                             image = "sprites/BabyDragonRed.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Barbarians) {
                         if (size > 0) {
                             image = "sprites/BarbariansFightRed.gif";
                         } else {
                             image = "sprites/BarbariansRed.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Valkyrie) {
                         if (size > 0) {
                             image = "sprites/ValkyrieFightRed.gif";
                         } else {
                             image = "sprites/ValkyrieRed.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
                     }else if (warrior instanceof Wizard) {
                         if (size > 0) {
                             image = "sprites/WizardFightRed.gif";
                         } else {
                             image = "sprites/WizardRed.gif";
                         }
+                        warrior.getImageView().setImage(new Image(image));
+                    }else if (warrior instanceof Giant) {
+                        if (size > 0) {
+                            image = "sprites/GiantFightRed.gif";
+                        } else {
+                            image = "sprites/GiantRed.gif";
+                        }
+                        warrior.getImageView().setImage(new Image(image));
                     }
                 }
-                warrior.getImageView().setImage(new Image(image));
             }
 
         }
