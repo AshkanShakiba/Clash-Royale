@@ -1,7 +1,14 @@
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -105,5 +112,19 @@ public class BattleHistory {
         botScore3.setText(game3 % 10 + "");
         botScore4.setText(game4 % 10 + "");
         botScore5.setText(game5 % 10 + "");
+    }
+
+    public void back(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            //stage.initStyle(StageStyle.DECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
