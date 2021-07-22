@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -438,21 +439,59 @@ public class Game {
         }
 
         infernoTowerManagement(warrior, nearWarriors.size());
-
-//        if(warrior instanceof MiniPekka){
-//            String image;
-//            if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
-//                if (nearWarriors.size() > 0) {
-//                    image = "sprites/MiniPekkaFightBlue.gif";
-//                } else {
-//                    image = "sprites/MiniPekkaBlue.gif";
-//                }
-//                warrior.getImageView().setImage(new Image(image));
-//            }
-//        }
-
+        fightAnimationManager(warrior, nearWarriors.size());
 
         return nearWarriors;
+    }
+
+    public void fightAnimationManager(Warrior warrior, int size){
+        if(warrior instanceof Troop) {
+            String image = "";
+            if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
+                if(teamsMap.get(teamsMap) == 0) {
+                    if (warrior instanceof MiniPekka) {
+                        if (size > 0) {
+                            image = "sprites/MiniPekkaFightBlue.gif";
+                        } else {
+                            image = "sprites/MiniPekkaBlue.gif";
+                        }
+                    }else if (warrior instanceof Archers) {
+                        if (size > 0) {
+                            image = "sprites/ArchersFightBlue.gif";
+                        } else {
+                            image = "sprites/ArchersBlue.gif";
+                        }
+                    }else if (warrior instanceof BabyDragon) {
+                        if (size > 0) {
+                            image = "sprites/BabyDragonFightBlue.gif";
+                        } else {
+                            image = "sprites/BabyDragonBlue.gif";
+                        }
+                    }else if (warrior instanceof Barbarians) {
+                        if (size > 0) {
+                            image = "sprites/BarbariansFightBlue.gif";
+                        } else {
+                            image = "sprites/BarbariansBlue.gif";
+                        }
+                    }else if (warrior instanceof Valkyrie) {
+                        if (size > 0) {
+                            image = "sprites/ValkyrieFightBlue.gif";
+                        } else {
+                            image = "sprites/ValkyrieBlue.gif";
+                        }
+                    }else if (warrior instanceof Wizard) {
+                        if (size > 0) {
+                            image = "sprites/WizardFightBlue.gif";
+                        } else {
+                            image = "sprites/WizardBlue.gif";
+                        }
+                    }
+                }
+                warrior.getImageView().setImage(new Image(image));
+            }
+
+        }
+
     }
 
     public void infernoTowerManagement(Warrior warrior , int size){
