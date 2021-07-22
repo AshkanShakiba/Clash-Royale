@@ -124,7 +124,6 @@ public class SignIn {
             Parent root = loader.load();
             SignUp signUp = loader.getController();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -144,7 +143,6 @@ public class SignIn {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

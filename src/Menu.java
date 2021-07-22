@@ -39,7 +39,6 @@ public class Menu {
                 Parent root = loader.load();
                 BotLevel botLevel = loader.getController();
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.initStyle(StageStyle.DECORATED);
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -60,7 +59,6 @@ public class Menu {
             Parent root = loader.load();
             BattleDeck battleDeck = loader.getController();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -82,7 +80,6 @@ public class Menu {
             battleHistory.setUser(Main.getUsers().get(0));
             battleHistory.show();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -135,7 +132,6 @@ public class Menu {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("themes.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

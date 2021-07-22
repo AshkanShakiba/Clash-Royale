@@ -1056,7 +1056,6 @@ public class Game {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("endGame.fxml"));
             Parent root = loader.load();
             EndGame endGame = loader.getController();
-            //stage.initStyle(StageStyle.DECORATED);
             // score2: Bot, score1: Player
             endGame.setScores(score2, score1);
             endGame.setUserXp(user);

@@ -64,7 +64,6 @@ public class SignUp {
             Parent root = loader.load();
             SignIn signIn = loader.getController();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.initStyle(StageStyle.DECORATED);
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
