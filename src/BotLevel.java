@@ -26,7 +26,10 @@ public class BotLevel {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
             Parent root = loader.load();
             Game game = loader.getController();
-            game.construct(Main.getUser(), stage, botLevel);
+            game.construct(Main.getUsers().get(0), stage, botLevel);
+            for(int i = 0 ; i < 8 ; i++) {
+                System.out.println(Main.getUsers().get(0).getCurrentCards()[i]);
+            }
 
             Timeline updateTimeLine = new Timeline(
                     new KeyFrame(Duration.millis(250),

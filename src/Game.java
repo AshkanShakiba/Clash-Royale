@@ -448,7 +448,7 @@ public class Game {
         if(warrior instanceof Troop) {
             String image = "";
             if ((round % (3.0 / ((Troop) warrior).getSpeed()) == 0)) {
-                if(teamsMap.get(teamsMap) == 0) {
+                if(teamsMap.get(warrior) == 0) {
                     if (warrior instanceof MiniPekka) {
                         if (size > 0) {
                             image = "sprites/MiniPekkaFightBlue.gif";
@@ -484,6 +484,44 @@ public class Game {
                             image = "sprites/WizardFightBlue.gif";
                         } else {
                             image = "sprites/WizardBlue.gif";
+                        }
+                    }
+                } else {
+                    if (warrior instanceof MiniPekka) {
+                        if (size > 0) {
+                            image = "sprites/MiniPekkaFightRed.gif";
+                        } else {
+                            image = "sprites/MiniPekkaRed.gif";
+                        }
+                    }else if (warrior instanceof Archers) {
+                        if (size > 0) {
+                            image = "sprites/ArchersFightRed.gif";
+                        } else {
+                            image = "sprites/ArchersRed.gif";
+                        }
+                    }else if (warrior instanceof BabyDragon) {
+                        if (size > 0) {
+                            image = "sprites/BabyDragonFightRed.gif";
+                        } else {
+                            image = "sprites/BabyDragonRed.gif";
+                        }
+                    }else if (warrior instanceof Barbarians) {
+                        if (size > 0) {
+                            image = "sprites/BarbariansFightRed.gif";
+                        } else {
+                            image = "sprites/BarbariansRed.gif";
+                        }
+                    }else if (warrior instanceof Valkyrie) {
+                        if (size > 0) {
+                            image = "sprites/ValkyrieFightRed.gif";
+                        } else {
+                            image = "sprites/ValkyrieRed.gif";
+                        }
+                    }else if (warrior instanceof Wizard) {
+                        if (size > 0) {
+                            image = "sprites/WizardFightRed.gif";
+                        } else {
+                            image = "sprites/WizardRed.gif";
                         }
                     }
                 }

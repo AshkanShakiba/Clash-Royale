@@ -16,12 +16,12 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.channels.UnresolvedAddressException;
 import java.util.ResourceBundle;
 
 public class Menu {
     @FXML
     private PasswordField cheatField;
-
     public void battle(ActionEvent event) {
         System.out.println(Main.getUser().getUsername());
         try {
