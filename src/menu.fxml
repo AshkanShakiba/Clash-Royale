@@ -23,5 +23,6 @@
          </font>
       </Label>
       <Button fx:id="history" layoutX="534.0" layoutY="479.0" mnemonicParsing="false" onAction="#history" prefHeight="110.0" prefWidth="35.0" />
+      <Button fx:id="scoreboard" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

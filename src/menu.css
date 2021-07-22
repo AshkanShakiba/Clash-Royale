@@ -27,3 +27,8 @@
     -fx-background-size: 100% 100%;
     -fx-background-image: url("assets/check.png");
 }
+
+#scoreboard{
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url("assets/scoreboard.png");
+}
