@@ -23,7 +23,7 @@ public class About {
     private Hyperlink erfanLink;
 
     /**
-     * Back to menu method.
+     * Back to menu.
      *
      * @param event the event
      */

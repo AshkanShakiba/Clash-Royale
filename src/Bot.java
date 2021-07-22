@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The type Bot.
+ */
 public class Bot {
     private Game game;
     private int level;
@@ -10,6 +13,12 @@ public class Bot {
     private Random random;
     private User user;
 
+    /**
+     * Instantiates a new Bot.
+     *
+     * @param game  the game
+     * @param level the level
+     */
     public Bot(Game game, int level) {
         elixir = 4;
         this.game = game;
@@ -34,11 +43,19 @@ public class Bot {
         }
     }
 
+    /**
+     * Increase elixir.
+     *
+     * @param added the added
+     */
     public void increaseElixir(double added) {
         if (elixir < 10)
             elixir += added;
     }
 
+    /**
+     * Move.
+     */
     public void move() {
         switch (level) {
             case 1:
@@ -117,6 +134,14 @@ public class Bot {
     }
 
 
+    /**
+     * Put warrior logic.
+     *
+     * @param card the card
+     * @param X    the x
+     * @param Y    the y
+     * @param team the team
+     */
     public void putWarriorLogic(Card card, int X, int Y, int team) {
 
         Warrior warrior = card.getWarrior(user, X, Y);
@@ -169,6 +194,14 @@ public class Bot {
         }
     }
 
+    /**
+     * Put warrior in the point.
+     *
+     * @param warrior the warrior
+     * @param X       the x
+     * @param Y       the y
+     * @param team    the team
+     */
     public void putWarriorInThePoint(Warrior warrior, int X, int Y, int team) {
         game.getWarriorsInTheMap().add(warrior);
         game.getTeamsMap().put(warrior, team);
@@ -189,5 +222,4 @@ public class Bot {
         System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
 
     }
-
 }

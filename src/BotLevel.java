@@ -13,7 +13,15 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
+/**
+ * The bot level scene controller.
+ */
 public class BotLevel {
+    /**
+     * Battle.
+     *
+     * @param event the event
+     */
     public void battle(ActionEvent event) {
         int botLevel = 1;
         String level = ((Button) (event.getSource())).getId();
@@ -27,7 +35,7 @@ public class BotLevel {
             Parent root = loader.load();
             Game game = loader.getController();
             game.construct(Main.getUsers().get(0), stage, botLevel);
-            for(int i = 0 ; i < 8 ; i++) {
+            for (int i = 0; i < 8; i++) {
                 System.out.println(Main.getUsers().get(0).getCurrentCards()[i]);
             }
 

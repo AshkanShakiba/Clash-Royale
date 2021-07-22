@@ -1,4 +1,3 @@
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +13,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 
+/**
+ * The battle history scene controller.
+ */
 public class BattleHistory {
 
     @FXML
@@ -72,16 +74,24 @@ public class BattleHistory {
 
     private User user;
 
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
-    public void show(){
+    /**
+     * Show stats.
+     */
+    public void show() {
 
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDB = connectNow.getConnection();
         HashMap<String, Integer> users = new HashMap<>();
-        int game1= 0 , game2 = 0 , game3 = 0, game4 = 0, game5 = 0;
+        int game1 = 0, game2 = 0, game3 = 0, game4 = 0, game5 = 0;
 
 
         String message = "SELECT Game1, Game2, Game3, Game4, Game5" +
@@ -122,13 +132,18 @@ public class BattleHistory {
         botScore4.setText(game4 % 10 + "");
         botScore5.setText(game5 % 10 + "");
 
-        xp.setText("XP: "+user.getXp());
-        level.setText("Level: "+user.getLevel());
-        cups.setText(user.getTitle()+"");
+        xp.setText("XP: " + user.getXp());
+        level.setText("Level: " + user.getLevel());
+        cups.setText(user.getTitle() + "");
         league.setText(user.getLeague());
     }
 
-    public void back(ActionEvent event){
+    /**
+     * Back to menu.
+     *
+     * @param event the event
+     */
+    public void back(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Parent root = loader.load();

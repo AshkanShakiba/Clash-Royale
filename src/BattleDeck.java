@@ -315,7 +315,7 @@ public class BattleDeck implements Initializable {
     }
 
     /**
-     * Back to menu method.
+     * Back to menu.
      *
      * @param event the event
      */
