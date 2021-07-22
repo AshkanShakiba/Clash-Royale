@@ -18,12 +18,12 @@ public class Fireball extends DamagingSpells {
             case 5:
                 areaDamage = 474;
         }
-        range = 2.5;
+        range = 3;
         imageBlue = "sprites/FireballBlue.gif";
         imageRed = "sprites/FireballRed.gif";
         imageWidth=100;
         imageHeight=100;
-        duration = 0.125;
+        duration = 0;
     }
 
     @Override

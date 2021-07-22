@@ -462,26 +462,32 @@ public class Game {
     }
 
     public void rageManagement(){
-        for(Warrior warrior : warriorsOnRage.keySet()){
-            if(round == warriorsOnRage.get(warrior)){
-                if(warrior instanceof RealWarrior){
-                    ((RealWarrior) warrior).setDamage((int)(((RealWarrior) warrior).getDamage()  * 1.4 ));
+        Iterator<Warrior> it = warriorsOnRage.keySet().iterator();
+        ArrayList<Warrior> toRemove = new ArrayList<>();
+        while (it.hasNext()) {
+            Warrior warrior = it.next();
+            if (round == warriorsOnRage.get(warrior)) {
+                if (warrior instanceof RealWarrior) {
+                    ((RealWarrior) warrior).setDamage((int) (((RealWarrior) warrior).getDamage() * 1.4));
                     ((RealWarrior) warrior).setHitSpeed(((RealWarrior) warrior).getHitSpeed() - 0.25);
 
-                    if(warrior instanceof Troop){
-                        ((Troop) warrior).setDamage((int)(((Troop) warrior).getDamage() * 1.4));
+                    if (warrior instanceof Troop) {
+                        ((Troop) warrior).setDamage((int) (((Troop) warrior).getDamage() * 1.4));
                     }
                 }
-            }else if(round - warriorsOnRage.get(warrior) > (new Rage(user, 8 , 8).getDuration() / 2)){
-                ((RealWarrior) warrior).setDamage((int)(((RealWarrior) warrior).getDamage()  * 0.7 ));
+            } else if (round - warriorsOnRage.get(warrior) > (new Rage(user, 8, 8).getDuration() / 2)) {
+                ((RealWarrior) warrior).setDamage((int) (((RealWarrior) warrior).getDamage() * 0.7));
                 ((RealWarrior) warrior).setHitSpeed(((RealWarrior) warrior).getHitSpeed() + 0.25);
 
-                if(warrior instanceof Troop){
-                    ((Troop) warrior).setDamage((int)(((Troop) warrior).getDamage() * 0.7));
+                if (warrior instanceof Troop) {
+                    ((Troop) warrior).setDamage((int) (((Troop) warrior).getDamage() * 0.7));
                 }
-                warriorsOnRage.remove(warrior);
+                toRemove.add(warrior);
             }
+        }
 
+        for(Warrior warrior : toRemove){
+            warriorsOnRage.remove(warrior);
         }
     }
 
@@ -671,12 +677,12 @@ public class Game {
         for (Warrior warrior : warriorsInTheMap) {
             if (warrior instanceof Building) {
                 if (buildingBuiltTime.get(warrior) != null &&
-                        (round - buildingBuiltTime.get(warrior)) > (((Building) warrior).getLifetime() / 2)) {
+                        (round - buildingBuiltTime.get(warrior)) >= (((Building) warrior).getLifetime() / 2)) {
                     warrior.setAlive(false);
                 }
             } else if (warrior instanceof Spell) {
                 if (buildingBuiltTime.get(warrior) != null &&
-                        (round - buildingBuiltTime.get(warrior)) > (((Spell) warrior).getDuration() / 2)) {
+                        (round - buildingBuiltTime.get(warrior)) >= (((Spell) warrior).getDuration() / 2)) {
                     warrior.setAlive(false);
                 }
             }

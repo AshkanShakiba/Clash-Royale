@@ -30,7 +30,7 @@ public class Arrows extends DamagingSpells{
         imageRed = "sprites/ArrowsRed.gif";
         imageWidth=50;
         imageHeight=50;
-        duration = 0.125;
+        duration = 0;
 
         imageRedLeft="sprites/ArrowsRedLeft.png";
         imageRedRight="sprites/ArrowsRedRight.png";
