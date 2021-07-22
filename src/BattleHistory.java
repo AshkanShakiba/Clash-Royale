@@ -61,6 +61,15 @@ public class BattleHistory {
     @FXML
     private Label botScore5;
 
+    @FXML
+    private Label xp;
+    @FXML
+    private Label level;
+    @FXML
+    private Label cups;
+    @FXML
+    private Label league;
+
     private User user;
 
     public void setUser(User user) {
@@ -112,6 +121,11 @@ public class BattleHistory {
         botScore3.setText(game3 % 10 + "");
         botScore4.setText(game4 % 10 + "");
         botScore5.setText(game5 % 10 + "");
+
+        xp.setText("XP: "+user.getXp());
+        level.setText("Level: "+user.getLevel());
+        cups.setText(user.getTitle()+"");
+        league.setText(user.getLeague());
     }
 
     public void back(ActionEvent event){

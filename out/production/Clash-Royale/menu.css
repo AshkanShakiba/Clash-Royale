@@ -27,12 +27,3 @@
     -fx-background-size: 100% 100%;
     -fx-background-image: url("assets/check.png");
 }
-
-#scoresPane{
-    -fx-font-family: Supercell-Magic;
-    -fx-background-color: white;
-}
-
-#label{
-    -fx-font-family: Supercell-Magic;
-}

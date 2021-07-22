@@ -7,6 +7,7 @@ public class User {
     private int xp;
     private int level;
     private int title;
+    private String league;
     private ArrayList<Card> cards;
     private Card[] currentCards;
     private SecureRandom random;
@@ -35,12 +36,14 @@ public class User {
         xp = 0;
         level = 1;
         title = 0;
+        league = getLeague(title);
     }
 
     public User(int level) {
         xp = 0;
         title = 1;
         this.level = level;
+        league = getLeague(title);
     }
 
     public User(String username, int xp) {
@@ -57,7 +60,7 @@ public class User {
         } else if (xp < 2500) {
             level = 5;
         }
-
+        league = getLeague(title);
     }
 
     public User(String username, int xp, String[] currentCards, int title) {
@@ -72,7 +75,7 @@ public class User {
             i++;
         }
         this.title = title;
-
+        league = getLeague(title);
     }
 
     public Card[] getCurrentCards() {
@@ -129,5 +132,34 @@ public class User {
 
     public void increaseTitle(int addedTitle) {
         title += addedTitle;
+        league = getLeague(title);
+    }
+
+    private String getLeague(int title) {
+        String league = "";
+        if (0 <= title && title <= 10) {
+            league = "Goblins";
+        }
+        if (11 <= title && title <= 30) {
+            league = "Archers";
+        }
+        if (31 <= title && title <= 100) {
+            league = "Barbars";
+        }
+        if (101 <= title && title <= 300) {
+            league = "Wizards";
+        }
+        if (301 <= title && title <= 1000) {
+            league = "Princes";
+        }
+        if (1001 <= title) {
+            league = "Legends";
+        }
+        league += " League";
+        return league;
+    }
+
+    public String getLeague() {
+        return league;
     }
 }
