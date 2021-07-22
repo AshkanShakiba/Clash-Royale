@@ -1,6 +1,7 @@
 import javafx.scene.image.ImageView;
 
 public class InfernoTower extends Building {
+    private  int maxDamage;
     public InfernoTower(User user, int x, int y) {
         this.arrayX = x;
         this.arrayY = y;
@@ -8,21 +9,26 @@ public class InfernoTower extends Building {
             case 1:
                 hp = 800;
                 damage = 20;
+                maxDamage = 400;
                 break;
             case 2:
                 hp = 880;
                 damage = 22;
+                maxDamage = 440;
                 break;
             case 3:
                 hp = 968;
                 damage = 24;
+                maxDamage = 484;
                 break;
             case 4:
                 hp = 1064;
                 damage = 26;
+                maxDamage = 532;
                 break;
             case 5:
                 hp = 1168;
+                maxDamage = 584;
                 damage = 29;
         }
         hitSpeed = 0.5;
