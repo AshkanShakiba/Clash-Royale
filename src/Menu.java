@@ -29,13 +29,13 @@ public class Menu {
     public void battle(ActionEvent event) {
         System.out.println(Main.getUsers().get(0).getUsername());
         boolean goNext = true;
-        for(int i = 0; i < 8 ; i++) {
+        for (int i = 0; i < 8; i++) {
             if (Main.getUsers().get(0).getCurrentCards()[i] == null) {
                 goNext = false;
                 battleDeckLabel.setText("Please select 8 cards in battle deck first");
             }
         }
-        if(goNext) {
+        if (goNext) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("botLevel.fxml"));
                 Parent root = loader.load();
@@ -66,11 +66,11 @@ public class Menu {
         }
     }
 
-    public void history(ActionEvent event){
+    public void history(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("BattleHistory.fxml"));
             Parent root = loader.load();
-            BattleHistory battleHistory=loader.getController();
+            BattleHistory battleHistory = loader.getController();
             battleHistory.setUser(Main.getUsers().get(0));
             battleHistory.show();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -85,12 +85,23 @@ public class Menu {
 
     public void check(ActionEvent event) {
         String cheatCode = cheatField.getText();
+        if (cheatCode.equalsIgnoreCase("exit")) {
+            Main.exit((Stage) ((Node) event.getSource()).getScene().getWindow());
+        }
         if (cheatCode.equalsIgnoreCase("theme")) {
             theme(event);
         }
         if (cheatCode.equalsIgnoreCase("royalGiant")) {
             Giant.upgrade();
             System.out.println("Giant upgraded");
+        }
+        if (cheatCode.equalsIgnoreCase("vikiBarbarians")) {
+            Barbarians.upgradeToViki();
+            System.out.println("Barbarians upgraded to Viki");
+        }
+        if (cheatCode.equalsIgnoreCase("quickBarbarians")) {
+            Barbarians.upgradeToQuick();
+            System.out.println("Barbarians upgraded to Quick");
         }
     }
 
@@ -108,7 +119,7 @@ public class Menu {
         }
     }
 
-    public void scoreboard(ActionEvent event){
+    public void scoreboard(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LeaderBoard.fxml"));
             Parent root = loader.load();
