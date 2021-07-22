@@ -475,10 +475,26 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Barbarians) {
-                        if (size > 0) {
-                            image = "sprites/BarbariansFightBlue.gif";
-                        } else {
-                            image = "sprites/BarbariansBlue.gif";
+                        if(Barbarians.isViki()){
+                            if (size > 0) {
+                                image = "sprites/VikiBarbariansFightBlue.gif";
+                            } else {
+                                image = "sprites/VikiBarbariansBlue.gif";
+                            }
+                        }
+                        else if(Barbarians.isQuick()){
+                            if (size > 0) {
+                                image = "sprites/QuickBarbariansFightBlue.gif";
+                            } else {
+                                image = "sprites/QuickBarbariansBlue.gif";
+                            }
+                        }
+                        else {
+                            if (size > 0) {
+                                image = "sprites/BarbariansFightBlue.gif";
+                            } else {
+                                image = "sprites/BarbariansBlue.gif";
+                            }
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Valkyrie) {
@@ -496,10 +512,19 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Giant) {
-                        if (size > 0) {
-                            image = "sprites/GiantFightBlue.gif";
-                        } else {
-                            image = "sprites/GiantBlue.gif";
+                        if(Giant.isRoyal()){
+                            if (size > 0) {
+                                image = "sprites/RoyalGiantFightBlue.gif";
+                            } else {
+                                image = "sprites/RoyalGiantBlue.gif";
+                            }
+                        }
+                        else{
+                            if (size > 0) {
+                                image = "sprites/GiantFightBlue.gif";
+                            } else {
+                                image = "sprites/GiantBlue.gif";
+                            }
                         }
                         warrior.getImageView().setImage(new Image(image));
                     }
@@ -526,10 +551,26 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Barbarians) {
-                        if (size > 0) {
-                            image = "sprites/BarbariansFightRed.gif";
-                        } else {
-                            image = "sprites/BarbariansRed.gif";
+                        if(Barbarians.isViki()){
+                            if (size > 0) {
+                                image = "sprites/VikiBarbariansFightRed.gif";
+                            } else {
+                                image = "sprites/VikiBarbariansRed.gif";
+                            }
+                        }
+                        else if(Barbarians.isQuick()){
+                            if (size > 0) {
+                                image = "sprites/QuickBarbariansFightRed.gif";
+                            } else {
+                                image = "sprites/QuickBarbariansRed.gif";
+                            }
+                        }
+                        else {
+                            if (size > 0) {
+                                image = "sprites/BarbariansFightRed.gif";
+                            } else {
+                                image = "sprites/BarbariansRed.gif";
+                            }
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Valkyrie) {
@@ -547,10 +588,19 @@ public class Game {
                         }
                         warrior.getImageView().setImage(new Image(image));
                     } else if (warrior instanceof Giant) {
-                        if (size > 0) {
-                            image = "sprites/GiantFightRed.gif";
-                        } else {
-                            image = "sprites/GiantRed.gif";
+                        if(Giant.isRoyal()){
+                            if (size > 0) {
+                                image = "sprites/RoyalGiantFightRed.gif";
+                            } else {
+                                image = "sprites/RoyalGiantRed.gif";
+                            }
+                        }
+                        else{
+                            if (size > 0) {
+                                image = "sprites/GiantFightRed.gif";
+                            } else {
+                                image = "sprites/GiantRed.gif";
+                            }
                         }
                         warrior.getImageView().setImage(new Image(image));
                     }
