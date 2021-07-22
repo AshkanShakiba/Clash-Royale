@@ -1,13 +1,24 @@
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class About {
+
+    @FXML
+    private Hyperlink ashkanLink;
+    @FXML
+    private Hyperlink erfanLink;
+
     public void back(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("entrance.fxml"));
@@ -20,4 +31,34 @@ public class About {
             exception.printStackTrace();
         }
     }
+
+    @FXML
+    void ashkanLinkMethod(ActionEvent event) {
+        ashkanLink.setOnAction(e -> {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://github.com/AshkanShakiba"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+    }
+    @FXML
+    void erfanLinkMethod(ActionEvent event) {
+        erfanLink.setOnAction(e -> {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://github.com/amirerfantim"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+    }
+
 }
