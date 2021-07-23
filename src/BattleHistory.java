@@ -85,6 +85,7 @@ public class BattleHistory {
 
     /**
      * Show stats.
+     * user's battle history
      */
     public void show() {
 

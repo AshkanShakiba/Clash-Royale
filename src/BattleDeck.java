@@ -152,6 +152,7 @@ public class BattleDeck implements Initializable {
 
     /**
      * Save button on action.
+     * save battle deck on dataBase
      */
     public void saveButtonOnAction() {
         String message = "";
