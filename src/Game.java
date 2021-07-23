@@ -9,7 +9,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -26,13 +25,7 @@ import java.util.Iterator;
  */
 public class Game {
     @FXML
-    private AnchorPane leftPane;
-    @FXML
     private AnchorPane middlePane;
-    @FXML
-    private AnchorPane rightPane;
-    @FXML
-    private GridPane cardsPane;
     @FXML
     private Button card0;
     @FXML
@@ -43,8 +36,6 @@ public class Game {
     private Button card3;
     @FXML
     private Button next;
-    @FXML
-    private Label nextLabel;
     @FXML
     private ProgressBar elixirBar;
 

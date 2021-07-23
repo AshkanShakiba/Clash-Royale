@@ -4,11 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,33 +19,12 @@ import java.sql.Statement;
  * The sign in scene controller.
  */
 public class SignIn {
-
-    @FXML
-    private ImageView signUpGradiant;
     @FXML
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordTextField;
     @FXML
-    private Button layer1signInButton;
-    @FXML
-    private Button layer1signUpButton;
-    @FXML
     private Label signInMessage;
-    @FXML
-    private Label layer1label1;
-    @FXML
-    private Label layer1label2;
-    @FXML
-    private Label layer1label3;
-    @FXML
-    private Label layer1label4;
-    @FXML
-    private ImageView layer1Image;
-    @FXML
-    private Label layer1usernameLable;
-    @FXML
-    private Label layer1passwordLable;
 
 
     /**

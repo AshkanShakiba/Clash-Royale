@@ -19,7 +19,6 @@ import java.util.*;
  * The leader board scene controller.
  */
 public class LeaderBoard implements Initializable {
-
     @FXML
     private Label username1;
 

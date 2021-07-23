@@ -17,7 +17,6 @@ import java.util.HashMap;
  * The battle history scene controller.
  */
 public class BattleHistory {
-
     @FXML
     private Label userScore1;
 

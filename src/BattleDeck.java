@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
  * The battle deck scene controller.
  */
 public class BattleDeck implements Initializable {
-
     @FXML
     private Button deckCard8;
 
@@ -80,8 +79,7 @@ public class BattleDeck implements Initializable {
 
     @FXML
     private Button storeCard12;
-    @FXML
-    private Button saveButton;
+
     @FXML
     private Label statementLabel;
 
