@@ -25,7 +25,6 @@ public class Menu {
      * @param event the event
      */
     public void battle(ActionEvent event) {
-        System.out.println(Main.getUsers().get(0).getUsername());
         boolean goNext = true;
         for (int i = 0; i < 8; i++) {
             if (Main.getUsers().get(0).getCurrentCards()[i] == null) {

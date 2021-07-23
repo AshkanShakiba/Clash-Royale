@@ -400,7 +400,6 @@ public class Game {
             if (((int) (round * 1000) % (int) ((((RealWarrior) warrior).getHitSpeed()) * 1000)) == 0) {
                 for (Warrior nearWarrior : nearWarriors) {
                     if (nearWarrior instanceof RealWarrior) {
-                        System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
                         ((RealWarrior) nearWarrior).damage(((RealWarrior) warrior).getDamage());
 
                         if (((RealWarrior) warrior).getRange() == 0
@@ -414,7 +413,6 @@ public class Game {
         } else if (warrior instanceof DamagingSpells) {
             for (Warrior nearWarrior : nearWarriors) {
                 if (nearWarrior instanceof RealWarrior) {
-                    System.out.println(warrior.toString() + " -- " + nearWarrior.toString());
                     ((RealWarrior) nearWarrior).damage(((DamagingSpells) warrior).getAreaDamage());
                 }
             }
@@ -674,7 +672,6 @@ public class Game {
             } else {
                 ((InfernoTower) warrior).setDamage(((InfernoTower) warrior).getBaseDamage());
             }
-            //System.out.println( nearWarriors.size() + "         " + ((InfernoTower) warrior).getDamage());
         }
     }
 
@@ -806,7 +803,6 @@ public class Game {
      * @param warrior the warrior
      */
     public void moveAWarrior(Warrior warrior) {
-        System.out.println(warrior.toString() + " " + warrior.getArrayX() + " " + warrior.getArrayY());
         warrior.getImageView().setX(warrior.getArrayX() * 17.44 + 17.44);
         warrior.getImageView().setY(warrior.getArrayY() * 14.29 + 220);
     }
@@ -952,7 +948,6 @@ public class Game {
             warrior.buildImageView("blue");
         }
         middlePane.getChildren().add(warrior.imageView);
-        System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
 
     }
 

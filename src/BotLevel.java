@@ -35,9 +35,6 @@ public class BotLevel {
             Parent root = loader.load();
             Game game = loader.getController();
             game.construct(Main.getUsers().get(0), stage, botLevel);
-            for (int i = 0; i < 8; i++) {
-                System.out.println(Main.getUsers().get(0).getCurrentCards()[i]);
-            }
 
             Timeline updateTimeLine = new Timeline(
                     new KeyFrame(Duration.millis(250),

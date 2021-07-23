@@ -30,7 +30,6 @@ public class Bot {
             while (cards.contains(card))
                 card = Main.getUsers().get(0).getCards().get(random.nextInt(12));
             cards.add(card);
-            System.out.println("**** " + card.name() + " ****");
         }
         if (level == 1) {
             user = new User(1);
@@ -219,7 +218,6 @@ public class Bot {
             warrior.buildImageView("red");
         }
         game.getMiddlePane().getChildren().add(warrior.imageView);
-        System.out.println(warrior.toString() + " at (" + X + "," + (Y) + ")");
 
     }
 }

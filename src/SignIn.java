@@ -61,7 +61,6 @@ public class SignIn {
             signInMessage.setText("You tried to login!");
             if (validateSignIn()) {
                 Main.getUsers().add(currentUser());
-                Main.printUsers();
                 goToMenu(event, currentUser());
             }
         } else {

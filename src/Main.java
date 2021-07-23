@@ -29,15 +29,6 @@ public class Main extends Application {
     }
 
     /**
-     * Print users.
-     */
-    public static void printUsers() {
-        for (User user : users) {
-            System.out.println(user);
-        }
-    }
-
-    /**
      * The entry point of application.
      *
      * @param args the input arguments
