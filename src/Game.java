@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -101,6 +102,7 @@ public class Game {
     private HashMap<Warrior, Boolean> endOfFaze1Warrior = new HashMap<>();
     private HashMap<Warrior, Double> buildingBuiltTime = new HashMap<>();
     private HashMap<Warrior, Double> warriorsOnRage = new HashMap<>();
+    private boolean isGameFinished = false;
 
     private int score1 = 0;
     private int score2 = 0;
@@ -416,7 +418,7 @@ public class Game {
      * @return the boolean
      */
     public boolean endCheck() {
-        if (round >= 90 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive()) {
+        if (round >= 90 || !kingTowerDown.isAlive() || !kingTowerUp.isAlive() || isGameFinished) {
             return true;
         }
         return false;
@@ -1090,5 +1092,20 @@ public class Game {
         bottomArena.setImage(theme.getImage());
         String url = "themes/" + theme.name() + "r.PNG";
         anchorPane.setStyle(anchorPane.getStyle() + "-fx-background-image: url('" + url + "');");
+    }
+
+    public void back(ActionEvent event) {
+        isGameFinished = true;
+        runEndGameOnce = true;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
