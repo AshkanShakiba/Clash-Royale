@@ -167,12 +167,12 @@
         <AnchorPane fx:id="leftPane" prefHeight="600.0" prefWidth="200.0">
             <children>
                 <Button fx:id="next" layoutX="135.0" layoutY="523.0" mnemonicParsing="false" onAction="#select" prefHeight="62.0" prefWidth="50.0" />
-                <Label fx:id="nextLabel" layoutX="140.0" layoutY="487.0" text="Next">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
             <Button fx:id="back" layoutX="14.0" layoutY="561.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="75.0" />
+            <ImageView fitHeight="20.0" fitWidth="50.0" layoutX="135.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/next.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>
